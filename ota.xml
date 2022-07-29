@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
   <version>1.0.0.0</version>
-  <url>https://rbsoft.org/downloads/AutoUpdaterTest.zip</url>
+  <url>https://master.dl.sourceforge.net/project/youtubedownloadapp/YouTubeDownload_v1.0.0.0_Setup.exe?viasf=1</url>
   <changelog>https://raw.githubusercontent.com/Franco28/YouTubeDownloadAPP/main/releases.txt</changelog>
   <mandatory>true</mandatory>
 </item>

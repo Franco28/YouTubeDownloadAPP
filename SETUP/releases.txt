@@ -1,0 +1,41 @@
+------------------------
+- YouTube Download APP -
+------------------------
+
+An Open Source .NET APP, under MIT License.
+
+¿What you can do? (FEATURES)
+* Download video from YouTube
+* Donwload video and convert it to .mp3 or .wav audio
+* Add audio MetaData (Artist, Comment, Title)
+
+¿What is not working? (BUGS)
+* Video download resolutin (download with the lowest resolution)
+
+Requirements
+* Windows 7 +
+* .NET Framework v4.8
+
+Using - Credits
+* MediaToolkit LIB (https://github.com/AydinAdn/MediaToolkit/tree/MajorRefactoring)
+* ffmpeg LIB (https://ffmpeg.org/)
+* AutoUpdater.NET (https://github.com/ravibpatel/AutoUpdater.NET)
+* VideoLibrary (https://github.com/omansak/libvideo)
+* Nil.JS (https://github.com/nilproject/NiL.JS/)
+* TagLib (https://github.com/mono/taglib-sharp)
+
+############
+# v1.0.0.1 # - 01-08-2022
+############
+
+- [FIXED] Add cover album art
+- [FIXED] Metadata tags (comment, title, artist)
+- [IMPROVED] UI
+
+############
+# v1.0.0.0 # - xx-07-2022
+############
+
+- Initial release
+
+

@@ -1,6 +1,5 @@
 ﻿using AutoUpdaterDotNET;
 using MediaToolkit;
-using MediaToolkit.Core.Utilities;
 using MediaToolkit.Model;
 using MediaToolkit.Options;
 using System;
@@ -9,7 +8,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Web;
 using System.Windows.Forms;
@@ -90,7 +88,7 @@ namespace YouTubeDownload
             albumCoverPictFrame.MimeType = System.Net.Mime.MediaTypeNames.Image.Jpeg;
             albumCoverPictFrame.Type = TagLib.PictureType.FrontCover;
             TagLib.IPicture[] pictFrames = new TagLib.IPicture[1];
-            pictFrames[0] = (TagLib.IPicture)albumCoverPictFrame;
+            pictFrames[0] = albumCoverPictFrame;
             file.Tag.Pictures = pictFrames;
             file.Save(); 
         }
@@ -218,7 +216,7 @@ namespace YouTubeDownload
                         title = textBoxTituloCancion.Text;
                     }
 
-                    labelEstado.Text = "Estado: Agregando portada al audio y metadatos...";
+                    labelEstado.Text = "Estado: Agregando metadatos al audio...";
                     UpdateProgress(85);
                     // set metadata audio
                     var tfile = TagLib.File.Create(outputFile_Path);
@@ -226,22 +224,32 @@ namespace YouTubeDownload
                     tfile.Tag.Comment = "Música descargada con YouTubeDownload por Franco Mato / " + textBoxComentario.Text;
                     tfile.Tag.Publisher = "Música descargada con YouTubeDownload por Franco Mato / " + textBoxComentario.Text;
                     tfile.Tag.Album = vid.FullName;
+                    tfile.Save();
+
+                    labelEstado.Text = "Estado: Agregando metadatos al audio...";
+                    UpdateProgress(90);
                     SetAlbumArt(downloadPath + $"/cover.jpeg", tfile);
+                    Thread.Sleep(500);
 
                     // elimino video
                     if (radioButtonGuardarVideoNo.Checked == true)
                     {
+                        UpdateProgress(93);
                         labelEstado.Text = "Estado: Eliminando video...";
                         File.Delete(videopath);
+                        Thread.Sleep(500);
                     }
-           
+
+                    labelEstado.Text = "Estado: Eliminando archivos basura...";
+                    UpdateProgress(95);
                     Thread.Sleep(500);
-                    UpdateProgress(90);
 
                     // elimino cover
                     File.Delete(Path.Combine(downloadPath, $"/cover.jpeg"));
 
+                    labelEstado.Text = "Estado: Terminando...";
                     UpdateProgress(98);
+                    Thread.Sleep(500);
 
                     groupBoxAudioFormat.Hide();
                     groupBoxGuardarVideo.Hide();

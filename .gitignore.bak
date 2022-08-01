@@ -355,4 +355,4 @@ SETUP/*.exe
 SETUP/*.exe.config
 SETUP/*.json
 SETUP/*.xml
-SETUP/runtimes/*
+SETUP/runtimes

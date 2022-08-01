@@ -3,14 +3,14 @@
 #define MyAppName "YouTubeDownload"
 #define MyAppName2 "YouTubeDownload_v"
 #define MyInstallerSuffix "_Setup"
-#define MyAppVersion "1.0.0.0"
+#define MyAppVersion "1.0.0.1"
 #define MyAppPublisher "A .NET Tool to download videos and convert it to .mp3 or .wav from YouTube"
 #define MyAppURL "https://github.com/Franco28/YouTubeDownloadAPP"
 #define MyAppExeName "YouTubeDownload.exe"
-#define MyAppDate "2022-07-29"
+#define MyAppDate "2022-08-01"
 
 [Setup]
-AppId={{7F2206C5-C746-41C6-BDC0-2B8E1EB9C8E3}
+AppId={{4623B2F2-9FDD-4D61-A759-F6A12FD1141D}}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppComments={#MyAppPublisher}
@@ -64,17 +64,28 @@ Source: "MediaToolkit.dll.config"; DestDir: "{app}"; Flags: ignoreversion recurs
 Source: "AutoUpdater.NET.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "libvideo.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "NiL.JS.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "TagLibSharp.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "NAudio.WinMM.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "NAudio.WinForms.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "NAudio.Wasapi.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "NAudio.Midi.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "NAudio.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "NAudio.Core.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "NAudio.Asio.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "MediaToolkit.Core.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "MediaToolkit.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "Microsoft.Bcl.AsyncInterfaces.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "Microsoft.Extensions.Logging.Abstractions.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "Microsoft.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
+Source: "Microsoft.Win32.Registry.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "System.Buffers.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "System.Diagnostics.DiagnosticSource.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "System.Memory.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "System.Numerics.Vectors.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs   
 Source: "System.Runtime.CompilerServices.Unsafe.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs  
+Source: "System.Security.Principal.Windows.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "System.Security.AccessControl.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "release.txt"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "runtimes"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs

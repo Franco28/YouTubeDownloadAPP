@@ -351,7 +351,3 @@ MigrationBackup/
 
 # SETUP FOLDER
 SETUP/*.dll
-SETUP/*.exe
-SETUP/*.exe.config
-SETUP/*.json
-SETUP/*.xml

@@ -20,13 +20,13 @@ A .NET APP to download videos and convert it to .mp3 or .wav from YouTube
 ## Screenshots
 
 ### Main Tool
-![Main Tool](https://github.com/Franco28/YouTubeDownloadAPP/master/Screen/1.png "Main Tool")
+![Main Tool](https://raw.githubusercontent.com/Franco28/YouTubeDownloadAPP/main/Screen/1.png "Main Tool")
 
 ### YouTube Data
-![YouTube Data](https://github.com/Franco28/YouTubeDownloadAPP/master/Screen/2.png "YouTube Data")
+![YouTube Data](https://raw.githubusercontent.com/Franco28/YouTubeDownloadAPP/main/Screen/2.png "YouTube Data")
 
 ### Audio Downloaded
-![Audio Downloaded](https://github.com/Franco28/YouTubeDownloadAPP/master/Screen/3.png "Audio Downloaded")
+![Audio Downloaded](https://raw.githubusercontent.com/Franco28/YouTubeDownloadAPP/main/Screen/3.png "Audio Downloaded")
 
 #
 

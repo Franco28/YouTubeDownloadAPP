@@ -358,4 +358,6 @@ SETUP/*.xml
 SETUP/*.iss
 SETUP/*.txt
 SETUP/*.pdb
+SETUP/*.dll.config
+SETUP/Installer.iss
 SETUP/runtimes/*

@@ -357,5 +357,4 @@ SETUP/*.json
 SETUP/*.xml
 SETUP/*.iss
 SETUP/*.txt
-SETUP/*.pdb
 SETUP/runtimes/*

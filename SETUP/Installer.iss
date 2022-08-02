@@ -3,7 +3,7 @@
 #define MyAppName "YouTubeDownload"
 #define MyAppName2 "YouTubeDownload_v"
 #define MyInstallerSuffix "_Setup"
-#define MyAppVersion "1.0.0.1"
+#define MyAppVersion "1.0.0.2"
 #define MyAppPublisher "A .NET Tool to download videos and convert it to .mp3 or .wav from YouTube"
 #define MyAppURL "https://github.com/Franco28/YouTubeDownloadAPP"
 #define MyAppExeName "YouTubeDownload.exe"
@@ -37,12 +37,12 @@ SetupIconFile=icons\icon.ico
 TouchDate={#MyAppDate}
 UserInfoPage=no
 WizardStyle=modern
-InfoBeforeFile=releases_es.txt
+InfoBeforeFile=data\releases_es.txt
 OutputDir=C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP
 UninstallDisplayName={#MyAppName}
 VersionInfoVersion={#MyAppVersion}
 TimeStampsInUTC=yes 
-LicenseFile=LICENSE.txt
+LicenseFile=data\LICENSE.txt
 
 [Languages]
 Name: es; MessagesFile: "compiler:Languages\Spanish.isl"
@@ -86,12 +86,12 @@ Source: "System.Numerics.Vectors.dll"; DestDir: "{app}"; Flags: ignoreversion re
 Source: "System.Runtime.CompilerServices.Unsafe.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs  
 Source: "System.Security.Principal.Windows.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "System.Security.AccessControl.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "release.txt"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "runtimes"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "runtimes/*"; DestDir: "{app}/runtimes/"; Flags: ignoreversion recursesubdirs createallsubdirs    
 Source: "icons"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "icons/*"; DestDir: "{app}/icons/"; Flags: ignoreversion recursesubdirs createallsubdirs    
+Source: "data"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "data/*"; DestDir: "{app}/data/"; Flags: ignoreversion recursesubdirs createallsubdirs    
 
 [Icons]
 Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}";
@@ -104,7 +104,8 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 [InstallDelete]
 Type: filesandordirs; Name: "{app}\runtimes";
 Type: filesandordirs; Name: "{app}\icons";
-Type: files; Name: "{app}\LICENSE";
+Type: filesandordirs; Name: "{app}\data";
+Type: files; Name: "{app}\LICENSE.txt";
 Type: files; Name: "{app}\*.dll"; 
 Type: files; Name: "{app}\*.txt";
 Type: files; Name: "{app}\*.config"; 
@@ -112,6 +113,7 @@ Type: files; Name: "{app}\*.config";
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\runtimes";
 Type: filesandordirs; Name: "{app}\icons";
+Type: filesandordirs; Name: "{app}\data";
 Type: files; Name: "{app}\*.dll";
 Type: files; Name: "{app}\*.txt";
 Type: files; Name: "{app}\*.config"; 
@@ -126,6 +128,7 @@ begin
          if MsgBox(ExpandConstant('{cm:RemoveToolSettings}'), mbConfirmation, MB_YESNO) = IDYES then      
             DelTree(ExpandConstant('{app}\runtimes'), True, True, True);
             DelTree(ExpandConstant('{app}\icons'), True, True, True);
+             DelTree(ExpandConstant('{app}\data'), True, True, True);
             DelTree(ExpandConstant('{app}'), True, True, True);
             DelTree(ExpandConstant('C:\YouTubeDownload'), True, True, True);
             DelTree(ExpandConstant('{userdocs}\YouTubeDownload'), True, True, True);

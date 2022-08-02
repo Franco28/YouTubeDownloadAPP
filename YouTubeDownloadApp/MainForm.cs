@@ -497,7 +497,7 @@ namespace YouTubeDownload
             labelRuta.Text = "Ruta de descarga: " + downloadPath;
 
             // Verifico OTA
-            AutoUpdater.Start("https://raw.githubusercontent.com/Franco28/YouTubeDownloadAPP/main/SETUP/ota.xml");
+            AutoUpdater.Start("https://raw.githubusercontent.com/Franco28/YouTubeDownloadAPP/main/SETUP/data/ota.xml");
         }
 
         private void buttonGoToFolder_Click(object sender, EventArgs e)

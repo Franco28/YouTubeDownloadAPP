@@ -25,6 +25,12 @@ Using - Credits
 * TagLib (https://github.com/mono/taglib-sharp)
 
 ############
+# v1.0.0.2 # - 01-08-2022
+############
+
+- [FIXED] Update URL path
+
+############
 # v1.0.0.1 # - 01-08-2022
 ############
 

@@ -86,11 +86,6 @@ namespace YouTubeDownload
         private void SetAlbumArt(TagLib.File file)
         {
             byte[] imageBytes;
-            //using (WebClient client = new WebClient())
-            //{
-            //    imageBytes = client.DownloadData("https://img.youtube.com/vi/" + getID(textBoxURL.Text) + "/hqdefault.jpg");
-            //}
-            
             imageBytes = File.ReadAllBytes(downloadPath + @"\cover.jpeg");
 
             TagLib.Id3v2.AttachmentFrame cover = new TagLib.Id3v2.AttachmentFrame
@@ -398,7 +393,7 @@ namespace YouTubeDownload
 
                         dialogResult =
                             MessageBox.Show(
-                                $@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.", @"Update Available",
+                                $@"Hay nueva versión {args.CurrentVersion} disponible. Estás usando la versión {args.InstalledVersion}. Esta es una actualización requerida. Presiona Ok para comenzar a actualizar la aplicación.", @"Actualización disponible",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                     }
@@ -409,7 +404,7 @@ namespace YouTubeDownload
 
                         dialogResult =
                          MessageBox.Show(
-                             $@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.", @"Update Available",
+                             $@"Hay nueva versión {args.CurrentVersion} disponible. Estás usando la versión {args.InstalledVersion}. Esta es una actualización requerida. Presiona Ok para comenzar a actualizar la aplicación.", @"Actualización disponible",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Information);
                     }
@@ -671,8 +666,8 @@ namespace YouTubeDownload
         private void buttonEditAudio_Click(object sender, EventArgs e)
         {
             // NOT WORKING
-            //var app = new EditAudio();
-            //app.ShowDialog();
+            var app = new EditAudio();
+            app.ShowDialog();
             return;
         }
 

@@ -59,6 +59,8 @@
             this.textBoxCS = new System.Windows.Forms.TextBox();
             this.textBoxCM = new System.Windows.Forms.TextBox();
             this.textBoxCH = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -245,16 +247,16 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 442);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 21);
+            this.label3.Size = new System.Drawing.Size(163, 21);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Cortar Audio";
+            this.label3.Text = "Cortar Final Del Audio";
             // 
             // buttonCutAudio
             // 
             this.buttonCutAudio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCutAudio.Location = new System.Drawing.Point(229, 463);
+            this.buttonCutAudio.Location = new System.Drawing.Point(229, 469);
             this.buttonCutAudio.Name = "buttonCutAudio";
-            this.buttonCutAudio.Size = new System.Drawing.Size(126, 39);
+            this.buttonCutAudio.Size = new System.Drawing.Size(126, 30);
             this.buttonCutAudio.TabIndex = 26;
             this.buttonCutAudio.Text = "Cortar";
             this.buttonCutAudio.UseVisualStyleBackColor = true;
@@ -314,6 +316,7 @@
             this.textBoxCS.TabIndex = 43;
             this.textBoxCS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxCS.Visible = false;
+            this.textBoxCS.WordWrap = false;
             this.textBoxCS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
             // 
             // textBoxCM
@@ -325,6 +328,7 @@
             this.textBoxCM.TabIndex = 42;
             this.textBoxCM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxCM.Visible = false;
+            this.textBoxCM.WordWrap = false;
             this.textBoxCM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
             // 
             // textBoxCH
@@ -336,7 +340,28 @@
             this.textBoxCH.TabIndex = 41;
             this.textBoxCH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxCH.Visible = false;
+            this.textBoxCH.WordWrap = false;
             this.textBoxCH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(420, 472);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 21);
+            this.label4.TabIndex = 44;
+            this.label4.Text = ":";
+            this.label4.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(499, 472);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 21);
+            this.label5.TabIndex = 45;
+            this.label5.Text = ":";
+            this.label5.Visible = false;
             // 
             // EditAudio
             // 
@@ -345,6 +370,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1035, 561);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxCS);
             this.Controls.Add(this.textBoxCM);
             this.Controls.Add(this.textBoxCH);
@@ -425,5 +452,7 @@
         private System.Windows.Forms.TextBox textBoxCS;
         private System.Windows.Forms.TextBox textBoxCM;
         private System.Windows.Forms.TextBox textBoxCH;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

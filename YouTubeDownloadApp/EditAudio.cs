@@ -1,8 +1,11 @@
 ﻿using MediaToolkit;
 using MediaToolkit.Model;
+using MediaToolkit.Options;
 using NAudio.Wave;
 using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -55,7 +58,7 @@ namespace YouTubeDownload
                     progressBar1.Value = 55;
                     TagLib.File tfile = TagLib.File.Create(file);
                     var bin = tfile.Tag.Pictures[0].Data.Data;
-                    pictureBox1.Image = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(720, 1080, null, IntPtr.Zero);
+                    pictureBox1.Image = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(1280, 720, null, IntPtr.Zero);
 
                     labelAlbum.Text = "Álbum: " + tfile.Tag.Album.ToString();
                     labelComentario.Text = "Comentario: " + tfile.Tag.Publisher.ToString();
@@ -149,66 +152,126 @@ namespace YouTubeDownload
             if ((files.Count() == 1) && ((Path.GetExtension(files[0]) == ".mp3") ||
                                         (Path.GetExtension(files[0]) == ".wav")))
                 e.Effect = DragDropEffects.Copy;
-        }
+        }       
 
-        private void TrimMp3(string inputPath, string outputPath, TimeSpan? begin, TimeSpan? end)
+        private void buttonCutAudio_Click(object sender, EventArgs e)
         {
-            if (begin.HasValue && end.HasValue && begin == end)
+            progressBar1.Show();
+            labelEstado.Show();
+            Thread.Sleep(500);
+
+            progressBar1.Value = 10;
+            labelEstado.Text = "Estado: Preparando archivo...";
+
+            string sourceFile = Path.Combine(downloadPath, $"{Path.GetFileName(filePath)}");
+            string outputFile = Path.GetDirectoryName(filePath) + @"/" + Path.GetFileNameWithoutExtension(filePath) + "_audio_cortado.mp3";
+
+            Thread.Sleep(500);
+
+            progressBar1.Value = 20;
+            labelEstado.Text = "Estado: Preparando tiempo a cortar del audio...";
+
+            double hoursSegundos;
+            double minutesSegundos;
+            double segundosSegundos;
+
+            if (textBoxAudioHora.Text == "0")
             {
-                progressBar1.Value = 100;
-                labelEstado.Text = "Estado: Error...";
-                MessageBox.Show("El final y el comienzo no pueden ser iguales", "No se puede cortar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                labelEstado.Hide();
-                progressBar1.Hide();
-                return;
+                hoursSegundos = 0;
+            } 
+            else
+            {
+                hoursSegundos = Convert.ToDouble(textBoxAudioHora.Text);
+                hoursSegundos *= 3600;
             }
 
-            if (begin.HasValue && end.HasValue && begin > end)
+            if (textBoxAudioMinuto.Text == "0")
             {
-                progressBar1.Value = 100;
-                labelEstado.Text = "Estado: Error...";
-                MessageBox.Show("El final debe ser mayor que el comienzo", "No se puede cortar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                labelEstado.Hide();
-                progressBar1.Hide();
-                return;
+                minutesSegundos = 0;
+            }
+            else
+            {
+                minutesSegundos = Convert.ToDouble(textBoxAudioMinuto.Text);
+                minutesSegundos *= 60;
             }
 
-            var inputFile = new MediaFile { Filename = inputPath };
+            if (textBoxAudioSegundo.Text == "0")
+            {
+                segundosSegundos = 0;
+            } 
+            else
+            {
+                segundosSegundos = Convert.ToDouble(textBoxAudioSegundo.Text);
+            }
+
+            double hoursSegundosC;
+            double minutesSegundosC;
+            double segundosSegundosC;
+
+            if (textBoxCH.Text == "0")
+            {
+                hoursSegundosC = 0;
+            } 
+            else
+            {
+                hoursSegundosC = Convert.ToDouble(textBoxCH.Text);
+                hoursSegundosC *= 3600;
+            }
+
+            if (textBoxCM.Text == "0")
+            {
+                minutesSegundosC = 0;
+            }
+            else
+            {
+                minutesSegundosC = Convert.ToDouble(textBoxCM.Text);
+                minutesSegundosC *= 60;
+            }
+
+            if (textBoxCS.Text == "0")
+            {
+                segundosSegundosC = 0;
+            } 
+            else
+            {
+                segundosSegundosC = Convert.ToDouble(textBoxCS.Text);
+            }
+
+            double timeCutGetCortar = hoursSegundos + minutesSegundos + segundosSegundos;
+            double timeCutGetOriginal = hoursSegundosC + minutesSegundosC + segundosSegundosC;
+
+            progressBar1.Value = 30;
+            labelEstado.Text = "Estado: Preparando...";
+            Thread.Sleep(500);
+      
+            var inputFileC = new MediaFile { Filename = Path.Combine(downloadPath, Path.GetFileName(sourceFile)) };
+            var outputFileC = new MediaFile { Filename = Path.Combine(downloadPath, Path.GetFileNameWithoutExtension(sourceFile) + $"_audio_cortado.mp3") };
+
             using (var engine = new Engine())
             {
-                engine.GetMetadata(inputFile);
-            }
+                progressBar1.Value = 50;
+                labelEstado.Text = $"Estado: Cortando audio {timeCutGetOriginal} / {timeCutGetCortar}...";
+                Thread.Sleep(500);
+                engine.GetMetadata(inputFileC);
 
-            using (var reader = new Mp3FileReader(inputPath))
-            using (var writer = File.Create(outputPath))
-            {
+                var options = new ConversionOptions();
+                options.CutMedia(TimeSpan.FromSeconds(0), TimeSpan.FromSeconds(timeCutGetCortar));
+
                 progressBar1.Value = 80;
-                labelEstado.Text = $"Estado: Cortando audio [{begin} / {end}]...";
+                labelEstado.Text = $"Estado: Convirtiendo audio {timeCutGetOriginal} / {timeCutGetCortar}...";
+                Thread.Sleep(500);
+                engine.Convert(inputFileC, outputFileC, options);
 
-                Mp3Frame frame;
-                while ((frame = reader.ReadNextFrame()) != null)
-                {
-                    if (reader.CurrentTime >= begin || !begin.HasValue)
-                    {
-                        if (reader.CurrentTime <= end || !end.HasValue)
-                        {
-                            writer.Write(frame.RawData, 0, frame.RawData.Length);
-                        }
-                        else 
-                        {
-                            break;
-                        }
-                    }
-                }
             }
 
             // Create again metadata
-            TagLib.File tfile = TagLib.File.Create(inputPath);
-            var bin = tfile.Tag.Pictures[0].Data.Data;
-            pictureBox1.Image = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(720, 1080, null, IntPtr.Zero);
+            TagLib.File oldFile = TagLib.File.Create(sourceFile);
+            pictureBox1.Image.Save(downloadPath + @"\cover.jpeg", ImageFormat.Jpeg);
 
-            File.ReadAllBytes(downloadPath + @"\cover.jpeg");
+            progressBar1.Value = 85;
+            labelEstado.Text = $"Estado: Agregando los metadatos al audio cortado...";
 
+            var inputFileTag = TagLib.File.Create(outputFile);
             byte[] imageBytes;
             imageBytes = File.ReadAllBytes(downloadPath + @"\cover.jpeg");
 
@@ -220,114 +283,28 @@ namespace YouTubeDownload
                 Data = imageBytes,
                 TextEncoding = TagLib.StringType.UTF16
             };
+            inputFileTag.Tag.Pictures = new TagLib.IPicture[] { cover };
 
-            var inputFileTag = TagLib.File.Create(outputPath);
-            inputFileTag.Tag.Title = title;
-            inputFileTag.Tag.Comment = "Música descargada con YouTubeDownload por Franco Mato / " + textBoxComentario.Text;
-            inputFileTag.Tag.Publisher = "Música descargada con YouTubeDownload por Franco Mato / " + textBoxComentario.Text;
-            inputFileTag.Tag.Album = vid.FullName;
+            inputFileTag.Tag.Title = oldFile.Tag.Title;
+            inputFileTag.Tag.Comment = oldFile.Tag.Comment;
+            inputFileTag.Tag.Publisher = oldFile.Tag.Publisher;
+            inputFileTag.Tag.Album = oldFile.Tag.Album;
             inputFileTag.Save();
+            Thread.Sleep(1000);
 
-        }
-
-        private void buttonCutAudio_Click(object sender, EventArgs e)
-        {
-            progressBar1.Show();
-            labelEstado.Show();
-
-            progressBar1.Value = 10;
-            labelEstado.Text = "Estado: Preparando archivo...";
-
-            string sourceFile = Path.Combine(downloadPath, $"{Path.GetFileName(filePath)}");
-            string outputFile = Path.GetDirectoryName(filePath) + @"/" + Path.GetFileNameWithoutExtension(filePath) + "_audio_cortado.mp3";
-
-            string hoursC = textBoxCH.Text;
-            string minutesC = textBoxCM.Text;
-            string secondsC = textBoxCS.Text;
-
-            string hours = textBoxAudioHora.Text;
-            string minutes = textBoxAudioMinuto.Text;
-            string seconds = textBoxAudioSegundo.Text;
-
-            double hoursSegundos;
-            double minutesSegundos;
-            double segundosSegundos;
-
-            if (hours == "0")
-            {
-                hoursSegundos = 0;
-            } 
-            else
-            {
-                hoursSegundos = Convert.ToDouble(hours);
-                hoursSegundos *= 3600;
-            }
-
-            if (minutes == "0")
-            {
-                minutesSegundos = 0;
-            }
-            else
-            {
-                minutesSegundos = Convert.ToDouble(minutes);
-                minutesSegundos *= 60;
-            }
-
-            if (seconds == "0")
-            {
-                segundosSegundos = 0;
-            } 
-            else
-            {
-                segundosSegundos = Convert.ToDouble(seconds);
-            }
-
-            double hoursSegundosC;
-            double minutesSegundosC;
-            double segundosSegundosC;
-
-            if (hoursC == "0")
-            {
-                hoursSegundosC = 0;
-            } 
-            else
-            {
-                hoursSegundosC = Convert.ToDouble(hoursC);
-                hoursSegundosC *= 3600;
-            }
-
-            if (minutesC == "0")
-            {
-                minutesSegundosC = 0;
-            }
-            else
-            {
-                minutesSegundosC = Convert.ToDouble(minutesC);
-                minutesSegundosC *= 60;
-            }
-
-            if (secondsC == "0")
-            {
-                segundosSegundosC = 0;
-            } 
-            else
-            {
-                segundosSegundosC = Convert.ToDouble(secondsC);
-            }
-
-            double timeCutGet = hoursSegundos + minutesSegundos + segundosSegundos;
-            double timeCutGetC = hoursSegundosC + minutesSegundosC + segundosSegundosC;
-
-            double endCut = timeCutGetC - timeCutGet;
-            
-            progressBar1.Value = 30;
-            labelEstado.Text = "Estado: Leyendo archivo...";
-            TrimMp3(sourceFile, outputFile, TimeSpan.FromSeconds(endCut), TimeSpan.FromSeconds(timeCutGetC));
+            progressBar1.Value = 90;
+            labelEstado.Text = $"Estado: Terminando...";
+            oldFile.Dispose();
+            Thread.Sleep(500);
 
             progressBar1.Value = 100;
             labelEstado.Text = "Estado: Listo!";
+            Thread.Sleep(500);
 
-            Thread.Sleep(1000);
+            MessageBox.Show($"Listo! Se corto el audio {Path.GetFileName(outputFile)} de {timeCutGetOriginal} / {timeCutGetCortar} y se guardó en " + downloadPath, "Audio cortado correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Process.Start(downloadPath);
+
             progressBar1.Hide();
             labelEstado.Hide();
         }

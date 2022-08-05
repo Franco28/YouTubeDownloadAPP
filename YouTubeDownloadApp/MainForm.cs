@@ -158,12 +158,12 @@ namespace YouTubeDownload
                 UpdateProgress(50);
 
                 // Video conversions
-                var conversionOptionsVideo = new ConversionOptions
-                {
-                    AudioBitRate = 320,
-                    VideoFps = 60,
-                    VideoSize = VideoSize.Hd720
-                };
+                var conversionOptionsVideo = new ConversionOptions();
+                conversionOptionsVideo.AudioBitRate = 320;
+                conversionOptionsVideo.VideoFps = 60;
+                conversionOptionsVideo.VideoSize = VideoSize.Custom;
+                conversionOptionsVideo.CustomWidth = 1920;
+                conversionOptionsVideo.CustomHeight = 1080;
 
                 // Bitrate options
                 var conversionOptionsAudio = new ConversionOptions();
@@ -243,8 +243,8 @@ namespace YouTubeDownload
                     // Set metadata audio
                     var tfile = TagLib.File.Create(outputFile_Path);
                     tfile.Tag.Title = title;
-                    tfile.Tag.Comment = "Música descargada con YouTubeDownload por Franco Mato / " + textBoxComentario.Text;
-                    tfile.Tag.Publisher = "Música descargada con YouTubeDownload por Franco Mato / " + textBoxComentario.Text;
+                    tfile.Tag.Comment = "Música descargada con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
+                    tfile.Tag.Publisher = "Música descargada con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
                     tfile.Tag.Album = vid.FullName;
                     UpdateProgress(85);
                     tfile.Save();
@@ -261,6 +261,13 @@ namespace YouTubeDownload
                         labelEstado.Text = "Estado: Eliminando video...";
                         File.Delete(videopath);
                         Thread.Sleep(500);
+                    } 
+                    else if (radioButtonGuardarVideoNo.Checked == false)
+                    {
+                        MessageBox.Show("entre");
+                        UpdateProgress(93);
+                        labelEstado.Text = "Estado: Convirtiendo a FULL HD el video...";
+                        engine.CustomCommand($" -i {videopath} -vf scale=-1920:1080 -map 0 -c:a copy -c:s copy {Path.GetFullPath(videopath) + Path.GetFileNameWithoutExtension(videopath) + "_FHD.mp4"}");
                     }
 
                     // Delete coverart
@@ -474,6 +481,7 @@ namespace YouTubeDownload
 
             Directory.CreateDirectory(downloadPath);
 
+            // Others
             groupBoxAudioFormat.Hide();
             groupBoxGuardarVideo.Hide();
             labelOpcionesTitle.Hide();
@@ -484,6 +492,16 @@ namespace YouTubeDownload
             textBoxComentario.Hide();
             labelMDComment.Hide();
             labelMDArtista.Hide();
+            groupBoxAuBitrate.Hide();
+
+            // Metadata
+            labelMetadatos.Hide();
+            labelMDTitulo.Hide();
+            labelMDArtista.Hide();
+            labelMDComment.Hide();
+            textBoxTituloCancion.Hide();
+            textBoxArtista.Hide();
+            textBoxComentario.Hide();
             groupBoxAuBitrate.Hide();
 
             progressBar1.Hide();
@@ -673,11 +691,29 @@ namespace YouTubeDownload
 
         private void radioButtonWAV_CheckedChanged(object sender, EventArgs e)
         {
+            labelMetadatos.Hide();
+            labelMDTitulo.Hide();
+            labelMDArtista.Hide();
+            labelMDComment.Hide();
+            textBoxTituloCancion.Hide();
+            textBoxArtista.Hide();
+            textBoxComentario.Hide();
+
             groupBoxAuBitrate.Hide();
         }
 
         private void radioButtonMP3_CheckedChanged(object sender, EventArgs e)
         {
+            // Metadata
+            labelMetadatos.Show();
+            labelMDTitulo.Show();
+            labelMDArtista.Show();
+            labelMDComment.Show();
+            textBoxTituloCancion.Show();
+            textBoxArtista.Show();
+            textBoxComentario.Show();
+            groupBoxAuBitrate.Show();
+
             groupBoxAuBitrate.Show();
         }
 

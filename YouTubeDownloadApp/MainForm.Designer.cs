@@ -66,12 +66,12 @@
             this.buttonEditAudio = new System.Windows.Forms.Button();
             this.labelTmanoArchivo = new System.Windows.Forms.Label();
             this.groupBoxAuBitrate = new System.Windows.Forms.GroupBox();
-            this.radioButtonAB320 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB196 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB128 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB96 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB32 = new System.Windows.Forms.RadioButton();
             this.radioButtonAB16 = new System.Windows.Forms.RadioButton();
+            this.radioButtonAB32 = new System.Windows.Forms.RadioButton();
+            this.radioButtonAB96 = new System.Windows.Forms.RadioButton();
+            this.radioButtonAB128 = new System.Windows.Forms.RadioButton();
+            this.radioButtonAB196 = new System.Windows.Forms.RadioButton();
+            this.radioButtonAB320 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxAudioFormat.SuspendLayout();
             this.groupBoxGuardarVideo.SuspendLayout();
@@ -453,50 +453,16 @@
             this.groupBoxAuBitrate.TabStop = false;
             this.groupBoxAuBitrate.Text = "Audio Bitrate / kbps";
             // 
-            // radioButtonAB320
+            // radioButtonAB16
             // 
-            this.radioButtonAB320.AutoSize = true;
-            this.radioButtonAB320.Checked = true;
-            this.radioButtonAB320.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB320.Location = new System.Drawing.Point(7, 29);
-            this.radioButtonAB320.Name = "radioButtonAB320";
-            this.radioButtonAB320.Size = new System.Drawing.Size(55, 25);
-            this.radioButtonAB320.TabIndex = 0;
-            this.radioButtonAB320.Text = "320";
-            this.radioButtonAB320.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonAB196
-            // 
-            this.radioButtonAB196.AutoSize = true;
-            this.radioButtonAB196.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB196.Location = new System.Drawing.Point(68, 29);
-            this.radioButtonAB196.Name = "radioButtonAB196";
-            this.radioButtonAB196.Size = new System.Drawing.Size(55, 25);
-            this.radioButtonAB196.TabIndex = 1;
-            this.radioButtonAB196.Text = "192";
-            this.radioButtonAB196.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonAB128
-            // 
-            this.radioButtonAB128.AutoSize = true;
-            this.radioButtonAB128.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB128.Location = new System.Drawing.Point(129, 29);
-            this.radioButtonAB128.Name = "radioButtonAB128";
-            this.radioButtonAB128.Size = new System.Drawing.Size(55, 25);
-            this.radioButtonAB128.TabIndex = 2;
-            this.radioButtonAB128.Text = "128";
-            this.radioButtonAB128.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonAB96
-            // 
-            this.radioButtonAB96.AutoSize = true;
-            this.radioButtonAB96.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB96.Location = new System.Drawing.Point(190, 29);
-            this.radioButtonAB96.Name = "radioButtonAB96";
-            this.radioButtonAB96.Size = new System.Drawing.Size(46, 25);
-            this.radioButtonAB96.TabIndex = 3;
-            this.radioButtonAB96.Text = "96";
-            this.radioButtonAB96.UseVisualStyleBackColor = true;
+            this.radioButtonAB16.AutoSize = true;
+            this.radioButtonAB16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonAB16.Location = new System.Drawing.Point(294, 29);
+            this.radioButtonAB16.Name = "radioButtonAB16";
+            this.radioButtonAB16.Size = new System.Drawing.Size(46, 25);
+            this.radioButtonAB16.TabIndex = 5;
+            this.radioButtonAB16.Text = "16";
+            this.radioButtonAB16.UseVisualStyleBackColor = true;
             // 
             // radioButtonAB32
             // 
@@ -509,16 +475,51 @@
             this.radioButtonAB32.Text = "32";
             this.radioButtonAB32.UseVisualStyleBackColor = true;
             // 
-            // radioButtonAB16
+            // radioButtonAB96
             // 
-            this.radioButtonAB16.AutoSize = true;
-            this.radioButtonAB16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB16.Location = new System.Drawing.Point(294, 29);
-            this.radioButtonAB16.Name = "radioButtonAB16";
-            this.radioButtonAB16.Size = new System.Drawing.Size(46, 25);
-            this.radioButtonAB16.TabIndex = 5;
-            this.radioButtonAB16.Text = "16";
-            this.radioButtonAB16.UseVisualStyleBackColor = true;
+            this.radioButtonAB96.AutoSize = true;
+            this.radioButtonAB96.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonAB96.Location = new System.Drawing.Point(190, 29);
+            this.radioButtonAB96.Name = "radioButtonAB96";
+            this.radioButtonAB96.Size = new System.Drawing.Size(46, 25);
+            this.radioButtonAB96.TabIndex = 3;
+            this.radioButtonAB96.Text = "96";
+            this.radioButtonAB96.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonAB128
+            // 
+            this.radioButtonAB128.AutoSize = true;
+            this.radioButtonAB128.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonAB128.Location = new System.Drawing.Point(129, 29);
+            this.radioButtonAB128.Name = "radioButtonAB128";
+            this.radioButtonAB128.Size = new System.Drawing.Size(55, 25);
+            this.radioButtonAB128.TabIndex = 2;
+            this.radioButtonAB128.Text = "128";
+            this.radioButtonAB128.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonAB196
+            // 
+            this.radioButtonAB196.AutoSize = true;
+            this.radioButtonAB196.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonAB196.Location = new System.Drawing.Point(68, 29);
+            this.radioButtonAB196.Name = "radioButtonAB196";
+            this.radioButtonAB196.Size = new System.Drawing.Size(55, 25);
+            this.radioButtonAB196.TabIndex = 1;
+            this.radioButtonAB196.Text = "192";
+            this.radioButtonAB196.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonAB320
+            // 
+            this.radioButtonAB320.AutoSize = true;
+            this.radioButtonAB320.Checked = true;
+            this.radioButtonAB320.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radioButtonAB320.Location = new System.Drawing.Point(7, 29);
+            this.radioButtonAB320.Name = "radioButtonAB320";
+            this.radioButtonAB320.Size = new System.Drawing.Size(55, 25);
+            this.radioButtonAB320.TabIndex = 0;
+            this.radioButtonAB320.TabStop = true;
+            this.radioButtonAB320.Text = "320";
+            this.radioButtonAB320.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -565,7 +566,7 @@
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Descargar Música Y Videos De YouTube - Por Franco Mato";
+            this.Text = "Descargar Música Y Videos De YouTube - Por @Franco28";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DescargarMusica_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DescargarMusica_FormClosed);
             this.Load += new System.EventHandler(this.DescargarMusica_Load);

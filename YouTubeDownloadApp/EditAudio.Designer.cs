@@ -32,7 +32,6 @@
             this.buttonCargarAudio = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.waveViewer1 = new NAudio.Gui.WaveViewer();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.labelEstado = new System.Windows.Forms.Label();
@@ -49,18 +48,23 @@
             this.labelAlbum = new System.Windows.Forms.Label();
             this.labelComentario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelCFDA = new System.Windows.Forms.Label();
             this.buttonCutAudio = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxAudioSegundo = new System.Windows.Forms.TextBox();
             this.textBoxAudioMinuto = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxAudioHora = new System.Windows.Forms.TextBox();
-            this.textBoxCS = new System.Windows.Forms.TextBox();
-            this.textBoxCM = new System.Windows.Forms.TextBox();
-            this.textBoxCH = new System.Windows.Forms.TextBox();
+            this.labelCPDA = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBoxAudioSegundosP = new System.Windows.Forms.TextBox();
+            this.textBoxAudioMinutosP = new System.Windows.Forms.TextBox();
+            this.textBoxAudioHoraP = new System.Windows.Forms.TextBox();
+            this.buttonCortarPrincipio = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,16 +99,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "o utilice el botón";
             // 
-            // waveViewer1
-            // 
-            this.waveViewer1.Location = new System.Drawing.Point(12, 371);
-            this.waveViewer1.Name = "waveViewer1";
-            this.waveViewer1.SamplesPerPixel = 128;
-            this.waveViewer1.Size = new System.Drawing.Size(1009, 62);
-            this.waveViewer1.StartPosition = ((long)(0));
-            this.waveViewer1.TabIndex = 3;
-            this.waveViewer1.WaveStream = null;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -113,7 +107,7 @@
             // 
             this.labelEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEstado.ForeColor = System.Drawing.Color.Red;
-            this.labelEstado.Location = new System.Drawing.Point(12, 502);
+            this.labelEstado.Location = new System.Drawing.Point(12, 445);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(1013, 21);
             this.labelEstado.TabIndex = 9;
@@ -122,7 +116,7 @@
             // progressBar1
             // 
             this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.progressBar1.Location = new System.Drawing.Point(12, 526);
+            this.progressBar1.Location = new System.Drawing.Point(12, 469);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1011, 23);
             this.progressBar1.TabIndex = 8;
@@ -131,7 +125,7 @@
             // 
             this.buttonPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPlay.Image = ((System.Drawing.Image)(resources.GetObject("buttonPlay.Image")));
-            this.buttonPlay.Location = new System.Drawing.Point(19, 290);
+            this.buttonPlay.Location = new System.Drawing.Point(17, 292);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(47, 45);
             this.buttonPlay.TabIndex = 10;
@@ -142,7 +136,7 @@
             // 
             this.buttonPause.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPause.Image = ((System.Drawing.Image)(resources.GetObject("buttonPause.Image")));
-            this.buttonPause.Location = new System.Drawing.Point(72, 290);
+            this.buttonPause.Location = new System.Drawing.Point(70, 292);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(47, 45);
             this.buttonPause.TabIndex = 11;
@@ -153,7 +147,7 @@
             // 
             this.buttonStop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonStop.Image = ((System.Drawing.Image)(resources.GetObject("buttonStop.Image")));
-            this.buttonStop.Location = new System.Drawing.Point(125, 290);
+            this.buttonStop.Location = new System.Drawing.Point(123, 292);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(47, 45);
             this.buttonStop.TabIndex = 12;
@@ -163,7 +157,7 @@
             // labelTiempoTranscurrido
             // 
             this.labelTiempoTranscurrido.AutoSize = true;
-            this.labelTiempoTranscurrido.Location = new System.Drawing.Point(178, 302);
+            this.labelTiempoTranscurrido.Location = new System.Drawing.Point(176, 292);
             this.labelTiempoTranscurrido.Name = "labelTiempoTranscurrido";
             this.labelTiempoTranscurrido.Size = new System.Drawing.Size(199, 21);
             this.labelTiempoTranscurrido.TabIndex = 13;
@@ -172,7 +166,7 @@
             // labelTiempoTotal
             // 
             this.labelTiempoTotal.AutoSize = true;
-            this.labelTiempoTotal.Location = new System.Drawing.Point(769, 302);
+            this.labelTiempoTotal.Location = new System.Drawing.Point(176, 316);
             this.labelTiempoTotal.Name = "labelTiempoTotal";
             this.labelTiempoTotal.Size = new System.Drawing.Size(144, 21);
             this.labelTiempoTotal.TabIndex = 14;
@@ -181,7 +175,7 @@
             // labelRutaAudio
             // 
             this.labelRutaAudio.AutoSize = true;
-            this.labelRutaAudio.Location = new System.Drawing.Point(17, 266);
+            this.labelRutaAudio.Location = new System.Drawing.Point(17, 257);
             this.labelRutaAudio.Name = "labelRutaAudio";
             this.labelRutaAudio.Size = new System.Drawing.Size(45, 21);
             this.labelRutaAudio.TabIndex = 15;
@@ -190,7 +184,7 @@
             // labelTipoArchivo
             // 
             this.labelTipoArchivo.AutoSize = true;
-            this.labelTipoArchivo.Location = new System.Drawing.Point(17, 139);
+            this.labelTipoArchivo.Location = new System.Drawing.Point(17, 124);
             this.labelTipoArchivo.Name = "labelTipoArchivo";
             this.labelTipoArchivo.Size = new System.Drawing.Size(100, 21);
             this.labelTipoArchivo.TabIndex = 16;
@@ -199,7 +193,7 @@
             // labelTamanoArchivo
             // 
             this.labelTamanoArchivo.AutoSize = true;
-            this.labelTamanoArchivo.Location = new System.Drawing.Point(17, 181);
+            this.labelTamanoArchivo.Location = new System.Drawing.Point(17, 166);
             this.labelTamanoArchivo.Name = "labelTamanoArchivo";
             this.labelTamanoArchivo.Size = new System.Drawing.Size(124, 21);
             this.labelTamanoArchivo.TabIndex = 17;
@@ -208,7 +202,7 @@
             // labelAudioBitrate
             // 
             this.labelAudioBitrate.AutoSize = true;
-            this.labelAudioBitrate.Location = new System.Drawing.Point(17, 160);
+            this.labelAudioBitrate.Location = new System.Drawing.Point(17, 145);
             this.labelAudioBitrate.Name = "labelAudioBitrate";
             this.labelAudioBitrate.Size = new System.Drawing.Size(100, 21);
             this.labelAudioBitrate.TabIndex = 18;
@@ -217,7 +211,7 @@
             // labelAlbum
             // 
             this.labelAlbum.AutoSize = true;
-            this.labelAlbum.Location = new System.Drawing.Point(17, 208);
+            this.labelAlbum.Location = new System.Drawing.Point(17, 193);
             this.labelAlbum.Name = "labelAlbum";
             this.labelAlbum.Size = new System.Drawing.Size(59, 21);
             this.labelAlbum.TabIndex = 21;
@@ -226,7 +220,7 @@
             // labelComentario
             // 
             this.labelComentario.AutoSize = true;
-            this.labelComentario.Location = new System.Drawing.Point(17, 229);
+            this.labelComentario.Location = new System.Drawing.Point(17, 214);
             this.labelComentario.Name = "labelComentario";
             this.labelComentario.Size = new System.Drawing.Size(95, 21);
             this.labelComentario.TabIndex = 20;
@@ -242,30 +236,30 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // labelCFDA
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 442);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 21);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Cortar Final Del Audio";
+            this.labelCFDA.AutoSize = true;
+            this.labelCFDA.Location = new System.Drawing.Point(13, 372);
+            this.labelCFDA.Name = "labelCFDA";
+            this.labelCFDA.Size = new System.Drawing.Size(163, 21);
+            this.labelCFDA.TabIndex = 23;
+            this.labelCFDA.Text = "Cortar Final Del Audio";
             // 
             // buttonCutAudio
             // 
             this.buttonCutAudio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCutAudio.Location = new System.Drawing.Point(229, 469);
+            this.buttonCutAudio.Location = new System.Drawing.Point(230, 399);
             this.buttonCutAudio.Name = "buttonCutAudio";
-            this.buttonCutAudio.Size = new System.Drawing.Size(126, 30);
+            this.buttonCutAudio.Size = new System.Drawing.Size(157, 29);
             this.buttonCutAudio.TabIndex = 26;
-            this.buttonCutAudio.Text = "Cortar";
+            this.buttonCutAudio.Text = "Cortar Final";
             this.buttonCutAudio.UseVisualStyleBackColor = true;
             this.buttonCutAudio.Click += new System.EventHandler(this.buttonCutAudio_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(150, 472);
+            this.label8.Location = new System.Drawing.Point(151, 402);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(13, 21);
             this.label8.TabIndex = 40;
@@ -273,7 +267,7 @@
             // 
             // textBoxAudioSegundo
             // 
-            this.textBoxAudioSegundo.Location = new System.Drawing.Point(169, 469);
+            this.textBoxAudioSegundo.Location = new System.Drawing.Point(170, 399);
             this.textBoxAudioSegundo.Name = "textBoxAudioSegundo";
             this.textBoxAudioSegundo.Size = new System.Drawing.Size(54, 29);
             this.textBoxAudioSegundo.TabIndex = 38;
@@ -282,7 +276,7 @@
             // 
             // textBoxAudioMinuto
             // 
-            this.textBoxAudioMinuto.Location = new System.Drawing.Point(90, 469);
+            this.textBoxAudioMinuto.Location = new System.Drawing.Point(91, 399);
             this.textBoxAudioMinuto.Name = "textBoxAudioMinuto";
             this.textBoxAudioMinuto.Size = new System.Drawing.Size(54, 29);
             this.textBoxAudioMinuto.TabIndex = 37;
@@ -292,7 +286,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(72, 472);
+            this.label9.Location = new System.Drawing.Point(73, 402);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(13, 21);
             this.label9.TabIndex = 39;
@@ -300,68 +294,110 @@
             // 
             // textBoxAudioHora
             // 
-            this.textBoxAudioHora.Location = new System.Drawing.Point(12, 469);
+            this.textBoxAudioHora.Location = new System.Drawing.Point(13, 399);
             this.textBoxAudioHora.Name = "textBoxAudioHora";
             this.textBoxAudioHora.Size = new System.Drawing.Size(54, 29);
             this.textBoxAudioHora.TabIndex = 36;
             this.textBoxAudioHora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxAudioHora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
             // 
-            // textBoxCS
+            // labelCPDA
             // 
-            this.textBoxCS.Location = new System.Drawing.Point(518, 469);
-            this.textBoxCS.Name = "textBoxCS";
-            this.textBoxCS.ReadOnly = true;
-            this.textBoxCS.Size = new System.Drawing.Size(54, 29);
-            this.textBoxCS.TabIndex = 43;
-            this.textBoxCS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxCS.Visible = false;
-            this.textBoxCS.WordWrap = false;
-            this.textBoxCS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
-            // 
-            // textBoxCM
-            // 
-            this.textBoxCM.Location = new System.Drawing.Point(439, 469);
-            this.textBoxCM.Name = "textBoxCM";
-            this.textBoxCM.ReadOnly = true;
-            this.textBoxCM.Size = new System.Drawing.Size(54, 29);
-            this.textBoxCM.TabIndex = 42;
-            this.textBoxCM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxCM.Visible = false;
-            this.textBoxCM.WordWrap = false;
-            this.textBoxCM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
-            // 
-            // textBoxCH
-            // 
-            this.textBoxCH.Location = new System.Drawing.Point(361, 469);
-            this.textBoxCH.Name = "textBoxCH";
-            this.textBoxCH.ReadOnly = true;
-            this.textBoxCH.Size = new System.Drawing.Size(54, 29);
-            this.textBoxCH.TabIndex = 41;
-            this.textBoxCH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxCH.Visible = false;
-            this.textBoxCH.WordWrap = false;
-            this.textBoxCH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
+            this.labelCPDA.AutoSize = true;
+            this.labelCPDA.Location = new System.Drawing.Point(497, 370);
+            this.labelCPDA.Name = "labelCPDA";
+            this.labelCPDA.Size = new System.Drawing.Size(191, 21);
+            this.labelCPDA.TabIndex = 46;
+            this.labelCPDA.Text = "Cortar Principio Del Audio";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(420, 472);
+            this.label4.Location = new System.Drawing.Point(639, 403);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 21);
-            this.label4.TabIndex = 44;
+            this.label4.TabIndex = 51;
             this.label4.Text = ":";
-            this.label4.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(499, 472);
+            this.label5.Location = new System.Drawing.Point(561, 403);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 21);
-            this.label5.TabIndex = 45;
+            this.label5.TabIndex = 50;
             this.label5.Text = ":";
-            this.label5.Visible = false;
+            // 
+            // textBoxAudioSegundosP
+            // 
+            this.textBoxAudioSegundosP.Location = new System.Drawing.Point(658, 400);
+            this.textBoxAudioSegundosP.Name = "textBoxAudioSegundosP";
+            this.textBoxAudioSegundosP.Size = new System.Drawing.Size(54, 29);
+            this.textBoxAudioSegundosP.TabIndex = 49;
+            this.textBoxAudioSegundosP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAudioSegundosP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
+            // 
+            // textBoxAudioMinutosP
+            // 
+            this.textBoxAudioMinutosP.Location = new System.Drawing.Point(579, 400);
+            this.textBoxAudioMinutosP.Name = "textBoxAudioMinutosP";
+            this.textBoxAudioMinutosP.Size = new System.Drawing.Size(54, 29);
+            this.textBoxAudioMinutosP.TabIndex = 48;
+            this.textBoxAudioMinutosP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAudioMinutosP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
+            // 
+            // textBoxAudioHoraP
+            // 
+            this.textBoxAudioHoraP.Location = new System.Drawing.Point(501, 400);
+            this.textBoxAudioHoraP.Name = "textBoxAudioHoraP";
+            this.textBoxAudioHoraP.Size = new System.Drawing.Size(54, 29);
+            this.textBoxAudioHoraP.TabIndex = 47;
+            this.textBoxAudioHoraP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAudioHoraP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
+            // 
+            // buttonCortarPrincipio
+            // 
+            this.buttonCortarPrincipio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCortarPrincipio.Location = new System.Drawing.Point(718, 400);
+            this.buttonCortarPrincipio.Name = "buttonCortarPrincipio";
+            this.buttonCortarPrincipio.Size = new System.Drawing.Size(157, 29);
+            this.buttonCortarPrincipio.TabIndex = 52;
+            this.buttonCortarPrincipio.Text = "Cortar Principio";
+            this.buttonCortarPrincipio.UseVisualStyleBackColor = true;
+            this.buttonCortarPrincipio.Click += new System.EventHandler(this.buttonCortarPrincipio_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(425, 400);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 45);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "|";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(425, 355);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(30, 45);
+            this.label10.TabIndex = 54;
+            this.label10.Text = "|";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(425, 310);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 45);
+            this.label11.TabIndex = 55;
+            this.label11.Text = "|";
             // 
             // EditAudio
             // 
@@ -369,19 +405,24 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1035, 561);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(1035, 504);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.buttonCortarPrincipio);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBoxCS);
-            this.Controls.Add(this.textBoxCM);
-            this.Controls.Add(this.textBoxCH);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxAudioSegundosP);
+            this.Controls.Add(this.textBoxAudioMinutosP);
+            this.Controls.Add(this.textBoxAudioHoraP);
+            this.Controls.Add(this.labelCPDA);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxAudioSegundo);
             this.Controls.Add(this.textBoxAudioMinuto);
             this.Controls.Add(this.textBoxAudioHora);
             this.Controls.Add(this.buttonCutAudio);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelCFDA);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelAlbum);
             this.Controls.Add(this.labelComentario);
@@ -396,7 +437,6 @@
             this.Controls.Add(this.buttonPlay);
             this.Controls.Add(this.labelEstado);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.waveViewer1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCargarAudio);
@@ -409,7 +449,7 @@
             this.Name = "EditAudio";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar Audio";
+            this.Text = "Editar Audio - MP3 - Por @Franco28";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditAudio_FormClosing);
             this.Load += new System.EventHandler(this.EditAudio_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.EditAudio_DragDrop);
@@ -425,7 +465,6 @@
         private System.Windows.Forms.Button buttonCargarAudio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private NAudio.Gui.WaveViewer waveViewer1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.Label labelEstado;
@@ -442,17 +481,22 @@
         private System.Windows.Forms.Label labelAlbum;
         private System.Windows.Forms.Label labelComentario;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelCFDA;
         private System.Windows.Forms.Button buttonCutAudio;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxAudioSegundo;
         private System.Windows.Forms.TextBox textBoxAudioMinuto;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxAudioHora;
-        private System.Windows.Forms.TextBox textBoxCS;
-        private System.Windows.Forms.TextBox textBoxCM;
-        private System.Windows.Forms.TextBox textBoxCH;
+        private System.Windows.Forms.Label labelCPDA;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxAudioSegundosP;
+        private System.Windows.Forms.TextBox textBoxAudioMinutosP;
+        private System.Windows.Forms.TextBox textBoxAudioHoraP;
+        private System.Windows.Forms.Button buttonCortarPrincipio;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

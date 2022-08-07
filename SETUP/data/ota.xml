@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
-  <version>1.0.0.2</version>
-  <url>https://altushost-swe.dl.sourceforge.net/project/youtubedownloadapp/YouTubeDownload_v1.0.0.2_Setup.exe</url>
+  <version>1.0.0.3</version>
+  <url>https://altushost-swe.dl.sourceforge.net/project/youtubedownloadapp/YouTubeDownload_v1.0.0.3_Setup.exe</url>
   <changelog>https://raw.githubusercontent.com/Franco28/YouTubeDownloadAPP/main/releases.txt</changelog>
   <mandatory>true</mandatory>
 </item>

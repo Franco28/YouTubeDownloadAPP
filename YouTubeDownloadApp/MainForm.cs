@@ -103,44 +103,46 @@ namespace YouTubeDownload
         // convert and download audio
         private void SaveMP3()
         {
-            labelEstado.Text = "Estado: Comenzando...";
-            UpdateProgress(10);
-            Thread.Sleep(500);
-
-            labelEstado.Text = "Estado: Aplicando ajustes previos...";
-
-            // Audio format
-            var audioformat = "";
-            if (radioButtonMP3.Checked == true)
-            {
-                audioformat = ".mp3";
-            } 
-     
-            if (radioButtonWAV.Checked == true)
-            {
-                audioformat = ".wav";
-            }
-
-            var VideoURL = textBoxURL.Text;
-            var MP3Name = textBoxNombre.Text.Replace(" ", "_");
-            UpdateProgress(15);
-            Thread.Sleep(500);
-
-            labelEstado.Text = "Estado: Leyendo datos...";
-            var youtube = YouTube.Default;
-            var vid = youtube.GetVideo(VideoURL);
-            string videopath = Path.Combine(downloadPath, vid.FullName);
-            UpdateProgress(20);
-            Thread.Sleep(500);
-
             try
             {
+                labelEstado.Text = "Estado: Comenzando...";
+                UpdateProgress(10);
+                Thread.Sleep(500);
+
+                labelEstado.Text = "Estado: Aplicando ajustes previos...";
+
+                // Audio format
+                var audioformat = "";
+                if (radioButtonMP3.Checked == true)
+                {
+                    audioformat = ".mp3";
+                }
+
+                if (radioButtonWAV.Checked == true)
+                {
+                    audioformat = ".wav";
+                }
+
+                var VideoURL = textBoxURL.Text;
+                var MP3Name = textBoxNombre.Text.Replace(" ", "_");
+                UpdateProgress(15);
+                Thread.Sleep(500);
+
+                labelEstado.Text = "Estado: Leyendo datos...";
+                var youtube = YouTube.Default;
+                var vid = youtube.GetVideo(VideoURL);
+
+                string videopath = Path.Combine(downloadPath, vid.FullName);
+                UpdateProgress(20);
+                Thread.Sleep(500);
+
                 labelEstado.Text = "Estado: Creando el archivo...";
                 UpdateProgress(30);
                 Thread.Sleep(500);
 
-                // Create file
-                File.WriteAllBytes(videopath, vid.GetBytes());
+                // Create video from YouTube
+                byte[] videoBytes = vid.GetBytes();
+                File.WriteAllBytes(videopath, videoBytes);
 
                 labelEstado.Text = "Estado: Obteniendo rutas de los archivos...";
                 UpdateProgress(40);
@@ -209,8 +211,11 @@ namespace YouTubeDownload
                     labelEstado.Text = $"Estado: Convirtiendo el video a {audioformat}...";
                     UpdateProgress(70);
                     engine.Convert(inputFile, outputFile, conversionOptionsVideo);
+                    Thread.Sleep(500);
 
                     // Convert audio bitrate
+                    labelEstado.Text = $"Estado: Convirtiendo bitrate {conversionOptionsAudio.AudioBitRate}...";
+                    UpdateProgress(75);
                     engine.Convert(inputFile, outputFile, conversionOptionsAudio);
                     Thread.Sleep(500);
 
@@ -245,27 +250,34 @@ namespace YouTubeDownload
                     tfile.Tag.Title = title;
                     tfile.Tag.Comment = "Música descargada con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
                     tfile.Tag.Publisher = "Música descargada con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
-                    tfile.Tag.Album = vid.FullName;
-                    UpdateProgress(85);
-                    tfile.Save();
 
-                    labelEstado.Text = "Estado: Agregando metadatos al audio...";
-                    UpdateProgress(90);
+                    string patchNameAudio = vid.FullName;
+                    if (patchNameAudio.EndsWith(".mp4") || patchNameAudio.EndsWith(".webm"))
+                    {
+                        patchNameAudio = patchNameAudio.Replace(".mp4", "");
+                        patchNameAudio = patchNameAudio.Replace(".webm", "");
+                    }
+
+                    tfile.Tag.Album = patchNameAudio;
+                    tfile.Save();
+                    Thread.Sleep(500);
+
+                    labelEstado.Text = "Estado: Agregando portada al audio...";
+                    UpdateProgress(85);
                     SetAlbumArt(tfile);
                     Thread.Sleep(500);
 
                     // Delete video
                     if (radioButtonGuardarVideoNo.Checked == true)
                     {
-                        UpdateProgress(93);
+                        UpdateProgress(90);
                         labelEstado.Text = "Estado: Eliminando video...";
                         File.Delete(videopath);
                         Thread.Sleep(500);
                     } 
                     else if (radioButtonGuardarVideoNo.Checked == false)
                     {
-                        MessageBox.Show("entre");
-                        UpdateProgress(93);
+                        UpdateProgress(90);
                         labelEstado.Text = "Estado: Convirtiendo a FULL HD el video...";
                         engine.CustomCommand($" -i {videopath} -vf scale=-1920:1080 -map 0 -c:a copy -c:s copy {Path.GetFullPath(videopath) + Path.GetFileNameWithoutExtension(videopath) + "_FHD.mp4"}");
                     }
@@ -292,42 +304,42 @@ namespace YouTubeDownload
                     labelMDArtista.Hide();
                     Thread.Sleep(500);
                 }
+
+                labelEstado.Text = "Estado: Listo!";
+                UpdateProgress(100);
+
+                buttonComenzarDescarga.Cursor = Cursors.Hand;
+                buttonComenzarDescarga.Hide();
+                labelInfoDuracion.Text = "Duración: ...";
+                labelInfoTipo.Text = "Tipo: ...";
+                textBoxNombre.Text = "";
+                textBoxURL.Text = "";
+                labelInfoFormatoAudio.Text = "Formato Audio: ...";
+                labelAudioBitrate.Text = "Audio Bitrate: ...";
+                labelTmanoArchivo.Text = "Tamañano Del Archivo ...";
+                textBoxArtista.Text = "";
+                textBoxComentario.Text = "";
+                textBoxTituloCancion.Text = "";
+                pictureBox1.Image = Properties.Resources.favicon_144x144;
+                Thread.Sleep(500);
+
+                labelEstado.Text = "";
+                UpdateProgress(0);
+                labelEstado.Hide();
+                progressBar1.Hide();
+
+                MessageBox.Show("Listo! Se convirtió y se descargó el audio " + MP3Name + " y se guardó en " + downloadPath, "Audio procesado correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Process.Start(downloadPath);
+
+                _threadDownload = null;
+
             } 
             catch (Exception er)
             {
                 MessageBox.Show("Error al convertir canción! \nDetalle: " +er.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            labelEstado.Text = "Estado: Listo!";
-            UpdateProgress(100);
-            Thread.Sleep(1000);
-
-            MessageBox.Show("Listo! Se convirtió y se descargó el audio " + MP3Name + " y se guardó en " + downloadPath, "Audio procesado correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            buttonComenzarDescarga.Cursor = Cursors.Hand;
-            buttonComenzarDescarga.Hide();
-            labelEstado.Hide();
-            labelInfoDuracion.Text = "Duración: ...";
-            labelInfoTipo.Text = "Tipo: ...";
-            textBoxNombre.Text = "";
-            textBoxURL.Text = "";
-            labelInfoFormatoAudio.Text = "Formato Audio: ...";
-            labelAudioBitrate.Text = "Audio Bitrate: ...";
-            labelTmanoArchivo.Text = "Tamañano Del Archivo ...";
-            textBoxArtista.Text = "";
-            textBoxComentario.Text = "";
-            textBoxTituloCancion.Text = "";
-            pictureBox1.Image = Properties.Resources.favicon_144x144;
-            progressBar1.Hide();
-
-            UpdateProgress(100);
-
-            Process.Start(downloadPath);
-
-            _threadDownload = null;
-
-            UpdateProgress(0);
         }
 
         private void buttonComenzarDescarga_Click(object sender, EventArgs e)

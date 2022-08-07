@@ -272,7 +272,7 @@ namespace YouTubeDownload
                 engine.GetMetadata(inputFileC);
 
                 var options = new ConversionOptions();
-                options.CutMedia(TimeSpan.FromSeconds(timeCutGetCortar), TimeSpan.FromSeconds(timeCutGetOriginal));
+                options.CutMedia(TimeSpan.FromSeconds(timeCutGetOriginal), TimeSpan.FromSeconds(timeCutGetCortar));
 
                 progressBar1.Value = 90;
                 labelEstado.Text = $"Estado: Convirtiendo audio {timeCutGetOriginal} / {timeCutGetCortar}...";

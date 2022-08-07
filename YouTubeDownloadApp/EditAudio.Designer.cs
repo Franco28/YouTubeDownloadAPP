@@ -304,66 +304,80 @@
             // labelCPDA
             // 
             this.labelCPDA.AutoSize = true;
+            this.labelCPDA.Enabled = false;
             this.labelCPDA.Location = new System.Drawing.Point(497, 370);
             this.labelCPDA.Name = "labelCPDA";
             this.labelCPDA.Size = new System.Drawing.Size(191, 21);
             this.labelCPDA.TabIndex = 46;
             this.labelCPDA.Text = "Cortar Principio Del Audio";
+            this.labelCPDA.Visible = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(639, 403);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 21);
             this.label4.TabIndex = 51;
             this.label4.Text = ":";
+            this.label4.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Enabled = false;
             this.label5.Location = new System.Drawing.Point(561, 403);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 21);
             this.label5.TabIndex = 50;
             this.label5.Text = ":";
+            this.label5.Visible = false;
             // 
             // textBoxAudioSegundosP
             // 
+            this.textBoxAudioSegundosP.Enabled = false;
             this.textBoxAudioSegundosP.Location = new System.Drawing.Point(658, 400);
             this.textBoxAudioSegundosP.Name = "textBoxAudioSegundosP";
             this.textBoxAudioSegundosP.Size = new System.Drawing.Size(54, 29);
             this.textBoxAudioSegundosP.TabIndex = 49;
             this.textBoxAudioSegundosP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAudioSegundosP.Visible = false;
             this.textBoxAudioSegundosP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
             // 
             // textBoxAudioMinutosP
             // 
+            this.textBoxAudioMinutosP.Enabled = false;
             this.textBoxAudioMinutosP.Location = new System.Drawing.Point(579, 400);
             this.textBoxAudioMinutosP.Name = "textBoxAudioMinutosP";
             this.textBoxAudioMinutosP.Size = new System.Drawing.Size(54, 29);
             this.textBoxAudioMinutosP.TabIndex = 48;
             this.textBoxAudioMinutosP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAudioMinutosP.Visible = false;
             this.textBoxAudioMinutosP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
             // 
             // textBoxAudioHoraP
             // 
+            this.textBoxAudioHoraP.Enabled = false;
             this.textBoxAudioHoraP.Location = new System.Drawing.Point(501, 400);
             this.textBoxAudioHoraP.Name = "textBoxAudioHoraP";
             this.textBoxAudioHoraP.Size = new System.Drawing.Size(54, 29);
             this.textBoxAudioHoraP.TabIndex = 47;
             this.textBoxAudioHoraP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAudioHoraP.Visible = false;
             this.textBoxAudioHoraP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAudioHora_KeyPress);
             // 
             // buttonCortarPrincipio
             // 
             this.buttonCortarPrincipio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCortarPrincipio.Enabled = false;
             this.buttonCortarPrincipio.Location = new System.Drawing.Point(718, 400);
             this.buttonCortarPrincipio.Name = "buttonCortarPrincipio";
             this.buttonCortarPrincipio.Size = new System.Drawing.Size(157, 29);
             this.buttonCortarPrincipio.TabIndex = 52;
             this.buttonCortarPrincipio.Text = "Cortar Principio";
             this.buttonCortarPrincipio.UseVisualStyleBackColor = true;
+            this.buttonCortarPrincipio.Visible = false;
             this.buttonCortarPrincipio.Click += new System.EventHandler(this.buttonCortarPrincipio_Click);
             // 
             // label7

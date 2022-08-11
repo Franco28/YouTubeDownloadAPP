@@ -142,7 +142,7 @@ namespace YouTubeDownload
             progressBar1.Hide();
             labelEstado.Hide();
             buttonCutAudio.Show();
-            buttonCortarPrincipio.Show();
+            buttonCortarPrincipio.Hide();
 
             textBoxAudioHora.Enabled = true;
             textBoxAudioMinuto.Enabled = true;

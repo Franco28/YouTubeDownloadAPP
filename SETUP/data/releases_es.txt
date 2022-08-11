@@ -1,32 +1,17 @@
-------------------------
-- YouTube Download APP -
-------------------------
-
-Una aplicacion .NET de codigo abierto, bajo licencia MIT.
-
-¿Lo que puedes hacer? (CARACTERISTICAS)
-* Descargar videos de YouTube
-* Descargue videos y conviértalo a audio .mp3 o .wav
-* Agregar metadatos de audio (artista, comentario, titulo)
-
-¿Que no funciona? (ERORES)
-* Resolucion de descarga de video (descarga con la resolucion mas baja)
-
-Requisitos
-* Windows 7 +
-* .NET Framework v4.8
-
-Librerias - Creditos
-* MediaToolkit LIB (https://github.com/AydinAdn/MediaToolkit/tree/MajorRefactoring)
-* ffmpeg LIB (https://ffmpeg.org/)
-* AutoUpdater.NET (https://github.com/ravibpatel/AutoUpdater.NET)
-* VideoLibrary (https://github.com/omansak/libvideo)
-* Nil.JS (https://github.com/nilproject/NiL.JS/)
-* TagLib (https://github.com/mono/taglib-sharp)
+---------------------------------------------
+- YouTube Download APP REGISTROS DE CAMBIOS -
+---------------------------------------------
 
 -
 - Versiones 
 -
+
+############
+# v1.0.0.4 # - 11-08-2022
+############
+
+- [ARREGLADO] Librerias faltantes para las actualizaciones
+- [ARREGLADO] Cortar audio
 
 ############
 # v1.0.0.3 # - 07-08-2022
@@ -55,4 +40,26 @@ Librerias - Creditos
 
 - Inicio del programa
 
+####################################################################
 
+Una aplicacion .NET de codigo abierto, bajo licencia MIT.
+
+¿Lo que puedes hacer? (CARACTERISTICAS)
+* Descargar videos de YouTube
+* Descargue videos y conviértalo a audio .mp3 o .wav
+* Agregar metadatos de audio (artista, comentario, titulo)
+
+¿Que no funciona? (ERORES)
+* Resolucion de descarga de video (descarga con la resolucion mas baja)
+
+Requisitos
+* Windows 7 +
+* .NET Framework v4.8
+
+Librerias - Creditos
+* MediaToolkit LIB (https://github.com/AydinAdn/MediaToolkit/tree/MajorRefactoring)
+* ffmpeg LIB (https://ffmpeg.org/)
+* AutoUpdater.NET (https://github.com/ravibpatel/AutoUpdater.NET)
+* VideoLibrary (https://github.com/omansak/libvideo)
+* Nil.JS (https://github.com/nilproject/NiL.JS/)
+* TagLib (https://github.com/mono/taglib-sharp)

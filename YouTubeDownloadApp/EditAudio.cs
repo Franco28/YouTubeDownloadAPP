@@ -2,17 +2,13 @@
 using MediaToolkit.Model;
 using MediaToolkit.Options;
 using NAudio.Wave;
-using NiL.JS.Core;
 using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using Image = System.Drawing.Image;
 
 namespace YouTubeDownload
@@ -28,7 +24,6 @@ namespace YouTubeDownload
         
         private byte[] mp3FileDialog;
         private string filePath;
-        private bool wavFile = false;
 
         private WaveOutEvent outputDevice;
         private AudioFileReader audioFile;
@@ -98,8 +93,6 @@ namespace YouTubeDownload
 
                     progressBar1.Value = 60;
                     mp3FileDialog = File.ReadAllBytes(filePath);
-
-                    wavFile = false;
                 }
                 
                 if (Path.GetExtension(file) == ".wav")
@@ -113,8 +106,6 @@ namespace YouTubeDownload
                     filePath = Path.Combine(downloadPath, $"{Path.GetFileName(file)}");
 
                     mp3FileDialog = File.ReadAllBytes(file);
-
-                    wavFile = true;
                 }
 
                 progressBar1.Value = 75;

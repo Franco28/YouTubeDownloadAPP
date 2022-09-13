@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject>YouTubeDownloadAppNET.Program</StartupObject>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <BaseOutputPath>C:\Users\franc\Desktop\YouTubeDownloadAppNET\SETUP</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.1.0" />
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
+    <PackageReference Include="VideoLibrary" Version="3.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MediaToolkit.Core\MediaToolkit.Core.csproj" />
+    <ProjectReference Include="..\MediaToolkit\MediaToolkit.csproj" />
+  </ItemGroup>
+
+</Project>

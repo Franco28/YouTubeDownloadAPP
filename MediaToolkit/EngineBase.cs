@@ -12,13 +12,24 @@
 
     public class EngineBase : IDisposable
     {
+        public static string AssemblyDirectory
+        {
+            get
+            {
+                string codeBase = Assembly.GetExecutingAssembly().Location;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                return Path.GetDirectoryName(path);
+            }
+        }
+
         private bool isDisposed;
 
         /// <summary>   Used for locking the FFmpeg process to one thread. </summary>
         private const string LockName = "MediaToolkit.Engine.LockName";
 
-        private const string DefaultFFmpegFilePath = @"/YouTubeDownload/ffmpeg.exe";
-        private const string DefaultFFprobeFilePath = @"/YouTubeDownload/ffprobe.exe";
+        private string DefaultFFmpegFilePath = AssemblyDirectory + @"/ffmpeg.exe";
+        private string DefaultFFprobeFilePath = AssemblyDirectory +  @"/ffprobe.exe";
 
         /// <summary>   Full pathname of the FFmpeg file. </summary>
         protected readonly string FFmpegFilePath;

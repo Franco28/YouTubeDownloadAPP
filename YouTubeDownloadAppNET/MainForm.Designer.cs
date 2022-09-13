@@ -62,7 +62,6 @@
             this.textBoxComentario = new System.Windows.Forms.TextBox();
             this.labelMDArtista = new System.Windows.Forms.Label();
             this.textBoxArtista = new System.Windows.Forms.TextBox();
-            this.labelOTAS = new System.Windows.Forms.Label();
             this.buttonEditAudio = new System.Windows.Forms.Button();
             this.labelTmanoArchivo = new System.Windows.Forms.Label();
             this.groupBoxAuBitrate = new System.Windows.Forms.GroupBox();
@@ -80,30 +79,41 @@
             // 
             // textBoxURL
             // 
+            this.textBoxURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.textBoxURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxURL.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxURL.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxURL.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxURL.Location = new System.Drawing.Point(9, 89);
+            this.textBoxURL.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxURL.Location = new System.Drawing.Point(9, 92);
             this.textBoxURL.Name = "textBoxURL";
-            this.textBoxURL.Size = new System.Drawing.Size(523, 29);
+            this.textBoxURL.Size = new System.Drawing.Size(724, 29);
             this.textBoxURL.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(3, 49);
+            this.label1.Location = new System.Drawing.Point(3, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(350, 37);
+            this.label1.Size = new System.Drawing.Size(254, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingrese un LINK de YouTube";
             // 
             // buttonComenzarDescarga
             // 
+            this.buttonComenzarDescarga.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonComenzarDescarga.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonComenzarDescarga.Location = new System.Drawing.Point(12, 532);
+            this.buttonComenzarDescarga.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.buttonComenzarDescarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonComenzarDescarga.Location = new System.Drawing.Point(5, 557);
             this.buttonComenzarDescarga.Name = "buttonComenzarDescarga";
-            this.buttonComenzarDescarga.Size = new System.Drawing.Size(167, 38);
+            this.buttonComenzarDescarga.Size = new System.Drawing.Size(796, 38);
             this.buttonComenzarDescarga.TabIndex = 2;
             this.buttonComenzarDescarga.TabStop = false;
             this.buttonComenzarDescarga.Text = "Comenzar Descarga";
@@ -112,16 +122,25 @@
             // 
             // textBoxNombre
             // 
+            this.textBoxNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.textBoxNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNombre.Location = new System.Drawing.Point(10, 184);
+            this.textBoxNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxNombre.Location = new System.Drawing.Point(10, 189);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(523, 29);
+            this.textBoxNombre.Size = new System.Drawing.Size(723, 29);
             this.textBoxNombre.TabIndex = 1;
             // 
             // labelRuta
             // 
+            this.labelRuta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRuta.AutoSize = true;
-            this.labelRuta.Location = new System.Drawing.Point(12, 268);
+            this.labelRuta.ForeColor = System.Drawing.Color.Silver;
+            this.labelRuta.Location = new System.Drawing.Point(5, 28);
             this.labelRuta.Name = "labelRuta";
             this.labelRuta.Size = new System.Drawing.Size(132, 21);
             this.labelRuta.TabIndex = 5;
@@ -130,27 +149,32 @@
             // progressBar1
             // 
             this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.progressBar1.Location = new System.Drawing.Point(12, 597);
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar1.Location = new System.Drawing.Point(0, 628);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(797, 23);
+            this.progressBar1.Size = new System.Drawing.Size(1019, 29);
             this.progressBar1.TabIndex = 6;
             // 
             // labelEstado
             // 
+            this.labelEstado.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelEstado.ForeColor = System.Drawing.Color.Red;
-            this.labelEstado.Location = new System.Drawing.Point(10, 573);
+            this.labelEstado.Location = new System.Drawing.Point(0, 607);
             this.labelEstado.Name = "labelEstado";
-            this.labelEstado.Size = new System.Drawing.Size(799, 21);
+            this.labelEstado.Size = new System.Drawing.Size(1019, 21);
             this.labelEstado.TabIndex = 7;
             this.labelEstado.Text = "Estado:";
             // 
             // buttonGoToFolder
             // 
+            this.buttonGoToFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonGoToFolder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGoToFolder.Location = new System.Drawing.Point(12, 292);
+            this.buttonGoToFolder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
+            this.buttonGoToFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGoToFolder.Location = new System.Drawing.Point(739, 350);
             this.buttonGoToFolder.Name = "buttonGoToFolder";
-            this.buttonGoToFolder.Size = new System.Drawing.Size(200, 36);
+            this.buttonGoToFolder.Size = new System.Drawing.Size(268, 36);
             this.buttonGoToFolder.TabIndex = 8;
             this.buttonGoToFolder.TabStop = false;
             this.buttonGoToFolder.Text = "Ir a la carpeta de descarga";
@@ -159,10 +183,14 @@
             // 
             // buttonConvertir
             // 
+            this.buttonConvertir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonConvertir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonConvertir.Location = new System.Drawing.Point(10, 219);
+            this.buttonConvertir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
+            this.buttonConvertir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonConvertir.Location = new System.Drawing.Point(10, 231);
             this.buttonConvertir.Name = "buttonConvertir";
-            this.buttonConvertir.Size = new System.Drawing.Size(523, 38);
+            this.buttonConvertir.Size = new System.Drawing.Size(723, 38);
             this.buttonConvertir.TabIndex = 2;
             this.buttonConvertir.Text = "Obtener Datos Del Link";
             this.buttonConvertir.UseVisualStyleBackColor = true;
@@ -170,8 +198,9 @@
             // 
             // labelInfoDuracion
             // 
+            this.labelInfoDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelInfoDuracion.AutoSize = true;
-            this.labelInfoDuracion.Location = new System.Drawing.Point(537, 239);
+            this.labelInfoDuracion.Location = new System.Drawing.Point(735, 242);
             this.labelInfoDuracion.Name = "labelInfoDuracion";
             this.labelInfoDuracion.Size = new System.Drawing.Size(76, 21);
             this.labelInfoDuracion.TabIndex = 9;
@@ -179,8 +208,9 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(541, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(739, 49);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(268, 183);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,8 +219,9 @@
             // 
             // labelInfoTipo
             // 
+            this.labelInfoTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelInfoTipo.AutoSize = true;
-            this.labelInfoTipo.Location = new System.Drawing.Point(537, 260);
+            this.labelInfoTipo.Location = new System.Drawing.Point(735, 263);
             this.labelInfoTipo.Name = "labelInfoTipo";
             this.labelInfoTipo.Size = new System.Drawing.Size(116, 21);
             this.labelInfoTipo.TabIndex = 11;
@@ -198,8 +229,9 @@
             // 
             // labelInfoFormatoAudio
             // 
+            this.labelInfoFormatoAudio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelInfoFormatoAudio.AutoSize = true;
-            this.labelInfoFormatoAudio.Location = new System.Drawing.Point(537, 281);
+            this.labelInfoFormatoAudio.Location = new System.Drawing.Point(735, 284);
             this.labelInfoFormatoAudio.Name = "labelInfoFormatoAudio";
             this.labelInfoFormatoAudio.Size = new System.Drawing.Size(117, 21);
             this.labelInfoFormatoAudio.TabIndex = 12;
@@ -207,8 +239,9 @@
             // 
             // labelAudioBitrate
             // 
+            this.labelAudioBitrate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelAudioBitrate.AutoSize = true;
-            this.labelAudioBitrate.Location = new System.Drawing.Point(537, 302);
+            this.labelAudioBitrate.Location = new System.Drawing.Point(735, 305);
             this.labelAudioBitrate.Name = "labelAudioBitrate";
             this.labelAudioBitrate.Size = new System.Drawing.Size(103, 21);
             this.labelAudioBitrate.TabIndex = 13;
@@ -216,16 +249,20 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(7, 123);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(7, 131);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(459, 37);
+            this.label3.Size = new System.Drawing.Size(471, 33);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Ingrese NOMBRE del audio a guardar";
+            this.label3.Text = "Ingrese un NOMBRE para asignar al audio a guardar";
             // 
             // labelRed
             // 
+            this.labelRed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRed.AutoSize = true;
             this.labelRed.Location = new System.Drawing.Point(5, 4);
             this.labelRed.Name = "labelRed";
@@ -235,18 +272,24 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 161);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(12, 164);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(371, 21);
+            this.label2.Size = new System.Drawing.Size(384, 21);
             this.label2.TabIndex = 16;
             this.label2.Text = "(opcional, al obtener los datos se asgina un nombre)";
             // 
             // groupBoxAudioFormat
             // 
+            this.groupBoxAudioFormat.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBoxAudioFormat.Controls.Add(this.radioButtonWAV);
             this.groupBoxAudioFormat.Controls.Add(this.radioButtonMP3);
-            this.groupBoxAudioFormat.Location = new System.Drawing.Point(190, 354);
+            this.groupBoxAudioFormat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.groupBoxAudioFormat.Location = new System.Drawing.Point(12, 317);
             this.groupBoxAudioFormat.Name = "groupBoxAudioFormat";
             this.groupBoxAudioFormat.Size = new System.Drawing.Size(143, 62);
             this.groupBoxAudioFormat.TabIndex = 17;
@@ -281,29 +324,35 @@
             // 
             // labelOpcionesTitle
             // 
-            this.labelOpcionesTitle.AutoSize = true;
-            this.labelOpcionesTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOpcionesTitle.Location = new System.Drawing.Point(7, 338);
+            this.labelOpcionesTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelOpcionesTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelOpcionesTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelOpcionesTitle.Location = new System.Drawing.Point(12, 278);
             this.labelOpcionesTitle.Name = "labelOpcionesTitle";
-            this.labelOpcionesTitle.Size = new System.Drawing.Size(128, 37);
+            this.labelOpcionesTitle.Size = new System.Drawing.Size(702, 33);
             this.labelOpcionesTitle.TabIndex = 19;
             this.labelOpcionesTitle.Text = "Opciones";
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(525, 4);
+            this.label5.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(739, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(276, 37);
+            this.label5.Size = new System.Drawing.Size(205, 33);
             this.label5.TabIndex = 20;
             this.label5.Text = "Información del video";
             // 
             // groupBoxGuardarVideo
             // 
+            this.groupBoxGuardarVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxGuardarVideo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBoxGuardarVideo.Controls.Add(this.radioButtonGuardarVideoNo);
             this.groupBoxGuardarVideo.Controls.Add(this.radioButtonGuardarVideoSi);
-            this.groupBoxGuardarVideo.Location = new System.Drawing.Point(446, 446);
+            this.groupBoxGuardarVideo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.groupBoxGuardarVideo.Location = new System.Drawing.Point(514, 317);
             this.groupBoxGuardarVideo.Name = "groupBoxGuardarVideo";
             this.groupBoxGuardarVideo.Size = new System.Drawing.Size(200, 62);
             this.groupBoxGuardarVideo.TabIndex = 18;
@@ -336,12 +385,16 @@
             // 
             // buttonHelp
             // 
+            this.buttonHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonHelp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonHelp.Cursor = System.Windows.Forms.Cursors.Help;
+            this.buttonHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
+            this.buttonHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonHelp.Image = ((System.Drawing.Image)(resources.GetObject("buttonHelp.Image")));
             this.buttonHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonHelp.Location = new System.Drawing.Point(692, 554);
+            this.buttonHelp.Location = new System.Drawing.Point(807, 585);
             this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(117, 37);
+            this.buttonHelp.Size = new System.Drawing.Size(200, 37);
             this.buttonHelp.TabIndex = 21;
             this.buttonHelp.Text = "App Info";
             this.buttonHelp.UseVisualStyleBackColor = true;
@@ -349,25 +402,35 @@
             // 
             // labelMetadatos
             // 
-            this.labelMetadatos.AutoSize = true;
-            this.labelMetadatos.Location = new System.Drawing.Point(8, 380);
+            this.labelMetadatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMetadatos.BackColor = System.Drawing.Color.Transparent;
+            this.labelMetadatos.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelMetadatos.Location = new System.Drawing.Point(12, 390);
             this.labelMetadatos.Name = "labelMetadatos";
-            this.labelMetadatos.Size = new System.Drawing.Size(142, 21);
+            this.labelMetadatos.Size = new System.Drawing.Size(702, 33);
             this.labelMetadatos.TabIndex = 22;
             this.labelMetadatos.Text = "Asignar MetaDatos";
             // 
             // textBoxTituloCancion
             // 
-            this.textBoxTituloCancion.Location = new System.Drawing.Point(12, 430);
+            this.textBoxTituloCancion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxTituloCancion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.textBoxTituloCancion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxTituloCancion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxTituloCancion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxTituloCancion.Location = new System.Drawing.Point(12, 454);
             this.textBoxTituloCancion.Name = "textBoxTituloCancion";
-            this.textBoxTituloCancion.Size = new System.Drawing.Size(167, 29);
+            this.textBoxTituloCancion.Size = new System.Drawing.Size(245, 29);
             this.textBoxTituloCancion.TabIndex = 23;
             this.textBoxTituloCancion.TabStop = false;
             // 
             // labelMDTitulo
             // 
+            this.labelMDTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMDTitulo.AutoSize = true;
-            this.labelMDTitulo.Location = new System.Drawing.Point(12, 406);
+            this.labelMDTitulo.Location = new System.Drawing.Point(12, 430);
             this.labelMDTitulo.Name = "labelMDTitulo";
             this.labelMDTitulo.Size = new System.Drawing.Size(49, 21);
             this.labelMDTitulo.TabIndex = 24;
@@ -375,8 +438,10 @@
             // 
             // labelMDComment
             // 
+            this.labelMDComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMDComment.AutoSize = true;
-            this.labelMDComment.Location = new System.Drawing.Point(193, 422);
+            this.labelMDComment.Location = new System.Drawing.Point(263, 430);
             this.labelMDComment.Name = "labelMDComment";
             this.labelMDComment.Size = new System.Drawing.Size(92, 21);
             this.labelMDComment.TabIndex = 26;
@@ -384,17 +449,25 @@
             // 
             // textBoxComentario
             // 
-            this.textBoxComentario.Location = new System.Drawing.Point(193, 446);
+            this.textBoxComentario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxComentario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.textBoxComentario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxComentario.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxComentario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxComentario.Location = new System.Drawing.Point(263, 454);
             this.textBoxComentario.Multiline = true;
             this.textBoxComentario.Name = "textBoxComentario";
-            this.textBoxComentario.Size = new System.Drawing.Size(247, 68);
+            this.textBoxComentario.Size = new System.Drawing.Size(538, 84);
             this.textBoxComentario.TabIndex = 25;
             this.textBoxComentario.TabStop = false;
             // 
             // labelMDArtista
             // 
+            this.labelMDArtista.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMDArtista.AutoSize = true;
-            this.labelMDArtista.Location = new System.Drawing.Point(12, 461);
+            this.labelMDArtista.Location = new System.Drawing.Point(12, 485);
             this.labelMDArtista.Name = "labelMDArtista";
             this.labelMDArtista.Size = new System.Drawing.Size(55, 21);
             this.labelMDArtista.TabIndex = 28;
@@ -402,28 +475,28 @@
             // 
             // textBoxArtista
             // 
-            this.textBoxArtista.Location = new System.Drawing.Point(12, 485);
+            this.textBoxArtista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxArtista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.textBoxArtista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxArtista.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxArtista.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxArtista.Location = new System.Drawing.Point(12, 509);
             this.textBoxArtista.Name = "textBoxArtista";
-            this.textBoxArtista.Size = new System.Drawing.Size(167, 29);
+            this.textBoxArtista.Size = new System.Drawing.Size(245, 29);
             this.textBoxArtista.TabIndex = 27;
             this.textBoxArtista.TabStop = false;
             // 
-            // labelOTAS
-            // 
-            this.labelOTAS.AutoSize = true;
-            this.labelOTAS.Location = new System.Drawing.Point(6, 28);
-            this.labelOTAS.Name = "labelOTAS";
-            this.labelOTAS.Size = new System.Drawing.Size(108, 21);
-            this.labelOTAS.TabIndex = 29;
-            this.labelOTAS.Text = "Actualización: ";
-            // 
             // buttonEditAudio
             // 
+            this.buttonEditAudio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEditAudio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonEditAudio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEditAudio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
+            this.buttonEditAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditAudio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEditAudio.Location = new System.Drawing.Point(569, 554);
+            this.buttonEditAudio.Location = new System.Drawing.Point(807, 542);
             this.buttonEditAudio.Name = "buttonEditAudio";
-            this.buttonEditAudio.Size = new System.Drawing.Size(117, 37);
+            this.buttonEditAudio.Size = new System.Drawing.Size(200, 37);
             this.buttonEditAudio.TabIndex = 30;
             this.buttonEditAudio.Text = "Editar Audio";
             this.buttonEditAudio.UseVisualStyleBackColor = true;
@@ -431,8 +504,9 @@
             // 
             // labelTmanoArchivo
             // 
+            this.labelTmanoArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTmanoArchivo.AutoSize = true;
-            this.labelTmanoArchivo.Location = new System.Drawing.Point(537, 323);
+            this.labelTmanoArchivo.Location = new System.Drawing.Point(735, 326);
             this.labelTmanoArchivo.Name = "labelTmanoArchivo";
             this.labelTmanoArchivo.Size = new System.Drawing.Size(168, 21);
             this.labelTmanoArchivo.TabIndex = 31;
@@ -440,13 +514,17 @@
             // 
             // groupBoxAuBitrate
             // 
+            this.groupBoxAuBitrate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxAuBitrate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB16);
             this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB32);
             this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB96);
             this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB128);
             this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB196);
             this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB320);
-            this.groupBoxAuBitrate.Location = new System.Drawing.Point(339, 354);
+            this.groupBoxAuBitrate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.groupBoxAuBitrate.Location = new System.Drawing.Point(161, 317);
             this.groupBoxAuBitrate.Name = "groupBoxAuBitrate";
             this.groupBoxAuBitrate.Size = new System.Drawing.Size(347, 62);
             this.groupBoxAuBitrate.TabIndex = 18;
@@ -525,11 +603,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(818, 632);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.ClientSize = new System.Drawing.Size(1019, 657);
             this.Controls.Add(this.groupBoxAuBitrate);
             this.Controls.Add(this.labelTmanoArchivo);
             this.Controls.Add(this.buttonEditAudio);
-            this.Controls.Add(this.labelOTAS);
             this.Controls.Add(this.labelMDArtista);
             this.Controls.Add(this.textBoxArtista);
             this.Controls.Add(this.labelMDComment);
@@ -560,13 +639,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxURL);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Descargar Música Y Videos De YouTube - Por @Franco28";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DescargarMusica_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DescargarMusica_FormClosed);
             this.Load += new System.EventHandler(this.DescargarMusica_Load);
@@ -617,7 +696,6 @@
         private System.Windows.Forms.TextBox textBoxComentario;
         private System.Windows.Forms.Label labelMDArtista;
         private System.Windows.Forms.TextBox textBoxArtista;
-        private System.Windows.Forms.Label labelOTAS;
         private System.Windows.Forms.Button buttonEditAudio;
         private System.Windows.Forms.Label labelTmanoArchivo;
         private System.Windows.Forms.GroupBox groupBoxAuBitrate;

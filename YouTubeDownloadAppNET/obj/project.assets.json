@@ -2085,11 +2085,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\YouTubeDownloadAppNET\\YouTubeDownloadAppNET.csproj",
+      "projectUniqueName": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\YouTubeDownloadAppNET\\YouTubeDownloadAppNET.csproj",
       "projectName": "YouTubeDownloadAppNET",
-      "projectPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\YouTubeDownloadAppNET\\YouTubeDownloadAppNET.csproj",
+      "projectPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\YouTubeDownloadAppNET\\YouTubeDownloadAppNET.csproj",
       "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\YouTubeDownloadAppNET\\obj\\",
+      "outputPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\YouTubeDownloadAppNET\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2106,11 +2106,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\MediaToolkit.Core\\MediaToolkit.Core.csproj": {
-              "projectPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\MediaToolkit.Core\\MediaToolkit.Core.csproj"
+            "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit.Core\\MediaToolkit.Core.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit.Core\\MediaToolkit.Core.csproj"
             },
-            "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\MediaToolkit\\MediaToolkit.csproj": {
-              "projectPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\MediaToolkit\\MediaToolkit.csproj"
+            "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit\\MediaToolkit.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit\\MediaToolkit.csproj"
             }
           }
         }

@@ -8,11 +8,39 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>YouTubeDownloadAppNET.Program</StartupObject>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <BaseOutputPath>C:\Users\franc\Desktop\YouTubeDownloadAppNET\SETUP</BaseOutputPath>
+    <BaseOutputPath>C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP</BaseOutputPath>
+    <AssemblyVersion>1.0.0.5</AssemblyVersion>
+    <FileVersion>1.0.0.5</FileVersion>
+    <PackageReleaseNotes>* Se actualizo el entorno de .NET Framework 4.8 a .NET 6.0
+* Se acutlizo la libreria para obtener los datos de YouTube
+* Se hicieron cambios visuales</PackageReleaseNotes>
+    <PackageTags>youtube;downloadmusic;downloadyoutube;descargamusica;descargamusicayoutube;google</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Franco28/YouTubeDownloadAPP</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.ico</PackageIcon>
+    <Copyright>Franco28</Copyright>
+    <Description>A .NET APP para descargar musica de YouTube</Description>
+    <Title>YouTubeDownload APP</Title>
+    <PackageProjectUrl>https://sourceforge.net/projects/youtubedownloadapp/</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +52,13 @@
   <ItemGroup>
     <ProjectReference Include="..\MediaToolkit.Core\MediaToolkit.Core.csproj" />
     <ProjectReference Include="..\MediaToolkit\MediaToolkit.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="icon.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

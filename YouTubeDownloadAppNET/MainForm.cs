@@ -393,8 +393,6 @@ namespace YouTubeDownload
         {
             AvoidFlick();
 
-            labelOTAS.Text = "Actualización: Obteniendo información...";
-
             // Extraigo libreria de audio
             try
             {

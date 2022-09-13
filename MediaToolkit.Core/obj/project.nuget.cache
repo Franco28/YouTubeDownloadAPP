@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GPX2Z4ZmNsCUTRVedlhL6noSeREwP4N6cxQbBmJW08Pk7xkfBSQx2o/FyKbAF/Tcs8IlK4ct8C0XIW3Jk2Nw4Q==",
+  "dgSpecHash": "l87+S88nr/b9Ft0+MkR5ZhUyzHA0LoTBkg9w3a3mQhC10K15mxEjvPzHXrWP8z/bJH39Sz1u6IvfjEgXxU/AmQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\MediaToolkit.Core\\MediaToolkit.Core.csproj",
+  "projectFilePath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit.Core\\MediaToolkit.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\franc\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",

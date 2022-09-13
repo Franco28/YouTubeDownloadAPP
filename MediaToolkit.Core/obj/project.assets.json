@@ -420,11 +420,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\MediaToolkit.Core\\MediaToolkit.Core.csproj",
+      "projectUniqueName": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit.Core\\MediaToolkit.Core.csproj",
       "projectName": "MediaToolkit.Core",
-      "projectPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\MediaToolkit.Core\\MediaToolkit.Core.csproj",
+      "projectPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit.Core\\MediaToolkit.Core.csproj",
       "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAppNET\\MediaToolkit.Core\\obj\\",
+      "outputPath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",

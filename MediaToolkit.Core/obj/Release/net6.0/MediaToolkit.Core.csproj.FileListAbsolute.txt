@@ -1,0 +1,12 @@
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\bin\Release\net6.0\MediaToolkit.Core.deps.json
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\bin\Release\net6.0\MediaToolkit.Core.dll
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\bin\Release\net6.0\MediaToolkit.Core.pdb
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\MediaToolkit.Core.csproj.AssemblyReference.cache
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\MediaToolkit.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\MediaToolkit.Core.AssemblyInfoInputs.cache
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\MediaToolkit.Core.AssemblyInfo.cs
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\MediaToolkit.Core.csproj.CoreCompileInputs.cache
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\MediaToolkit.Core.dll
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\refint\MediaToolkit.Core.dll
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\MediaToolkit.Core.pdb
+C:\Users\franc\Desktop\YouTubeDownloadAPP\MediaToolkit.Core\obj\Release\net6.0\ref\MediaToolkit.Core.dll

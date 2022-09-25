@@ -2,10 +2,10 @@ C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Release\net6.0-windows\YouTubeDo
 C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Release\net6.0-windows\YouTubeDownloadAppNET.deps.json
 C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Release\net6.0-windows\YouTubeDownloadAppNET.runtimeconfig.json
 C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Release\net6.0-windows\YouTubeDownloadAppNET.dll
-C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Release\net6.0-windows\YouTubeDownloadAppNET.pdb
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownloadAppNET.csproj.AssemblyReference.cache
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownload.About.resources
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownload.EditAudio.resources
+C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownloadAppNET.Loader.resources
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownload.MainForm.resources
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownloadAppNET.Properties.Resources.resources
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownloadAppNET.csproj.GenerateResource.cache
@@ -16,6 +16,5 @@ C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownloadAppNET.csproj.CopyComplete
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownloadAppNET.dll
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\refint\YouTubeDownloadAppNET.dll
-C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownloadAppNET.pdb
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\YouTubeDownloadAppNET.genruntimeconfig.cache
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Release\net6.0-windows\ref\YouTubeDownloadAppNET.dll

@@ -71,6 +71,7 @@
             // buttonCargarAudio
             // 
             this.buttonCargarAudio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCargarAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCargarAudio.Location = new System.Drawing.Point(303, 67);
             this.buttonCargarAudio.Name = "buttonCargarAudio";
             this.buttonCargarAudio.Size = new System.Drawing.Size(227, 45);
@@ -82,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(807, 45);
@@ -92,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(13, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(274, 45);
@@ -105,7 +106,7 @@
             // 
             // labelEstado
             // 
-            this.labelEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelEstado.ForeColor = System.Drawing.Color.Red;
             this.labelEstado.Location = new System.Drawing.Point(12, 445);
             this.labelEstado.Name = "labelEstado";
@@ -130,6 +131,7 @@
             this.buttonPlay.Size = new System.Drawing.Size(47, 45);
             this.buttonPlay.TabIndex = 10;
             this.buttonPlay.UseVisualStyleBackColor = true;
+            this.buttonPlay.Visible = false;
             this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
             // buttonPause
@@ -141,6 +143,7 @@
             this.buttonPause.Size = new System.Drawing.Size(47, 45);
             this.buttonPause.TabIndex = 11;
             this.buttonPause.UseVisualStyleBackColor = true;
+            this.buttonPause.Visible = false;
             this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // buttonStop
@@ -152,6 +155,7 @@
             this.buttonStop.Size = new System.Drawing.Size(47, 45);
             this.buttonStop.TabIndex = 12;
             this.buttonStop.UseVisualStyleBackColor = true;
+            this.buttonStop.Visible = false;
             this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
             // 
             // labelTiempoTranscurrido
@@ -162,6 +166,7 @@
             this.labelTiempoTranscurrido.Size = new System.Drawing.Size(199, 21);
             this.labelTiempoTranscurrido.TabIndex = 13;
             this.labelTiempoTranscurrido.Text = "Tiempo Transcurrido: 00:00";
+            this.labelTiempoTranscurrido.Visible = false;
             // 
             // labelTiempoTotal
             // 
@@ -171,11 +176,12 @@
             this.labelTiempoTotal.Size = new System.Drawing.Size(144, 21);
             this.labelTiempoTotal.TabIndex = 14;
             this.labelTiempoTotal.Text = "Tiempo Total: 00:00";
+            this.labelTiempoTotal.Visible = false;
             // 
             // labelRutaAudio
             // 
             this.labelRutaAudio.AutoSize = true;
-            this.labelRutaAudio.Location = new System.Drawing.Point(17, 257);
+            this.labelRutaAudio.Location = new System.Drawing.Point(17, 263);
             this.labelRutaAudio.Name = "labelRutaAudio";
             this.labelRutaAudio.Size = new System.Drawing.Size(45, 21);
             this.labelRutaAudio.TabIndex = 15;
@@ -229,7 +235,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(777, 67);
+            this.pictureBox1.Location = new System.Drawing.Point(777, 62);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(246, 194);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -248,6 +254,7 @@
             // buttonCutAudio
             // 
             this.buttonCutAudio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCutAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCutAudio.Location = new System.Drawing.Point(230, 399);
             this.buttonCutAudio.Name = "buttonCutAudio";
             this.buttonCutAudio.Size = new System.Drawing.Size(157, 29);
@@ -371,6 +378,7 @@
             // 
             this.buttonCortarPrincipio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCortarPrincipio.Enabled = false;
+            this.buttonCortarPrincipio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCortarPrincipio.Location = new System.Drawing.Point(718, 400);
             this.buttonCortarPrincipio.Name = "buttonCortarPrincipio";
             this.buttonCortarPrincipio.Size = new System.Drawing.Size(157, 29);
@@ -384,7 +392,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(425, 400);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 45);
@@ -395,7 +403,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(425, 355);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 45);
@@ -406,7 +414,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.Location = new System.Drawing.Point(425, 310);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 45);
@@ -419,6 +427,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1035, 504);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -455,7 +464,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCargarAudio);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ForeColor = System.Drawing.Color.Gainsboro;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

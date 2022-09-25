@@ -6,6 +6,7 @@
     using System.IO;
     using System.IO.Compression;
     using System.Reflection;
+    using System.Reflection.Emit;
     using System.Threading;
     using MediaToolkit.Core.Utilities;
     using MediaToolkit.Properties;

@@ -4,6 +4,7 @@ using MediaToolkit.Options;
 using System.Diagnostics;
 using System.Web;
 using VideoLibrary;
+using YouTubeDownloadAppNET;
 
 namespace YouTubeDownload
 {
@@ -11,9 +12,29 @@ namespace YouTubeDownload
     {
         public MainForm()
         {
-            InitializeComponent();
+            // Extraigo libreria de audio
+            try
+            {
+                Loader aForm = new Loader();
+                aForm.Show();
 
-            CheckForIllegalCrossThreadCalls = false;
+                Thread.Sleep(10000);
+
+                var en = new Engine();
+
+                Thread.Sleep(1000);
+
+                aForm.Close();
+
+                InitializeComponent();
+                CheckForIllegalCrossThreadCalls = false;
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Error con la librería de audio! \n\nDetalle: " + er.StackTrace, "ERROR AUDIO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Interface.PanicKill();
+                return;
+            }
         }
 
         private string downloadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "YouTubeDownload");
@@ -193,7 +214,7 @@ namespace YouTubeDownload
                 using (var engine = new Engine())
                 {
                     // Get metadata video
-                    labelEstado.Text = "Estado: Obteniendo metadatos del video...";
+                    labelEstado.Text = $"Estado: Obteniendo metadatos del video...";
                     UpdateProgress(60);
                     engine.GetMetadata(inputFile);
                     Thread.Sleep(500);
@@ -211,7 +232,7 @@ namespace YouTubeDownload
                     Thread.Sleep(500);
 
                     // Metadata
-                    labelEstado.Text = "Estado: Agregando metadatos al audio...";
+                    labelEstado.Text = $"Estado: Agregando metadatos al audio...";
                     UpdateProgress(80);
 
                     // Metadata artist
@@ -239,8 +260,8 @@ namespace YouTubeDownload
                     // Set metadata audio
                     var tfile = TagLib.File.Create(outputFile_Path);
                     tfile.Tag.Title = title;
-                    tfile.Tag.Comment = "Música descargada con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
-                    tfile.Tag.Publisher = "Música descargada con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
+                    tfile.Tag.Comment = $"Música/Video descargada con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
+                    tfile.Tag.Publisher = $"Música/Video descargada con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
 
                     string patchNameAudio = vid.FullName;
                     if (patchNameAudio.EndsWith(".mp4") || patchNameAudio.EndsWith(".webm"))
@@ -262,25 +283,25 @@ namespace YouTubeDownload
                     if (radioButtonGuardarVideoNo.Checked == true)
                     {
                         UpdateProgress(90);
-                        labelEstado.Text = "Estado: Eliminando video...";
+                        labelEstado.Text = $"Estado: Eliminando video...";
                         File.Delete(videopath);
                         Thread.Sleep(500);
                     } 
                     else if (radioButtonGuardarVideoNo.Checked == false)
                     {
                         UpdateProgress(90);
-                        labelEstado.Text = "Estado: Convirtiendo a FULL HD el video...";
+                        labelEstado.Text = $"Estado: Convirtiendo a FULL HD el video...";
                         engine.CustomCommand($" -i {videopath} -vf scale=-1920:1080 -map 0 -c:a copy -c:s copy {Path.GetFullPath(videopath) + Path.GetFileNameWithoutExtension(videopath) + "_FHD.mp4"}");
                     }
 
                     // Delete coverart
-                    labelEstado.Text = "Estado: Eliminando archivos basura...";
+                    labelEstado.Text = $"Estado: Eliminando archivos basura...";
                     UpdateProgress(95);
                     File.Delete(downloadPath + @"\cover.jpeg");
                     Thread.Sleep(500);
 
                     // Hide components
-                    labelEstado.Text = "Estado: Terminando...";
+                    labelEstado.Text = $"Estado: Terminando...";
                     UpdateProgress(98);
                     groupBoxAuBitrate.Hide();
                     groupBoxAudioFormat.Hide();
@@ -318,17 +339,15 @@ namespace YouTubeDownload
                 UpdateProgress(0);
                 labelEstado.Hide();
                 progressBar1.Hide();
+                _threadDownload = null;
 
                 MessageBox.Show("Listo! Se convirtió y se descargó el audio " + MP3Name + " y se guardó en " + downloadPath, "Audio procesado correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Process.Start(new ProcessStartInfo { FileName = @downloadPath, UseShellExecute = true });
-
-                _threadDownload = null;
-
             } 
             catch (Exception er)
             {
-                MessageBox.Show("Error al convertir canción! \nDetalle: " +er.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al convertir, descargar, o iniciar la carpeta de descarga. \n\nDetalle: " +er.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -392,17 +411,6 @@ namespace YouTubeDownload
         private void DescargarMusica_Load(object sender, EventArgs e)
         {
             AvoidFlick();
-
-            // Extraigo libreria de audio
-            try
-            {
-                var en = new Engine();
-            }
-            catch (Exception er)
-            {
-                MessageBox.Show("Error con la librería de audio! \nDetalle: " + er.Message, "ERROR AUDIO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             System.Threading.Timer timerRed = new System.Threading.Timer(_ => timerRed_Tick(), null, 0, 1 * 500);
 

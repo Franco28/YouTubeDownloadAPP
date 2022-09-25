@@ -645,7 +645,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Descargar Música Y Videos De YouTube - Por @Franco28";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DescargarMusica_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DescargarMusica_FormClosed);
             this.Load += new System.EventHandler(this.DescargarMusica_Load);

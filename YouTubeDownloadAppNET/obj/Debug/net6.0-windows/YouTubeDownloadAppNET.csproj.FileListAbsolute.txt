@@ -19,6 +19,10 @@ C:\Users\franc\Desktop\YouTubeDownloadAppNET\SETUP\Debug\net6.0-windows\YouTubeD
 C:\Users\franc\Desktop\YouTubeDownloadAppNET\SETUP\Debug\net6.0-windows\YouTubeDownloadAppNET.runtimeconfig.json
 C:\Users\franc\Desktop\YouTubeDownloadAppNET\SETUP\Debug\net6.0-windows\YouTubeDownloadAppNET.dll
 C:\Users\franc\Desktop\YouTubeDownloadAppNET\SETUP\Debug\net6.0-windows\YouTubeDownloadAppNET.pdb
+C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Debug\net6.0-windows\YouTubeDownloadAppNET.exe
+C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Debug\net6.0-windows\YouTubeDownloadAppNET.deps.json
+C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Debug\net6.0-windows\YouTubeDownloadAppNET.runtimeconfig.json
+C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Debug\net6.0-windows\YouTubeDownloadAppNET.dll
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\YouTubeDownloadAppNET.csproj.AssemblyReference.cache
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\YouTubeDownload.About.resources
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\YouTubeDownload.EditAudio.resources
@@ -32,6 +36,6 @@ C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\YouTubeDownloadAppNET.csproj.CopyComplete
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\YouTubeDownloadAppNET.dll
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\refint\YouTubeDownloadAppNET.dll
-C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\YouTubeDownloadAppNET.pdb
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\YouTubeDownloadAppNET.genruntimeconfig.cache
 C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\ref\YouTubeDownloadAppNET.dll
+C:\Users\franc\Desktop\YouTubeDownloadAPP\YouTubeDownloadAppNET\obj\Debug\net6.0-windows\YouTubeDownloadAppNET.Loader.resources

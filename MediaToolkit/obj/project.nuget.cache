@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VjC6tbNN12JB9SiSC8TUU0d0vkMVOwFD7ABjreMARl3hc3mVa+0KLUOJWciopgYLFnsgwKN+Dp6+BugDWmnRYg==",
+  "dgSpecHash": "xMG8y5fHDQT66/v8pUvl1K2QcSIqkW1U2ARJ0Gsrp77FTHjj58alhH6duTS74JUIoJ0jTjJRueQBOTerN0j5Hw==",
   "success": true,
   "projectFilePath": "C:\\Users\\franc\\Desktop\\YouTubeDownloadAPP\\MediaToolkit\\MediaToolkit.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,7 @@
     "C:\\Users\\franc\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\franc\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",

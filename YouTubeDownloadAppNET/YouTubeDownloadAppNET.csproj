@@ -28,6 +28,14 @@
     <SignAssembly>False</SignAssembly>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
   <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
@@ -45,8 +53,9 @@
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.1.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="6.0.0" />
     <PackageReference Include="TagLibSharp" Version="2.3.0" />
-    <PackageReference Include="VideoLibrary" Version="3.2.1" />
+    <PackageReference Include="VideoLibrary" Version="3.2.2" />
   </ItemGroup>
 
   <ItemGroup>

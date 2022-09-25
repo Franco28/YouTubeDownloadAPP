@@ -132,4 +132,11 @@
   <data name="Exception_Media_Input_File_Not_Found" xml:space="preserve">
     <value>Input file not found</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="FFmpeg.exe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>ffmpeg.exe.gz;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FFprobe.exe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>ffprobe.exe.gz;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

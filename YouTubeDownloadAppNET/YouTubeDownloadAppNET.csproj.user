@@ -7,9 +7,6 @@
     <Compile Update="EditAudio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Loader.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

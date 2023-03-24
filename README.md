@@ -4,7 +4,7 @@ A .NET APP to download videos and convert it to .mp3 or .wav from YouTube
 # IMPORTANT!, ALL APP IS IN SPANISH. IF YOU WANT ANOTHER LANGUAGE, TRANSLATE IT.
 
 ## Prerequisites Windows
-- You must have .NET Framework 4.8 installed on your PC (Select .NET Framework 4.8 Runtime) * [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) 
+- You must have .NET 7 installed on your PC (Select .NET 7 Runtime) * [.NET 7](https://download.visualstudio.microsoft.com/download/pr/b6a55627-12de-482a-aea8-17d635f4b775/d8798c0c796a945c657d04438cf9b84d/windowsdesktop-runtime-7.0.4-win-x64.exe) 
 - Windows 7+ x64 (64) or x86 (32) Bits
 
 ## Install

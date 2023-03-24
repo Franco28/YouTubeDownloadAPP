@@ -1,15 +1,16 @@
-﻿using MediaToolkit.Core.Utilities;
+﻿using MediaToolkit;
+using MediaToolkit.Core.Utilities;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 
-namespace YouTubeDownload
+namespace YouTubeDownloadAppNET.Class
 {
-    public class Interface
+    public class MainClass
     {
 
-        static readonly string[] SizeSuffixes =
-                  { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
-        public static string SizeSuffix(Int64 value, int decimalPlaces = 1)
+        private static readonly string[] SizeSuffixes = { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+
+        public static string SizeSuffix(long value, int decimalPlaces = 1)
         {
             if (decimalPlaces < 0) { throw new ArgumentOutOfRangeException("decimalPlaces"); }
             if (value < 0) { return "-" + SizeSuffix(-value, decimalPlaces); }
@@ -20,7 +21,7 @@ namespace YouTubeDownload
 
             // 1L << (mag * 10) == 2 ^ (10 * mag) 
             // [i.e. the number of bytes in the unit corresponding to mag]
-            decimal adjustedSize = (decimal)value / (1L << (mag * 10));
+            decimal adjustedSize = (decimal)value / (1L << mag * 10);
 
             // make adjustment when the value is large enough that
             // it would round up to 1000 or more
@@ -44,7 +45,7 @@ namespace YouTubeDownload
                            process.WaitForExit();
                        });
         }
- 
+
         public static bool CheckConnectivity(int timeout_per_host_millis = 1000, string[] hosts_to_ping = null)
         {
             bool network_available = NetworkInterface.GetIsNetworkAvailable();
@@ -66,6 +67,20 @@ namespace YouTubeDownload
                 }
             }
             return false;
+        }
+
+        public static void ExtractLibFiles()
+        {
+            try
+            {
+                var en = new Engine();
+                en.Dispose();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show("Error con la librería de audio! \n\nDetalle: " + er.StackTrace, "ERROR AUDIO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PanicKill();
+            }
         }
     }
 }

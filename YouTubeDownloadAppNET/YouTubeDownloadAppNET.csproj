@@ -8,7 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>YouTubeDownloadAppNET.Program</StartupObject>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <BaseOutputPath>C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP</BaseOutputPath>
+    <BaseOutputPath>C:\Users\franc\Escritorio\YouTubeDownloadAPP\SETUP</BaseOutputPath>
     <AssemblyVersion>1.0.0.5</AssemblyVersion>
     <FileVersion>1.0.0.5</FileVersion>
     <PackageReleaseNotes>* Se actualizo el entorno de .NET Framework 4.8 a .NET 6.0

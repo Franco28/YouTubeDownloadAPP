@@ -4,6 +4,7 @@ using MediaToolkit.Options;
 using NAudio.Wave;
 using System.Diagnostics;
 using System.Drawing.Imaging;
+using YouTubeDownloadAppNET.Class;
 using Image = System.Drawing.Image;
 
 namespace YouTubeDownload
@@ -113,7 +114,7 @@ namespace YouTubeDownload
             long size = mp3FileDialog.Length;
             labelAudioBitrate.Text = "Audio Bitrate: " + inputFile.Metadata.AudioData.BitRateKbs.ToString() + "Kbs";
             labelTipoArchivo.Text = "Tipo Archivo: " + Path.GetExtension(file);
-            labelTamanoArchivo.Text = "Tamaño Del Archivo: " + Interface.SizeSuffix(size);
+            labelTamanoArchivo.Text = "Tamaño Del Archivo: " + MainClass.SizeSuffix(size);
             labelTiempoTotal.Text = "Tiempo Total: " + inputFile.Metadata.Duration.Minutes + ":" + inputFile.Metadata.Duration.Seconds + " minutos";
             labelRutaAudio.Text = "Ruta: " + filePath;
 

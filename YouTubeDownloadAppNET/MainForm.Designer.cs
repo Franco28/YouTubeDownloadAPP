@@ -29,680 +29,665 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.textBoxURL = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonComenzarDescarga = new System.Windows.Forms.Button();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.labelRuta = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.labelEstado = new System.Windows.Forms.Label();
-            this.buttonGoToFolder = new System.Windows.Forms.Button();
-            this.buttonConvertir = new System.Windows.Forms.Button();
-            this.labelInfoDuracion = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelInfoTipo = new System.Windows.Forms.Label();
-            this.labelInfoFormatoAudio = new System.Windows.Forms.Label();
-            this.labelAudioBitrate = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelRed = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBoxAudioFormat = new System.Windows.Forms.GroupBox();
-            this.radioButtonWAV = new System.Windows.Forms.RadioButton();
-            this.radioButtonMP3 = new System.Windows.Forms.RadioButton();
-            this.labelOpcionesTitle = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBoxGuardarVideo = new System.Windows.Forms.GroupBox();
-            this.radioButtonGuardarVideoNo = new System.Windows.Forms.RadioButton();
-            this.radioButtonGuardarVideoSi = new System.Windows.Forms.RadioButton();
-            this.buttonHelp = new System.Windows.Forms.Button();
-            this.labelMetadatos = new System.Windows.Forms.Label();
-            this.textBoxTituloCancion = new System.Windows.Forms.TextBox();
-            this.labelMDTitulo = new System.Windows.Forms.Label();
-            this.labelMDComment = new System.Windows.Forms.Label();
-            this.textBoxComentario = new System.Windows.Forms.TextBox();
-            this.labelMDArtista = new System.Windows.Forms.Label();
-            this.textBoxArtista = new System.Windows.Forms.TextBox();
-            this.buttonEditAudio = new System.Windows.Forms.Button();
-            this.labelTmanoArchivo = new System.Windows.Forms.Label();
-            this.groupBoxAuBitrate = new System.Windows.Forms.GroupBox();
-            this.radioButtonAB16 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB32 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB96 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB128 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB196 = new System.Windows.Forms.RadioButton();
-            this.radioButtonAB320 = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBoxAudioFormat.SuspendLayout();
-            this.groupBoxGuardarVideo.SuspendLayout();
-            this.groupBoxAuBitrate.SuspendLayout();
-            this.SuspendLayout();
+            textBoxURL = new TextBox();
+            label1 = new Label();
+            buttonComenzarDescarga = new Button();
+            textBoxNombre = new TextBox();
+            labelRuta = new Label();
+            progressBar1 = new ProgressBar();
+            labelEstado = new Label();
+            buttonGoToFolder = new Button();
+            buttonConvertir = new Button();
+            labelInfoDuracion = new Label();
+            pictureBox1 = new PictureBox();
+            labelInfoTipo = new Label();
+            labelInfoFormatoAudio = new Label();
+            labelAudioBitrate = new Label();
+            label3 = new Label();
+            labelRed = new Label();
+            label2 = new Label();
+            groupBoxAudioFormat = new GroupBox();
+            radioButtonWAV = new RadioButton();
+            radioButtonMP3 = new RadioButton();
+            labelOpcionesTitle = new Label();
+            label5 = new Label();
+            groupBoxGuardarVideo = new GroupBox();
+            radioButtonGuardarVideoNo = new RadioButton();
+            radioButtonGuardarVideoSi = new RadioButton();
+            buttonHelp = new Button();
+            labelMetadatos = new Label();
+            textBoxTituloCancion = new TextBox();
+            labelMDTitulo = new Label();
+            labelMDComment = new Label();
+            textBoxComentario = new TextBox();
+            labelMDArtista = new Label();
+            textBoxArtista = new TextBox();
+            buttonEditAudio = new Button();
+            labelTmanoArchivo = new Label();
+            groupBoxAuBitrate = new GroupBox();
+            radioButtonAB16 = new RadioButton();
+            radioButtonAB32 = new RadioButton();
+            radioButtonAB96 = new RadioButton();
+            radioButtonAB128 = new RadioButton();
+            radioButtonAB196 = new RadioButton();
+            radioButtonAB320 = new RadioButton();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBoxAudioFormat.SuspendLayout();
+            groupBoxGuardarVideo.SuspendLayout();
+            groupBoxAuBitrate.SuspendLayout();
+            SuspendLayout();
             // 
             // textBoxURL
             // 
-            this.textBoxURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBoxURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxURL.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxURL.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxURL.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxURL.Location = new System.Drawing.Point(9, 92);
-            this.textBoxURL.Name = "textBoxURL";
-            this.textBoxURL.Size = new System.Drawing.Size(724, 29);
-            this.textBoxURL.TabIndex = 0;
+            textBoxURL.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxURL.BackColor = Color.FromArgb(34, 34, 34);
+            textBoxURL.BorderStyle = BorderStyle.FixedSingle;
+            textBoxURL.Cursor = Cursors.IBeam;
+            textBoxURL.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            textBoxURL.ForeColor = Color.Gainsboro;
+            textBoxURL.Location = new Point(9, 92);
+            textBoxURL.Name = "textBoxURL";
+            textBoxURL.Size = new Size(724, 29);
+            textBoxURL.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(3, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ingrese un LINK de YouTube";
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
+            label1.Location = new Point(3, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(254, 33);
+            label1.TabIndex = 0;
+            label1.Text = "Ingrese un LINK de YouTube";
             // 
             // buttonComenzarDescarga
             // 
-            this.buttonComenzarDescarga.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonComenzarDescarga.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonComenzarDescarga.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.buttonComenzarDescarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonComenzarDescarga.Location = new System.Drawing.Point(5, 557);
-            this.buttonComenzarDescarga.Name = "buttonComenzarDescarga";
-            this.buttonComenzarDescarga.Size = new System.Drawing.Size(796, 38);
-            this.buttonComenzarDescarga.TabIndex = 2;
-            this.buttonComenzarDescarga.TabStop = false;
-            this.buttonComenzarDescarga.Text = "Comenzar Descarga";
-            this.buttonComenzarDescarga.UseVisualStyleBackColor = true;
-            this.buttonComenzarDescarga.Click += new System.EventHandler(this.buttonComenzarDescarga_Click);
+            buttonComenzarDescarga.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonComenzarDescarga.Cursor = Cursors.Hand;
+            buttonComenzarDescarga.FlatAppearance.BorderColor = Color.Green;
+            buttonComenzarDescarga.FlatStyle = FlatStyle.Flat;
+            buttonComenzarDescarga.Location = new Point(5, 557);
+            buttonComenzarDescarga.Name = "buttonComenzarDescarga";
+            buttonComenzarDescarga.Size = new Size(796, 38);
+            buttonComenzarDescarga.TabIndex = 2;
+            buttonComenzarDescarga.TabStop = false;
+            buttonComenzarDescarga.Text = "Comenzar Descarga";
+            buttonComenzarDescarga.UseVisualStyleBackColor = true;
+            buttonComenzarDescarga.Click += buttonComenzarDescarga_Click;
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBoxNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxNombre.Location = new System.Drawing.Point(10, 189);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(723, 29);
-            this.textBoxNombre.TabIndex = 1;
+            textBoxNombre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxNombre.BackColor = Color.FromArgb(34, 34, 34);
+            textBoxNombre.BorderStyle = BorderStyle.FixedSingle;
+            textBoxNombre.Cursor = Cursors.IBeam;
+            textBoxNombre.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            textBoxNombre.ForeColor = Color.Gainsboro;
+            textBoxNombre.Location = new Point(10, 189);
+            textBoxNombre.Name = "textBoxNombre";
+            textBoxNombre.Size = new Size(723, 29);
+            textBoxNombre.TabIndex = 1;
             // 
             // labelRuta
             // 
-            this.labelRuta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelRuta.AutoSize = true;
-            this.labelRuta.ForeColor = System.Drawing.Color.Silver;
-            this.labelRuta.Location = new System.Drawing.Point(5, 28);
-            this.labelRuta.Name = "labelRuta";
-            this.labelRuta.Size = new System.Drawing.Size(132, 21);
-            this.labelRuta.TabIndex = 5;
-            this.labelRuta.Text = "Ruta de descarga:";
+            labelRuta.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelRuta.AutoSize = true;
+            labelRuta.ForeColor = Color.Silver;
+            labelRuta.Location = new Point(5, 28);
+            labelRuta.Name = "labelRuta";
+            labelRuta.Size = new Size(132, 21);
+            labelRuta.TabIndex = 5;
+            labelRuta.Text = "Ruta de descarga:";
             // 
             // progressBar1
             // 
-            this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(0, 628);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1019, 29);
-            this.progressBar1.TabIndex = 6;
+            progressBar1.Cursor = Cursors.WaitCursor;
+            progressBar1.Dock = DockStyle.Bottom;
+            progressBar1.Location = new Point(0, 628);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(1019, 29);
+            progressBar1.TabIndex = 6;
             // 
             // labelEstado
             // 
-            this.labelEstado.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelEstado.ForeColor = System.Drawing.Color.Red;
-            this.labelEstado.Location = new System.Drawing.Point(0, 607);
-            this.labelEstado.Name = "labelEstado";
-            this.labelEstado.Size = new System.Drawing.Size(1019, 21);
-            this.labelEstado.TabIndex = 7;
-            this.labelEstado.Text = "Estado:";
+            labelEstado.Dock = DockStyle.Bottom;
+            labelEstado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelEstado.ForeColor = Color.Red;
+            labelEstado.Location = new Point(0, 607);
+            labelEstado.Name = "labelEstado";
+            labelEstado.Size = new Size(1019, 21);
+            labelEstado.TabIndex = 7;
+            labelEstado.Text = "Estado:";
             // 
             // buttonGoToFolder
             // 
-            this.buttonGoToFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonGoToFolder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGoToFolder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
-            this.buttonGoToFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGoToFolder.Location = new System.Drawing.Point(739, 350);
-            this.buttonGoToFolder.Name = "buttonGoToFolder";
-            this.buttonGoToFolder.Size = new System.Drawing.Size(268, 36);
-            this.buttonGoToFolder.TabIndex = 8;
-            this.buttonGoToFolder.TabStop = false;
-            this.buttonGoToFolder.Text = "Ir a la carpeta de descarga";
-            this.buttonGoToFolder.UseVisualStyleBackColor = true;
-            this.buttonGoToFolder.Click += new System.EventHandler(this.buttonGoToFolder_Click);
+            buttonGoToFolder.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonGoToFolder.Cursor = Cursors.Hand;
+            buttonGoToFolder.FlatAppearance.BorderColor = Color.FromArgb(217, 173, 173);
+            buttonGoToFolder.FlatStyle = FlatStyle.Flat;
+            buttonGoToFolder.Location = new Point(739, 350);
+            buttonGoToFolder.Name = "buttonGoToFolder";
+            buttonGoToFolder.Size = new Size(268, 36);
+            buttonGoToFolder.TabIndex = 8;
+            buttonGoToFolder.TabStop = false;
+            buttonGoToFolder.Text = "Ir a la carpeta de descarga";
+            buttonGoToFolder.UseVisualStyleBackColor = true;
+            buttonGoToFolder.Click += buttonGoToFolder_Click;
             // 
             // buttonConvertir
             // 
-            this.buttonConvertir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonConvertir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonConvertir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
-            this.buttonConvertir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonConvertir.Location = new System.Drawing.Point(10, 231);
-            this.buttonConvertir.Name = "buttonConvertir";
-            this.buttonConvertir.Size = new System.Drawing.Size(723, 38);
-            this.buttonConvertir.TabIndex = 2;
-            this.buttonConvertir.Text = "Obtener Datos Del Link";
-            this.buttonConvertir.UseVisualStyleBackColor = true;
-            this.buttonConvertir.Click += new System.EventHandler(this.buttonConvertir_Click);
+            buttonConvertir.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            buttonConvertir.Cursor = Cursors.Hand;
+            buttonConvertir.FlatAppearance.BorderColor = Color.FromArgb(217, 173, 173);
+            buttonConvertir.FlatStyle = FlatStyle.Flat;
+            buttonConvertir.Location = new Point(10, 231);
+            buttonConvertir.Name = "buttonConvertir";
+            buttonConvertir.Size = new Size(723, 38);
+            buttonConvertir.TabIndex = 2;
+            buttonConvertir.Text = "Obtener Datos Del Link";
+            buttonConvertir.UseVisualStyleBackColor = true;
+            buttonConvertir.Click += buttonConvertir_Click;
             // 
             // labelInfoDuracion
             // 
-            this.labelInfoDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelInfoDuracion.AutoSize = true;
-            this.labelInfoDuracion.Location = new System.Drawing.Point(735, 242);
-            this.labelInfoDuracion.Name = "labelInfoDuracion";
-            this.labelInfoDuracion.Size = new System.Drawing.Size(76, 21);
-            this.labelInfoDuracion.TabIndex = 9;
-            this.labelInfoDuracion.Text = "Duración:";
+            labelInfoDuracion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelInfoDuracion.AutoSize = true;
+            labelInfoDuracion.Location = new Point(735, 242);
+            labelInfoDuracion.Name = "labelInfoDuracion";
+            labelInfoDuracion.Size = new Size(76, 21);
+            labelInfoDuracion.TabIndex = 9;
+            labelInfoDuracion.Text = "Duración:";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(739, 49);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(268, 183);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(739, 49);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(268, 183);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // labelInfoTipo
             // 
-            this.labelInfoTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelInfoTipo.AutoSize = true;
-            this.labelInfoTipo.Location = new System.Drawing.Point(735, 263);
-            this.labelInfoTipo.Name = "labelInfoTipo";
-            this.labelInfoTipo.Size = new System.Drawing.Size(116, 21);
-            this.labelInfoTipo.TabIndex = 11;
-            this.labelInfoTipo.Text = "Formato Video:";
+            labelInfoTipo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelInfoTipo.AutoSize = true;
+            labelInfoTipo.Location = new Point(735, 263);
+            labelInfoTipo.Name = "labelInfoTipo";
+            labelInfoTipo.Size = new Size(116, 21);
+            labelInfoTipo.TabIndex = 11;
+            labelInfoTipo.Text = "Formato Video:";
             // 
             // labelInfoFormatoAudio
             // 
-            this.labelInfoFormatoAudio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelInfoFormatoAudio.AutoSize = true;
-            this.labelInfoFormatoAudio.Location = new System.Drawing.Point(735, 284);
-            this.labelInfoFormatoAudio.Name = "labelInfoFormatoAudio";
-            this.labelInfoFormatoAudio.Size = new System.Drawing.Size(117, 21);
-            this.labelInfoFormatoAudio.TabIndex = 12;
-            this.labelInfoFormatoAudio.Text = "Formato Audio:";
+            labelInfoFormatoAudio.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelInfoFormatoAudio.AutoSize = true;
+            labelInfoFormatoAudio.Location = new Point(735, 284);
+            labelInfoFormatoAudio.Name = "labelInfoFormatoAudio";
+            labelInfoFormatoAudio.Size = new Size(117, 21);
+            labelInfoFormatoAudio.TabIndex = 12;
+            labelInfoFormatoAudio.Text = "Formato Audio:";
             // 
             // labelAudioBitrate
             // 
-            this.labelAudioBitrate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelAudioBitrate.AutoSize = true;
-            this.labelAudioBitrate.Location = new System.Drawing.Point(735, 305);
-            this.labelAudioBitrate.Name = "labelAudioBitrate";
-            this.labelAudioBitrate.Size = new System.Drawing.Size(103, 21);
-            this.labelAudioBitrate.TabIndex = 13;
-            this.labelAudioBitrate.Text = "Audio Bitrate:";
+            labelAudioBitrate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelAudioBitrate.AutoSize = true;
+            labelAudioBitrate.Location = new Point(735, 305);
+            labelAudioBitrate.Name = "labelAudioBitrate";
+            labelAudioBitrate.Size = new Size(103, 21);
+            labelAudioBitrate.TabIndex = 13;
+            labelAudioBitrate.Text = "Audio Bitrate:";
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(7, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(471, 33);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Ingrese un NOMBRE para asignar al audio a guardar";
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(7, 131);
+            label3.Name = "label3";
+            label3.Size = new Size(471, 33);
+            label3.TabIndex = 14;
+            label3.Text = "Ingrese un NOMBRE para asignar al audio a guardar";
             // 
             // labelRed
             // 
-            this.labelRed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelRed.AutoSize = true;
-            this.labelRed.Location = new System.Drawing.Point(5, 4);
-            this.labelRed.Name = "labelRed";
-            this.labelRed.Size = new System.Drawing.Size(40, 21);
-            this.labelRed.TabIndex = 15;
-            this.labelRed.Text = "Red:";
+            labelRed.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelRed.AutoSize = true;
+            labelRed.Location = new Point(5, 4);
+            labelRed.Name = "labelRed";
+            labelRed.Size = new Size(40, 21);
+            labelRed.TabIndex = 15;
+            labelRed.Text = "Red:";
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(12, 164);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(384, 21);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "(opcional, al obtener los datos se asgina un nombre)";
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label2.ForeColor = Color.Silver;
+            label2.Location = new Point(12, 164);
+            label2.Name = "label2";
+            label2.Size = new Size(384, 21);
+            label2.TabIndex = 16;
+            label2.Text = "(opcional, al obtener los datos se asgina un nombre)";
             // 
             // groupBoxAudioFormat
             // 
-            this.groupBoxAudioFormat.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBoxAudioFormat.Controls.Add(this.radioButtonWAV);
-            this.groupBoxAudioFormat.Controls.Add(this.radioButtonMP3);
-            this.groupBoxAudioFormat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.groupBoxAudioFormat.Location = new System.Drawing.Point(12, 317);
-            this.groupBoxAudioFormat.Name = "groupBoxAudioFormat";
-            this.groupBoxAudioFormat.Size = new System.Drawing.Size(143, 62);
-            this.groupBoxAudioFormat.TabIndex = 17;
-            this.groupBoxAudioFormat.TabStop = false;
-            this.groupBoxAudioFormat.Text = "Formato Audio";
+            groupBoxAudioFormat.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBoxAudioFormat.Controls.Add(radioButtonWAV);
+            groupBoxAudioFormat.Controls.Add(radioButtonMP3);
+            groupBoxAudioFormat.ForeColor = Color.Gainsboro;
+            groupBoxAudioFormat.Location = new Point(12, 317);
+            groupBoxAudioFormat.Name = "groupBoxAudioFormat";
+            groupBoxAudioFormat.Size = new Size(143, 62);
+            groupBoxAudioFormat.TabIndex = 17;
+            groupBoxAudioFormat.TabStop = false;
+            groupBoxAudioFormat.Text = "Formato Audio";
             // 
             // radioButtonWAV
             // 
-            this.radioButtonWAV.AutoSize = true;
-            this.radioButtonWAV.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonWAV.Location = new System.Drawing.Point(76, 29);
-            this.radioButtonWAV.Name = "radioButtonWAV";
-            this.radioButtonWAV.Size = new System.Drawing.Size(59, 25);
-            this.radioButtonWAV.TabIndex = 1;
-            this.radioButtonWAV.Text = ".wav";
-            this.radioButtonWAV.UseVisualStyleBackColor = true;
-            this.radioButtonWAV.CheckedChanged += new System.EventHandler(this.radioButtonWAV_CheckedChanged);
+            radioButtonWAV.AutoSize = true;
+            radioButtonWAV.Cursor = Cursors.Hand;
+            radioButtonWAV.Location = new Point(76, 29);
+            radioButtonWAV.Name = "radioButtonWAV";
+            radioButtonWAV.Size = new Size(59, 25);
+            radioButtonWAV.TabIndex = 1;
+            radioButtonWAV.Text = ".wav";
+            radioButtonWAV.UseVisualStyleBackColor = true;
+            radioButtonWAV.CheckedChanged += radioButtonWAV_CheckedChanged;
             // 
             // radioButtonMP3
             // 
-            this.radioButtonMP3.AutoSize = true;
-            this.radioButtonMP3.Checked = true;
-            this.radioButtonMP3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonMP3.Location = new System.Drawing.Point(7, 29);
-            this.radioButtonMP3.Name = "radioButtonMP3";
-            this.radioButtonMP3.Size = new System.Drawing.Size(63, 25);
-            this.radioButtonMP3.TabIndex = 0;
-            this.radioButtonMP3.TabStop = true;
-            this.radioButtonMP3.Text = ".mp3";
-            this.radioButtonMP3.UseVisualStyleBackColor = true;
-            this.radioButtonMP3.CheckedChanged += new System.EventHandler(this.radioButtonMP3_CheckedChanged);
+            radioButtonMP3.AutoSize = true;
+            radioButtonMP3.Checked = true;
+            radioButtonMP3.Cursor = Cursors.Hand;
+            radioButtonMP3.Location = new Point(7, 29);
+            radioButtonMP3.Name = "radioButtonMP3";
+            radioButtonMP3.Size = new Size(63, 25);
+            radioButtonMP3.TabIndex = 0;
+            radioButtonMP3.TabStop = true;
+            radioButtonMP3.Text = ".mp3";
+            radioButtonMP3.UseVisualStyleBackColor = true;
+            radioButtonMP3.CheckedChanged += radioButtonMP3_CheckedChanged;
             // 
             // labelOpcionesTitle
             // 
-            this.labelOpcionesTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelOpcionesTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelOpcionesTitle.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelOpcionesTitle.Location = new System.Drawing.Point(12, 278);
-            this.labelOpcionesTitle.Name = "labelOpcionesTitle";
-            this.labelOpcionesTitle.Size = new System.Drawing.Size(702, 33);
-            this.labelOpcionesTitle.TabIndex = 19;
-            this.labelOpcionesTitle.Text = "Opciones";
+            labelOpcionesTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelOpcionesTitle.BackColor = Color.Transparent;
+            labelOpcionesTitle.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelOpcionesTitle.Location = new Point(12, 278);
+            labelOpcionesTitle.Name = "labelOpcionesTitle";
+            labelOpcionesTitle.Size = new Size(702, 33);
+            labelOpcionesTitle.TabIndex = 19;
+            labelOpcionesTitle.Text = "Opciones";
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(739, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(205, 33);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Información del video";
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(739, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(205, 33);
+            label5.TabIndex = 20;
+            label5.Text = "Información del video";
             // 
             // groupBoxGuardarVideo
             // 
-            this.groupBoxGuardarVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxGuardarVideo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBoxGuardarVideo.Controls.Add(this.radioButtonGuardarVideoNo);
-            this.groupBoxGuardarVideo.Controls.Add(this.radioButtonGuardarVideoSi);
-            this.groupBoxGuardarVideo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.groupBoxGuardarVideo.Location = new System.Drawing.Point(514, 317);
-            this.groupBoxGuardarVideo.Name = "groupBoxGuardarVideo";
-            this.groupBoxGuardarVideo.Size = new System.Drawing.Size(200, 62);
-            this.groupBoxGuardarVideo.TabIndex = 18;
-            this.groupBoxGuardarVideo.TabStop = false;
-            this.groupBoxGuardarVideo.Text = "Guardar Video";
+            groupBoxGuardarVideo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            groupBoxGuardarVideo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBoxGuardarVideo.Controls.Add(radioButtonGuardarVideoNo);
+            groupBoxGuardarVideo.Controls.Add(radioButtonGuardarVideoSi);
+            groupBoxGuardarVideo.ForeColor = Color.Gainsboro;
+            groupBoxGuardarVideo.Location = new Point(514, 317);
+            groupBoxGuardarVideo.Name = "groupBoxGuardarVideo";
+            groupBoxGuardarVideo.Size = new Size(200, 62);
+            groupBoxGuardarVideo.TabIndex = 18;
+            groupBoxGuardarVideo.TabStop = false;
+            groupBoxGuardarVideo.Text = "Guardar Video";
             // 
             // radioButtonGuardarVideoNo
             // 
-            this.radioButtonGuardarVideoNo.AutoSize = true;
-            this.radioButtonGuardarVideoNo.Checked = true;
-            this.radioButtonGuardarVideoNo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonGuardarVideoNo.Location = new System.Drawing.Point(76, 29);
-            this.radioButtonGuardarVideoNo.Name = "radioButtonGuardarVideoNo";
-            this.radioButtonGuardarVideoNo.Size = new System.Drawing.Size(49, 25);
-            this.radioButtonGuardarVideoNo.TabIndex = 1;
-            this.radioButtonGuardarVideoNo.TabStop = true;
-            this.radioButtonGuardarVideoNo.Text = "No";
-            this.radioButtonGuardarVideoNo.UseVisualStyleBackColor = true;
+            radioButtonGuardarVideoNo.AutoSize = true;
+            radioButtonGuardarVideoNo.Checked = true;
+            radioButtonGuardarVideoNo.Cursor = Cursors.Hand;
+            radioButtonGuardarVideoNo.Location = new Point(76, 29);
+            radioButtonGuardarVideoNo.Name = "radioButtonGuardarVideoNo";
+            radioButtonGuardarVideoNo.Size = new Size(49, 25);
+            radioButtonGuardarVideoNo.TabIndex = 1;
+            radioButtonGuardarVideoNo.TabStop = true;
+            radioButtonGuardarVideoNo.Text = "No";
+            radioButtonGuardarVideoNo.UseVisualStyleBackColor = true;
             // 
             // radioButtonGuardarVideoSi
             // 
-            this.radioButtonGuardarVideoSi.AutoSize = true;
-            this.radioButtonGuardarVideoSi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonGuardarVideoSi.Location = new System.Drawing.Point(7, 29);
-            this.radioButtonGuardarVideoSi.Name = "radioButtonGuardarVideoSi";
-            this.radioButtonGuardarVideoSi.Size = new System.Drawing.Size(41, 25);
-            this.radioButtonGuardarVideoSi.TabIndex = 0;
-            this.radioButtonGuardarVideoSi.Text = "Sí";
-            this.radioButtonGuardarVideoSi.UseVisualStyleBackColor = true;
+            radioButtonGuardarVideoSi.AutoSize = true;
+            radioButtonGuardarVideoSi.Cursor = Cursors.Hand;
+            radioButtonGuardarVideoSi.Location = new Point(7, 29);
+            radioButtonGuardarVideoSi.Name = "radioButtonGuardarVideoSi";
+            radioButtonGuardarVideoSi.Size = new Size(41, 25);
+            radioButtonGuardarVideoSi.TabIndex = 0;
+            radioButtonGuardarVideoSi.Text = "Sí";
+            radioButtonGuardarVideoSi.UseVisualStyleBackColor = true;
             // 
             // buttonHelp
             // 
-            this.buttonHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonHelp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonHelp.Cursor = System.Windows.Forms.Cursors.Help;
-            this.buttonHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
-            this.buttonHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHelp.Image = ((System.Drawing.Image)(resources.GetObject("buttonHelp.Image")));
-            this.buttonHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonHelp.Location = new System.Drawing.Point(807, 585);
-            this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(200, 37);
-            this.buttonHelp.TabIndex = 21;
-            this.buttonHelp.Text = "App Info";
-            this.buttonHelp.UseVisualStyleBackColor = true;
-            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            buttonHelp.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonHelp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonHelp.Cursor = Cursors.Help;
+            buttonHelp.FlatAppearance.BorderColor = Color.FromArgb(217, 173, 173);
+            buttonHelp.FlatStyle = FlatStyle.Flat;
+            buttonHelp.Image = (Image)resources.GetObject("buttonHelp.Image");
+            buttonHelp.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonHelp.Location = new Point(807, 585);
+            buttonHelp.Name = "buttonHelp";
+            buttonHelp.Size = new Size(200, 37);
+            buttonHelp.TabIndex = 21;
+            buttonHelp.Text = "App Info";
+            buttonHelp.UseVisualStyleBackColor = true;
+            buttonHelp.Click += buttonHelp_Click;
             // 
             // labelMetadatos
             // 
-            this.labelMetadatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelMetadatos.BackColor = System.Drawing.Color.Transparent;
-            this.labelMetadatos.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelMetadatos.Location = new System.Drawing.Point(12, 390);
-            this.labelMetadatos.Name = "labelMetadatos";
-            this.labelMetadatos.Size = new System.Drawing.Size(702, 33);
-            this.labelMetadatos.TabIndex = 22;
-            this.labelMetadatos.Text = "Asignar MetaDatos";
+            labelMetadatos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelMetadatos.BackColor = Color.Transparent;
+            labelMetadatos.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMetadatos.Location = new Point(12, 390);
+            labelMetadatos.Name = "labelMetadatos";
+            labelMetadatos.Size = new Size(702, 33);
+            labelMetadatos.TabIndex = 22;
+            labelMetadatos.Text = "Asignar MetaDatos";
             // 
             // textBoxTituloCancion
             // 
-            this.textBoxTituloCancion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxTituloCancion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBoxTituloCancion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxTituloCancion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxTituloCancion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxTituloCancion.Location = new System.Drawing.Point(12, 454);
-            this.textBoxTituloCancion.Name = "textBoxTituloCancion";
-            this.textBoxTituloCancion.Size = new System.Drawing.Size(245, 29);
-            this.textBoxTituloCancion.TabIndex = 23;
-            this.textBoxTituloCancion.TabStop = false;
+            textBoxTituloCancion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            textBoxTituloCancion.BackColor = Color.FromArgb(34, 34, 34);
+            textBoxTituloCancion.BorderStyle = BorderStyle.FixedSingle;
+            textBoxTituloCancion.Cursor = Cursors.IBeam;
+            textBoxTituloCancion.ForeColor = Color.Gainsboro;
+            textBoxTituloCancion.Location = new Point(12, 454);
+            textBoxTituloCancion.Name = "textBoxTituloCancion";
+            textBoxTituloCancion.Size = new Size(245, 29);
+            textBoxTituloCancion.TabIndex = 23;
+            textBoxTituloCancion.TabStop = false;
             // 
             // labelMDTitulo
             // 
-            this.labelMDTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelMDTitulo.AutoSize = true;
-            this.labelMDTitulo.Location = new System.Drawing.Point(12, 430);
-            this.labelMDTitulo.Name = "labelMDTitulo";
-            this.labelMDTitulo.Size = new System.Drawing.Size(49, 21);
-            this.labelMDTitulo.TabIndex = 24;
-            this.labelMDTitulo.Text = "Título";
+            labelMDTitulo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelMDTitulo.AutoSize = true;
+            labelMDTitulo.Location = new Point(12, 430);
+            labelMDTitulo.Name = "labelMDTitulo";
+            labelMDTitulo.Size = new Size(49, 21);
+            labelMDTitulo.TabIndex = 24;
+            labelMDTitulo.Text = "Título";
             // 
             // labelMDComment
             // 
-            this.labelMDComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelMDComment.AutoSize = true;
-            this.labelMDComment.Location = new System.Drawing.Point(263, 430);
-            this.labelMDComment.Name = "labelMDComment";
-            this.labelMDComment.Size = new System.Drawing.Size(92, 21);
-            this.labelMDComment.TabIndex = 26;
-            this.labelMDComment.Text = "Comentario";
+            labelMDComment.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelMDComment.AutoSize = true;
+            labelMDComment.Location = new Point(263, 430);
+            labelMDComment.Name = "labelMDComment";
+            labelMDComment.Size = new Size(92, 21);
+            labelMDComment.TabIndex = 26;
+            labelMDComment.Text = "Comentario";
             // 
             // textBoxComentario
             // 
-            this.textBoxComentario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxComentario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBoxComentario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxComentario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxComentario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxComentario.Location = new System.Drawing.Point(263, 454);
-            this.textBoxComentario.Multiline = true;
-            this.textBoxComentario.Name = "textBoxComentario";
-            this.textBoxComentario.Size = new System.Drawing.Size(538, 84);
-            this.textBoxComentario.TabIndex = 25;
-            this.textBoxComentario.TabStop = false;
+            textBoxComentario.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxComentario.BackColor = Color.FromArgb(34, 34, 34);
+            textBoxComentario.BorderStyle = BorderStyle.FixedSingle;
+            textBoxComentario.Cursor = Cursors.IBeam;
+            textBoxComentario.ForeColor = Color.Gainsboro;
+            textBoxComentario.Location = new Point(263, 454);
+            textBoxComentario.Multiline = true;
+            textBoxComentario.Name = "textBoxComentario";
+            textBoxComentario.Size = new Size(538, 84);
+            textBoxComentario.TabIndex = 25;
+            textBoxComentario.TabStop = false;
             // 
             // labelMDArtista
             // 
-            this.labelMDArtista.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelMDArtista.AutoSize = true;
-            this.labelMDArtista.Location = new System.Drawing.Point(12, 485);
-            this.labelMDArtista.Name = "labelMDArtista";
-            this.labelMDArtista.Size = new System.Drawing.Size(55, 21);
-            this.labelMDArtista.TabIndex = 28;
-            this.labelMDArtista.Text = "Artista";
+            labelMDArtista.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelMDArtista.AutoSize = true;
+            labelMDArtista.Location = new Point(12, 485);
+            labelMDArtista.Name = "labelMDArtista";
+            labelMDArtista.Size = new Size(55, 21);
+            labelMDArtista.TabIndex = 28;
+            labelMDArtista.Text = "Artista";
             // 
             // textBoxArtista
             // 
-            this.textBoxArtista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxArtista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.textBoxArtista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxArtista.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxArtista.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxArtista.Location = new System.Drawing.Point(12, 509);
-            this.textBoxArtista.Name = "textBoxArtista";
-            this.textBoxArtista.Size = new System.Drawing.Size(245, 29);
-            this.textBoxArtista.TabIndex = 27;
-            this.textBoxArtista.TabStop = false;
+            textBoxArtista.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            textBoxArtista.BackColor = Color.FromArgb(34, 34, 34);
+            textBoxArtista.BorderStyle = BorderStyle.FixedSingle;
+            textBoxArtista.Cursor = Cursors.IBeam;
+            textBoxArtista.ForeColor = Color.Gainsboro;
+            textBoxArtista.Location = new Point(12, 509);
+            textBoxArtista.Name = "textBoxArtista";
+            textBoxArtista.Size = new Size(245, 29);
+            textBoxArtista.TabIndex = 27;
+            textBoxArtista.TabStop = false;
             // 
             // buttonEditAudio
             // 
-            this.buttonEditAudio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonEditAudio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonEditAudio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonEditAudio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(173)))), ((int)(((byte)(173)))));
-            this.buttonEditAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditAudio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEditAudio.Location = new System.Drawing.Point(807, 542);
-            this.buttonEditAudio.Name = "buttonEditAudio";
-            this.buttonEditAudio.Size = new System.Drawing.Size(200, 37);
-            this.buttonEditAudio.TabIndex = 30;
-            this.buttonEditAudio.Text = "Editar Audio";
-            this.buttonEditAudio.UseVisualStyleBackColor = true;
-            this.buttonEditAudio.Click += new System.EventHandler(this.buttonEditAudio_Click);
+            buttonEditAudio.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonEditAudio.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonEditAudio.Cursor = Cursors.Hand;
+            buttonEditAudio.FlatAppearance.BorderColor = Color.FromArgb(217, 173, 173);
+            buttonEditAudio.FlatStyle = FlatStyle.Flat;
+            buttonEditAudio.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonEditAudio.Location = new Point(807, 542);
+            buttonEditAudio.Name = "buttonEditAudio";
+            buttonEditAudio.Size = new Size(200, 37);
+            buttonEditAudio.TabIndex = 30;
+            buttonEditAudio.Text = "Editar Audio";
+            buttonEditAudio.UseVisualStyleBackColor = true;
+            buttonEditAudio.Click += buttonEditAudio_Click;
             // 
             // labelTmanoArchivo
             // 
-            this.labelTmanoArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTmanoArchivo.AutoSize = true;
-            this.labelTmanoArchivo.Location = new System.Drawing.Point(735, 326);
-            this.labelTmanoArchivo.Name = "labelTmanoArchivo";
-            this.labelTmanoArchivo.Size = new System.Drawing.Size(168, 21);
-            this.labelTmanoArchivo.TabIndex = 31;
-            this.labelTmanoArchivo.Text = "Tamañano Del Archivo:";
+            labelTmanoArchivo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelTmanoArchivo.AutoSize = true;
+            labelTmanoArchivo.Location = new Point(735, 326);
+            labelTmanoArchivo.Name = "labelTmanoArchivo";
+            labelTmanoArchivo.Size = new Size(168, 21);
+            labelTmanoArchivo.TabIndex = 31;
+            labelTmanoArchivo.Text = "Tamañano Del Archivo:";
             // 
             // groupBoxAuBitrate
             // 
-            this.groupBoxAuBitrate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxAuBitrate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB16);
-            this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB32);
-            this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB96);
-            this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB128);
-            this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB196);
-            this.groupBoxAuBitrate.Controls.Add(this.radioButtonAB320);
-            this.groupBoxAuBitrate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.groupBoxAuBitrate.Location = new System.Drawing.Point(161, 317);
-            this.groupBoxAuBitrate.Name = "groupBoxAuBitrate";
-            this.groupBoxAuBitrate.Size = new System.Drawing.Size(347, 62);
-            this.groupBoxAuBitrate.TabIndex = 18;
-            this.groupBoxAuBitrate.TabStop = false;
-            this.groupBoxAuBitrate.Text = "Audio Bitrate / kbps";
+            groupBoxAuBitrate.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxAuBitrate.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBoxAuBitrate.Controls.Add(radioButtonAB16);
+            groupBoxAuBitrate.Controls.Add(radioButtonAB32);
+            groupBoxAuBitrate.Controls.Add(radioButtonAB96);
+            groupBoxAuBitrate.Controls.Add(radioButtonAB128);
+            groupBoxAuBitrate.Controls.Add(radioButtonAB196);
+            groupBoxAuBitrate.Controls.Add(radioButtonAB320);
+            groupBoxAuBitrate.ForeColor = Color.Gainsboro;
+            groupBoxAuBitrate.Location = new Point(161, 317);
+            groupBoxAuBitrate.Name = "groupBoxAuBitrate";
+            groupBoxAuBitrate.Size = new Size(347, 62);
+            groupBoxAuBitrate.TabIndex = 18;
+            groupBoxAuBitrate.TabStop = false;
+            groupBoxAuBitrate.Text = "Audio Bitrate / kbps";
             // 
             // radioButtonAB16
             // 
-            this.radioButtonAB16.AutoSize = true;
-            this.radioButtonAB16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB16.Location = new System.Drawing.Point(294, 29);
-            this.radioButtonAB16.Name = "radioButtonAB16";
-            this.radioButtonAB16.Size = new System.Drawing.Size(46, 25);
-            this.radioButtonAB16.TabIndex = 5;
-            this.radioButtonAB16.Text = "16";
-            this.radioButtonAB16.UseVisualStyleBackColor = true;
+            radioButtonAB16.AutoSize = true;
+            radioButtonAB16.Cursor = Cursors.Hand;
+            radioButtonAB16.Location = new Point(294, 29);
+            radioButtonAB16.Name = "radioButtonAB16";
+            radioButtonAB16.Size = new Size(46, 25);
+            radioButtonAB16.TabIndex = 5;
+            radioButtonAB16.Text = "16";
+            radioButtonAB16.UseVisualStyleBackColor = true;
             // 
             // radioButtonAB32
             // 
-            this.radioButtonAB32.AutoSize = true;
-            this.radioButtonAB32.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB32.Location = new System.Drawing.Point(242, 29);
-            this.radioButtonAB32.Name = "radioButtonAB32";
-            this.radioButtonAB32.Size = new System.Drawing.Size(46, 25);
-            this.radioButtonAB32.TabIndex = 4;
-            this.radioButtonAB32.Text = "32";
-            this.radioButtonAB32.UseVisualStyleBackColor = true;
+            radioButtonAB32.AutoSize = true;
+            radioButtonAB32.Cursor = Cursors.Hand;
+            radioButtonAB32.Location = new Point(242, 29);
+            radioButtonAB32.Name = "radioButtonAB32";
+            radioButtonAB32.Size = new Size(46, 25);
+            radioButtonAB32.TabIndex = 4;
+            radioButtonAB32.Text = "32";
+            radioButtonAB32.UseVisualStyleBackColor = true;
             // 
             // radioButtonAB96
             // 
-            this.radioButtonAB96.AutoSize = true;
-            this.radioButtonAB96.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB96.Location = new System.Drawing.Point(190, 29);
-            this.radioButtonAB96.Name = "radioButtonAB96";
-            this.radioButtonAB96.Size = new System.Drawing.Size(46, 25);
-            this.radioButtonAB96.TabIndex = 3;
-            this.radioButtonAB96.Text = "96";
-            this.radioButtonAB96.UseVisualStyleBackColor = true;
+            radioButtonAB96.AutoSize = true;
+            radioButtonAB96.Cursor = Cursors.Hand;
+            radioButtonAB96.Location = new Point(190, 29);
+            radioButtonAB96.Name = "radioButtonAB96";
+            radioButtonAB96.Size = new Size(46, 25);
+            radioButtonAB96.TabIndex = 3;
+            radioButtonAB96.Text = "96";
+            radioButtonAB96.UseVisualStyleBackColor = true;
             // 
             // radioButtonAB128
             // 
-            this.radioButtonAB128.AutoSize = true;
-            this.radioButtonAB128.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB128.Location = new System.Drawing.Point(129, 29);
-            this.radioButtonAB128.Name = "radioButtonAB128";
-            this.radioButtonAB128.Size = new System.Drawing.Size(55, 25);
-            this.radioButtonAB128.TabIndex = 2;
-            this.radioButtonAB128.Text = "128";
-            this.radioButtonAB128.UseVisualStyleBackColor = true;
+            radioButtonAB128.AutoSize = true;
+            radioButtonAB128.Cursor = Cursors.Hand;
+            radioButtonAB128.Location = new Point(129, 29);
+            radioButtonAB128.Name = "radioButtonAB128";
+            radioButtonAB128.Size = new Size(55, 25);
+            radioButtonAB128.TabIndex = 2;
+            radioButtonAB128.Text = "128";
+            radioButtonAB128.UseVisualStyleBackColor = true;
             // 
             // radioButtonAB196
             // 
-            this.radioButtonAB196.AutoSize = true;
-            this.radioButtonAB196.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB196.Location = new System.Drawing.Point(68, 29);
-            this.radioButtonAB196.Name = "radioButtonAB196";
-            this.radioButtonAB196.Size = new System.Drawing.Size(55, 25);
-            this.radioButtonAB196.TabIndex = 1;
-            this.radioButtonAB196.Text = "192";
-            this.radioButtonAB196.UseVisualStyleBackColor = true;
+            radioButtonAB196.AutoSize = true;
+            radioButtonAB196.Cursor = Cursors.Hand;
+            radioButtonAB196.Location = new Point(68, 29);
+            radioButtonAB196.Name = "radioButtonAB196";
+            radioButtonAB196.Size = new Size(55, 25);
+            radioButtonAB196.TabIndex = 1;
+            radioButtonAB196.Text = "192";
+            radioButtonAB196.UseVisualStyleBackColor = true;
             // 
             // radioButtonAB320
             // 
-            this.radioButtonAB320.AutoSize = true;
-            this.radioButtonAB320.Checked = true;
-            this.radioButtonAB320.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButtonAB320.Location = new System.Drawing.Point(7, 29);
-            this.radioButtonAB320.Name = "radioButtonAB320";
-            this.radioButtonAB320.Size = new System.Drawing.Size(55, 25);
-            this.radioButtonAB320.TabIndex = 0;
-            this.radioButtonAB320.TabStop = true;
-            this.radioButtonAB320.Text = "320";
-            this.radioButtonAB320.UseVisualStyleBackColor = true;
+            radioButtonAB320.AutoSize = true;
+            radioButtonAB320.Checked = true;
+            radioButtonAB320.Cursor = Cursors.Hand;
+            radioButtonAB320.Location = new Point(7, 29);
+            radioButtonAB320.Name = "radioButtonAB320";
+            radioButtonAB320.Size = new Size(55, 25);
+            radioButtonAB320.TabIndex = 0;
+            radioButtonAB320.TabStop = true;
+            radioButtonAB320.Text = "320";
+            radioButtonAB320.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(1019, 657);
-            this.Controls.Add(this.groupBoxAuBitrate);
-            this.Controls.Add(this.labelTmanoArchivo);
-            this.Controls.Add(this.buttonEditAudio);
-            this.Controls.Add(this.labelMDArtista);
-            this.Controls.Add(this.textBoxArtista);
-            this.Controls.Add(this.labelMDComment);
-            this.Controls.Add(this.textBoxComentario);
-            this.Controls.Add(this.labelMDTitulo);
-            this.Controls.Add(this.textBoxTituloCancion);
-            this.Controls.Add(this.labelMetadatos);
-            this.Controls.Add(this.buttonHelp);
-            this.Controls.Add(this.groupBoxGuardarVideo);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.labelOpcionesTitle);
-            this.Controls.Add(this.groupBoxAudioFormat);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelRed);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.labelAudioBitrate);
-            this.Controls.Add(this.labelInfoFormatoAudio);
-            this.Controls.Add(this.labelInfoTipo);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.labelInfoDuracion);
-            this.Controls.Add(this.buttonConvertir);
-            this.Controls.Add(this.buttonGoToFolder);
-            this.Controls.Add(this.labelEstado);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.labelRuta);
-            this.Controls.Add(this.textBoxNombre);
-            this.Controls.Add(this.buttonComenzarDescarga);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxURL);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MainForm";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Descargar Música Y Videos De YouTube - Por @Franco28";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DescargarMusica_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DescargarMusica_FormClosed);
-            this.Load += new System.EventHandler(this.DescargarMusica_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBoxAudioFormat.ResumeLayout(false);
-            this.groupBoxAudioFormat.PerformLayout();
-            this.groupBoxGuardarVideo.ResumeLayout(false);
-            this.groupBoxGuardarVideo.PerformLayout();
-            this.groupBoxAuBitrate.ResumeLayout(false);
-            this.groupBoxAuBitrate.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackColor = Color.FromArgb(34, 34, 34);
+            ClientSize = new Size(1019, 657);
+            Controls.Add(groupBoxAuBitrate);
+            Controls.Add(labelTmanoArchivo);
+            Controls.Add(buttonEditAudio);
+            Controls.Add(labelMDArtista);
+            Controls.Add(textBoxArtista);
+            Controls.Add(labelMDComment);
+            Controls.Add(textBoxComentario);
+            Controls.Add(labelMDTitulo);
+            Controls.Add(textBoxTituloCancion);
+            Controls.Add(labelMetadatos);
+            Controls.Add(buttonHelp);
+            Controls.Add(groupBoxGuardarVideo);
+            Controls.Add(label5);
+            Controls.Add(labelOpcionesTitle);
+            Controls.Add(groupBoxAudioFormat);
+            Controls.Add(label2);
+            Controls.Add(labelRed);
+            Controls.Add(label3);
+            Controls.Add(labelAudioBitrate);
+            Controls.Add(labelInfoFormatoAudio);
+            Controls.Add(labelInfoTipo);
+            Controls.Add(pictureBox1);
+            Controls.Add(labelInfoDuracion);
+            Controls.Add(buttonConvertir);
+            Controls.Add(buttonGoToFolder);
+            Controls.Add(labelEstado);
+            Controls.Add(progressBar1);
+            Controls.Add(labelRuta);
+            Controls.Add(textBoxNombre);
+            Controls.Add(buttonComenzarDescarga);
+            Controls.Add(label1);
+            Controls.Add(textBoxURL);
+            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ForeColor = Color.Gainsboro;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "MainForm";
+            SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Descargar Música Y Videos De YouTube - Por @Franco28";
+            FormClosing += DescargarMusica_FormClosing;
+            FormClosed += DescargarMusica_FormClosed;
+            Load += DescargarMusica_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBoxAudioFormat.ResumeLayout(false);
+            groupBoxAudioFormat.PerformLayout();
+            groupBoxGuardarVideo.ResumeLayout(false);
+            groupBoxGuardarVideo.PerformLayout();
+            groupBoxAuBitrate.ResumeLayout(false);
+            groupBoxAuBitrate.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxURL;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonComenzarDescarga;
-        private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.Label labelRuta;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label labelEstado;
-        private System.Windows.Forms.Button buttonGoToFolder;
-        private System.Windows.Forms.Button buttonConvertir;
-        private System.Windows.Forms.Label labelInfoDuracion;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label labelInfoTipo;
-        private System.Windows.Forms.Label labelInfoFormatoAudio;
-        private System.Windows.Forms.Label labelAudioBitrate;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelRed;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBoxAudioFormat;
-        private System.Windows.Forms.RadioButton radioButtonWAV;
-        private System.Windows.Forms.RadioButton radioButtonMP3;
-        private System.Windows.Forms.Label labelOpcionesTitle;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBoxGuardarVideo;
-        private System.Windows.Forms.RadioButton radioButtonGuardarVideoNo;
-        private System.Windows.Forms.RadioButton radioButtonGuardarVideoSi;
-        private System.Windows.Forms.Button buttonHelp;
-        private System.Windows.Forms.Label labelMetadatos;
-        private System.Windows.Forms.TextBox textBoxTituloCancion;
-        private System.Windows.Forms.Label labelMDTitulo;
-        private System.Windows.Forms.Label labelMDComment;
-        private System.Windows.Forms.TextBox textBoxComentario;
-        private System.Windows.Forms.Label labelMDArtista;
-        private System.Windows.Forms.TextBox textBoxArtista;
-        private System.Windows.Forms.Button buttonEditAudio;
-        private System.Windows.Forms.Label labelTmanoArchivo;
-        private System.Windows.Forms.GroupBox groupBoxAuBitrate;
-        private System.Windows.Forms.RadioButton radioButtonAB16;
-        private System.Windows.Forms.RadioButton radioButtonAB32;
-        private System.Windows.Forms.RadioButton radioButtonAB96;
-        private System.Windows.Forms.RadioButton radioButtonAB128;
-        private System.Windows.Forms.RadioButton radioButtonAB196;
-        private System.Windows.Forms.RadioButton radioButtonAB320;
+        private TextBox textBoxURL;
+        private Label label1;
+        private Button buttonComenzarDescarga;
+        private TextBox textBoxNombre;
+        private Label labelRuta;
+        private ProgressBar progressBar1;
+        private Label labelEstado;
+        private Button buttonGoToFolder;
+        private Button buttonConvertir;
+        private Label labelInfoDuracion;
+        private PictureBox pictureBox1;
+        private Label labelInfoTipo;
+        private Label labelInfoFormatoAudio;
+        private Label labelAudioBitrate;
+        private Label label3;
+        private Label labelRed;
+        private Label label2;
+        private GroupBox groupBoxAudioFormat;
+        private RadioButton radioButtonWAV;
+        private RadioButton radioButtonMP3;
+        private Label labelOpcionesTitle;
+        private Label label5;
+        private GroupBox groupBoxGuardarVideo;
+        private RadioButton radioButtonGuardarVideoNo;
+        private RadioButton radioButtonGuardarVideoSi;
+        private Button buttonHelp;
+        private Label labelMetadatos;
+        private TextBox textBoxTituloCancion;
+        private Label labelMDTitulo;
+        private Label labelMDComment;
+        private TextBox textBoxComentario;
+        private Label labelMDArtista;
+        private TextBox textBoxArtista;
+        private Button buttonEditAudio;
+        private Label labelTmanoArchivo;
+        private GroupBox groupBoxAuBitrate;
+        private RadioButton radioButtonAB16;
+        private RadioButton radioButtonAB32;
+        private RadioButton radioButtonAB96;
+        private RadioButton radioButtonAB128;
+        private RadioButton radioButtonAB196;
+        private RadioButton radioButtonAB320;
     }
 }

@@ -197,9 +197,9 @@
               "target": "Package",
               "version": "[2.3.0, )"
             },
-            "VideoLibrary": {
+            "YoutubeExplode": {
               "target": "Package",
-              "version": "[3.2.3, )"
+              "version": "[6.3.12, )"
             }
           },
           "imports": [

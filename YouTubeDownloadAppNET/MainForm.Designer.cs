@@ -32,7 +32,6 @@
             textBoxURL = new TextBox();
             label1 = new Label();
             buttonComenzarDescarga = new Button();
-            textBoxNombre = new TextBox();
             labelRuta = new Label();
             progressBar1 = new ProgressBar();
             labelEstado = new Label();
@@ -41,11 +40,8 @@
             labelInfoDuracion = new Label();
             pictureBox1 = new PictureBox();
             labelInfoTipo = new Label();
-            labelInfoFormatoAudio = new Label();
             labelAudioBitrate = new Label();
-            label3 = new Label();
             labelRed = new Label();
-            label2 = new Label();
             groupBoxAudioFormat = new GroupBox();
             radioButtonWAV = new RadioButton();
             radioButtonMP3 = new RadioButton();
@@ -71,6 +67,7 @@
             radioButtonAB128 = new RadioButton();
             radioButtonAB196 = new RadioButton();
             radioButtonAB320 = new RadioButton();
+            textBoxNombre = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBoxAudioFormat.SuspendLayout();
             groupBoxGuardarVideo.SuspendLayout();
@@ -108,27 +105,14 @@
             buttonComenzarDescarga.Cursor = Cursors.Hand;
             buttonComenzarDescarga.FlatAppearance.BorderColor = Color.Green;
             buttonComenzarDescarga.FlatStyle = FlatStyle.Flat;
-            buttonComenzarDescarga.Location = new Point(5, 557);
+            buttonComenzarDescarga.Location = new Point(12, 557);
             buttonComenzarDescarga.Name = "buttonComenzarDescarga";
-            buttonComenzarDescarga.Size = new Size(796, 38);
+            buttonComenzarDescarga.Size = new Size(995, 38);
             buttonComenzarDescarga.TabIndex = 2;
             buttonComenzarDescarga.TabStop = false;
             buttonComenzarDescarga.Text = "Comenzar Descarga";
             buttonComenzarDescarga.UseVisualStyleBackColor = true;
             buttonComenzarDescarga.Click += buttonComenzarDescarga_Click;
-            // 
-            // textBoxNombre
-            // 
-            textBoxNombre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxNombre.BackColor = Color.FromArgb(34, 34, 34);
-            textBoxNombre.BorderStyle = BorderStyle.FixedSingle;
-            textBoxNombre.Cursor = Cursors.IBeam;
-            textBoxNombre.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBoxNombre.ForeColor = Color.Gainsboro;
-            textBoxNombre.Location = new Point(10, 189);
-            textBoxNombre.Name = "textBoxNombre";
-            textBoxNombre.Size = new Size(723, 29);
-            textBoxNombre.TabIndex = 1;
             // 
             // labelRuta
             // 
@@ -167,7 +151,7 @@
             buttonGoToFolder.Cursor = Cursors.Hand;
             buttonGoToFolder.FlatAppearance.BorderColor = Color.FromArgb(217, 173, 173);
             buttonGoToFolder.FlatStyle = FlatStyle.Flat;
-            buttonGoToFolder.Location = new Point(739, 350);
+            buttonGoToFolder.Location = new Point(739, 335);
             buttonGoToFolder.Name = "buttonGoToFolder";
             buttonGoToFolder.Size = new Size(268, 36);
             buttonGoToFolder.TabIndex = 8;
@@ -182,7 +166,7 @@
             buttonConvertir.Cursor = Cursors.Hand;
             buttonConvertir.FlatAppearance.BorderColor = Color.FromArgb(217, 173, 173);
             buttonConvertir.FlatStyle = FlatStyle.Flat;
-            buttonConvertir.Location = new Point(10, 231);
+            buttonConvertir.Location = new Point(10, 127);
             buttonConvertir.Name = "buttonConvertir";
             buttonConvertir.Size = new Size(723, 38);
             buttonConvertir.TabIndex = 2;
@@ -203,7 +187,7 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Image = YouTubeDownloadAppNET.Properties.Resources.favicon_144x144;
             pictureBox1.Location = new Point(739, 49);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(268, 183);
@@ -217,40 +201,19 @@
             labelInfoTipo.AutoSize = true;
             labelInfoTipo.Location = new Point(735, 263);
             labelInfoTipo.Name = "labelInfoTipo";
-            labelInfoTipo.Size = new Size(116, 21);
+            labelInfoTipo.Size = new Size(72, 21);
             labelInfoTipo.TabIndex = 11;
-            labelInfoTipo.Text = "Formato Video:";
-            // 
-            // labelInfoFormatoAudio
-            // 
-            labelInfoFormatoAudio.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            labelInfoFormatoAudio.AutoSize = true;
-            labelInfoFormatoAudio.Location = new Point(735, 284);
-            labelInfoFormatoAudio.Name = "labelInfoFormatoAudio";
-            labelInfoFormatoAudio.Size = new Size(117, 21);
-            labelInfoFormatoAudio.TabIndex = 12;
-            labelInfoFormatoAudio.Text = "Formato Audio:";
+            labelInfoTipo.Text = "Formato:";
             // 
             // labelAudioBitrate
             // 
             labelAudioBitrate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelAudioBitrate.AutoSize = true;
-            labelAudioBitrate.Location = new Point(735, 305);
+            labelAudioBitrate.Location = new Point(735, 284);
             labelAudioBitrate.Name = "labelAudioBitrate";
             labelAudioBitrate.Size = new Size(103, 21);
             labelAudioBitrate.TabIndex = 13;
             labelAudioBitrate.Text = "Audio Bitrate:";
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(7, 131);
-            label3.Name = "label3";
-            label3.Size = new Size(471, 33);
-            label3.TabIndex = 14;
-            label3.Text = "Ingrese un NOMBRE para asignar al audio a guardar";
             // 
             // labelRed
             // 
@@ -262,25 +225,13 @@
             labelRed.TabIndex = 15;
             labelRed.Text = "Red:";
             // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label2.ForeColor = Color.Silver;
-            label2.Location = new Point(12, 164);
-            label2.Name = "label2";
-            label2.Size = new Size(384, 21);
-            label2.TabIndex = 16;
-            label2.Text = "(opcional, al obtener los datos se asgina un nombre)";
-            // 
             // groupBoxAudioFormat
             // 
             groupBoxAudioFormat.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             groupBoxAudioFormat.Controls.Add(radioButtonWAV);
             groupBoxAudioFormat.Controls.Add(radioButtonMP3);
             groupBoxAudioFormat.ForeColor = Color.Gainsboro;
-            groupBoxAudioFormat.Location = new Point(12, 317);
+            groupBoxAudioFormat.Location = new Point(12, 299);
             groupBoxAudioFormat.Name = "groupBoxAudioFormat";
             groupBoxAudioFormat.Size = new Size(143, 62);
             groupBoxAudioFormat.TabIndex = 17;
@@ -318,9 +269,9 @@
             labelOpcionesTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelOpcionesTitle.BackColor = Color.Transparent;
             labelOpcionesTitle.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labelOpcionesTitle.Location = new Point(12, 278);
+            labelOpcionesTitle.Location = new Point(12, 260);
             labelOpcionesTitle.Name = "labelOpcionesTitle";
-            labelOpcionesTitle.Size = new Size(702, 33);
+            labelOpcionesTitle.Size = new Size(245, 33);
             labelOpcionesTitle.TabIndex = 19;
             labelOpcionesTitle.Text = "Opciones";
             // 
@@ -342,7 +293,7 @@
             groupBoxGuardarVideo.Controls.Add(radioButtonGuardarVideoNo);
             groupBoxGuardarVideo.Controls.Add(radioButtonGuardarVideoSi);
             groupBoxGuardarVideo.ForeColor = Color.Gainsboro;
-            groupBoxGuardarVideo.Location = new Point(514, 317);
+            groupBoxGuardarVideo.Location = new Point(514, 299);
             groupBoxGuardarVideo.Name = "groupBoxGuardarVideo";
             groupBoxGuardarVideo.Size = new Size(200, 62);
             groupBoxGuardarVideo.TabIndex = 18;
@@ -382,9 +333,9 @@
             buttonHelp.FlatStyle = FlatStyle.Flat;
             buttonHelp.Image = (Image)resources.GetObject("buttonHelp.Image");
             buttonHelp.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonHelp.Location = new Point(807, 585);
+            buttonHelp.Location = new Point(739, 387);
             buttonHelp.Name = "buttonHelp";
-            buttonHelp.Size = new Size(200, 37);
+            buttonHelp.Size = new Size(268, 37);
             buttonHelp.TabIndex = 21;
             buttonHelp.Text = "App Info";
             buttonHelp.UseVisualStyleBackColor = true;
@@ -395,9 +346,9 @@
             labelMetadatos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelMetadatos.BackColor = Color.Transparent;
             labelMetadatos.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labelMetadatos.Location = new Point(12, 390);
+            labelMetadatos.Location = new Point(12, 385);
             labelMetadatos.Name = "labelMetadatos";
-            labelMetadatos.Size = new Size(702, 33);
+            labelMetadatos.Size = new Size(245, 33);
             labelMetadatos.TabIndex = 22;
             labelMetadatos.Text = "Asignar MetaDatos";
             // 
@@ -408,7 +359,7 @@
             textBoxTituloCancion.BorderStyle = BorderStyle.FixedSingle;
             textBoxTituloCancion.Cursor = Cursors.IBeam;
             textBoxTituloCancion.ForeColor = Color.Gainsboro;
-            textBoxTituloCancion.Location = new Point(12, 454);
+            textBoxTituloCancion.Location = new Point(12, 449);
             textBoxTituloCancion.Name = "textBoxTituloCancion";
             textBoxTituloCancion.Size = new Size(245, 29);
             textBoxTituloCancion.TabIndex = 23;
@@ -418,7 +369,7 @@
             // 
             labelMDTitulo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelMDTitulo.AutoSize = true;
-            labelMDTitulo.Location = new Point(12, 430);
+            labelMDTitulo.Location = new Point(12, 425);
             labelMDTitulo.Name = "labelMDTitulo";
             labelMDTitulo.Size = new Size(49, 21);
             labelMDTitulo.TabIndex = 24;
@@ -428,7 +379,7 @@
             // 
             labelMDComment.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelMDComment.AutoSize = true;
-            labelMDComment.Location = new Point(263, 430);
+            labelMDComment.Location = new Point(263, 425);
             labelMDComment.Name = "labelMDComment";
             labelMDComment.Size = new Size(92, 21);
             labelMDComment.TabIndex = 26;
@@ -441,10 +392,10 @@
             textBoxComentario.BorderStyle = BorderStyle.FixedSingle;
             textBoxComentario.Cursor = Cursors.IBeam;
             textBoxComentario.ForeColor = Color.Gainsboro;
-            textBoxComentario.Location = new Point(263, 454);
+            textBoxComentario.Location = new Point(263, 449);
             textBoxComentario.Multiline = true;
             textBoxComentario.Name = "textBoxComentario";
-            textBoxComentario.Size = new Size(538, 84);
+            textBoxComentario.Size = new Size(744, 84);
             textBoxComentario.TabIndex = 25;
             textBoxComentario.TabStop = false;
             // 
@@ -452,7 +403,7 @@
             // 
             labelMDArtista.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelMDArtista.AutoSize = true;
-            labelMDArtista.Location = new Point(12, 485);
+            labelMDArtista.Location = new Point(12, 480);
             labelMDArtista.Name = "labelMDArtista";
             labelMDArtista.Size = new Size(55, 21);
             labelMDArtista.TabIndex = 28;
@@ -465,7 +416,7 @@
             textBoxArtista.BorderStyle = BorderStyle.FixedSingle;
             textBoxArtista.Cursor = Cursors.IBeam;
             textBoxArtista.ForeColor = Color.Gainsboro;
-            textBoxArtista.Location = new Point(12, 509);
+            textBoxArtista.Location = new Point(12, 504);
             textBoxArtista.Name = "textBoxArtista";
             textBoxArtista.Size = new Size(245, 29);
             textBoxArtista.TabIndex = 27;
@@ -479,19 +430,20 @@
             buttonEditAudio.FlatAppearance.BorderColor = Color.FromArgb(217, 173, 173);
             buttonEditAudio.FlatStyle = FlatStyle.Flat;
             buttonEditAudio.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonEditAudio.Location = new Point(807, 542);
+            buttonEditAudio.Location = new Point(533, 387);
             buttonEditAudio.Name = "buttonEditAudio";
             buttonEditAudio.Size = new Size(200, 37);
             buttonEditAudio.TabIndex = 30;
             buttonEditAudio.Text = "Editar Audio";
             buttonEditAudio.UseVisualStyleBackColor = true;
+            buttonEditAudio.Visible = false;
             buttonEditAudio.Click += buttonEditAudio_Click;
             // 
             // labelTmanoArchivo
             // 
             labelTmanoArchivo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelTmanoArchivo.AutoSize = true;
-            labelTmanoArchivo.Location = new Point(735, 326);
+            labelTmanoArchivo.Location = new Point(735, 305);
             labelTmanoArchivo.Name = "labelTmanoArchivo";
             labelTmanoArchivo.Size = new Size(168, 21);
             labelTmanoArchivo.TabIndex = 31;
@@ -508,7 +460,7 @@
             groupBoxAuBitrate.Controls.Add(radioButtonAB196);
             groupBoxAuBitrate.Controls.Add(radioButtonAB320);
             groupBoxAuBitrate.ForeColor = Color.Gainsboro;
-            groupBoxAuBitrate.Location = new Point(161, 317);
+            groupBoxAuBitrate.Location = new Point(161, 299);
             groupBoxAuBitrate.Name = "groupBoxAuBitrate";
             groupBoxAuBitrate.Size = new Size(347, 62);
             groupBoxAuBitrate.TabIndex = 18;
@@ -583,6 +535,16 @@
             radioButtonAB320.Text = "320";
             radioButtonAB320.UseVisualStyleBackColor = true;
             // 
+            // textBoxNombre
+            // 
+            textBoxNombre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxNombre.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            textBoxNombre.Location = new Point(10, 179);
+            textBoxNombre.Name = "textBoxNombre";
+            textBoxNombre.Size = new Size(723, 67);
+            textBoxNombre.TabIndex = 32;
+            textBoxNombre.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -590,6 +552,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(34, 34, 34);
             ClientSize = new Size(1019, 657);
+            Controls.Add(textBoxNombre);
             Controls.Add(groupBoxAuBitrate);
             Controls.Add(labelTmanoArchivo);
             Controls.Add(buttonEditAudio);
@@ -605,11 +568,8 @@
             Controls.Add(label5);
             Controls.Add(labelOpcionesTitle);
             Controls.Add(groupBoxAudioFormat);
-            Controls.Add(label2);
             Controls.Add(labelRed);
-            Controls.Add(label3);
             Controls.Add(labelAudioBitrate);
-            Controls.Add(labelInfoFormatoAudio);
             Controls.Add(labelInfoTipo);
             Controls.Add(pictureBox1);
             Controls.Add(labelInfoDuracion);
@@ -618,7 +578,6 @@
             Controls.Add(labelEstado);
             Controls.Add(progressBar1);
             Controls.Add(labelRuta);
-            Controls.Add(textBoxNombre);
             Controls.Add(buttonComenzarDescarga);
             Controls.Add(label1);
             Controls.Add(textBoxURL);
@@ -650,7 +609,6 @@
         private TextBox textBoxURL;
         private Label label1;
         private Button buttonComenzarDescarga;
-        private TextBox textBoxNombre;
         private Label labelRuta;
         private ProgressBar progressBar1;
         private Label labelEstado;
@@ -659,11 +617,8 @@
         private Label labelInfoDuracion;
         private PictureBox pictureBox1;
         private Label labelInfoTipo;
-        private Label labelInfoFormatoAudio;
         private Label labelAudioBitrate;
-        private Label label3;
         private Label labelRed;
-        private Label label2;
         private GroupBox groupBoxAudioFormat;
         private RadioButton radioButtonWAV;
         private RadioButton radioButtonMP3;
@@ -689,5 +644,6 @@
         private RadioButton radioButtonAB128;
         private RadioButton radioButtonAB196;
         private RadioButton radioButtonAB320;
+        private Label textBoxNombre;
     }
 }

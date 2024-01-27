@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
@@ -8,10 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>YouTubeDownloadAppNET.Program</StartupObject>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <BaseOutputPath>C:\Users\franc\Escritorio\YouTubeDownloadAPP\SETUP</BaseOutputPath>
-    <AssemblyVersion>1.0.0.5</AssemblyVersion>
-    <FileVersion>1.0.0.5</FileVersion>
-    <PackageReleaseNotes>* Se actualizo el entorno de .NET Framework 4.8 a .NET 6.0
+    <AssemblyVersion>1.0.0.6</AssemblyVersion>
+    <FileVersion>1.0.0.6</FileVersion>
+    <PackageReleaseNotes>* Se actualizo el entorno de .NET 6.0 a .NET 7.0
 * Se acutlizo la libreria para obtener los datos de YouTube
 * Se hicieron cambios visuales</PackageReleaseNotes>
     <PackageTags>youtube;downloadmusic;downloadyoutube;descargamusica;descargamusicayoutube;google</PackageTags>
@@ -26,6 +25,7 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <SignAssembly>False</SignAssembly>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -34,6 +34,14 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	<OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	<OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -55,12 +63,27 @@
     <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
     <PackageReference Include="TagLibSharp" Version="2.3.0" />
-    <PackageReference Include="VideoLibrary" Version="3.2.3" />
+    <PackageReference Include="YoutubeExplode" Version="6.3.12" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MediaToolkit.Core\MediaToolkit.Core.csproj" />
     <ProjectReference Include="..\MediaToolkit\MediaToolkit.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

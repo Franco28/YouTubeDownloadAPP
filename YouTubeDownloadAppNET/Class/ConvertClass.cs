@@ -4,8 +4,6 @@ namespace YouTubeDownloadAppNET.Class
 {
     public class ConvertClass
     {
-        private static string downloadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "YouTubeDownload");
-
         // convert byte[] to image bitmap
         protected static readonly ImageConverter _imageConverter = new ImageConverter();
         public static Bitmap GetImageFromByteArray(byte[] byteArray)
@@ -42,10 +40,10 @@ namespace YouTubeDownloadAppNET.Class
         }
 
         // Set cover art
-        public static void SetAlbumArt(TagLib.File file)
+        public static void SetAlbumArt(TagLib.File file, string filePath)
         {
             byte[] imageBytes;
-            imageBytes = File.ReadAllBytes(downloadPath + @"\cover.jpeg");
+            imageBytes = File.ReadAllBytes(filePath + @"\cover.jpeg");
 
             TagLib.Id3v2.AttachmentFrame cover = new TagLib.Id3v2.AttachmentFrame
             {

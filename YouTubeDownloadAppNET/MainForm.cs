@@ -2,9 +2,11 @@
 using MediaToolkit.Model;
 using MediaToolkit.Options;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using YouTubeDownloadAppNET.Class;
 using YouTubeDownloadAppNET.Enum;
 using YoutubeExplode;
+using YoutubeExplode.Videos;
 using YoutubeExplode.Videos.Streams;
 using File = System.IO.File;
 using Timer = System.Threading.Timer;
@@ -14,8 +16,9 @@ namespace YouTubeDownload
     public partial class MainForm : Form
     {
         #region var
-        private string downloadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "YouTubeDownload");
-        YoutubeClient youtube = new YoutubeClient();
+        private readonly string downloadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "YouTubeDownload");
+        private readonly YoutubeClient youtube = new();
+        private IProgress<int> progress;
         #endregion
 
         #region UI Start
@@ -28,11 +31,14 @@ namespace YouTubeDownload
 
             AvoidFlick();
 
-            Timer timerRed = new Timer(_ => timerRed_Tick(), null, 0, 1 * 500);
+            Timer timerRed = new(_ => timerRed_Tick(), null, 0, 1 * 500);
 
             Directory.CreateDirectory(downloadPath);
         }
 
+        /// <summary>
+        /// Avoid UI flick
+        /// </summary>
         private void AvoidFlick()
         {
             this.DoubleBuffered = true;
@@ -71,21 +77,10 @@ namespace YouTubeDownload
             labelRuta.Text = "Ruta de descarga: " + downloadPath;
         }
 
-        private async Task UpdateProgressAsync(int percent)
-        {
-            await Task.Run(() =>
-            {
-                if (InvokeRequired)
-                {
-                    Invoke(new Action(() => UpdateProgressBar(percent)));
-                }
-                else
-                {
-                    UpdateProgressBar(percent);
-                }
-            });
-        }
-
+        /// <summary>
+        /// Update progressbar
+        /// </summary>
+        /// <param name="percent"></param>
         private void UpdateProgressBar(int percent)
         {
             progressBar1.Value = percent;
@@ -99,7 +94,7 @@ namespace YouTubeDownload
         /// <returns></returns>
         private string SetAudioFormat()
         {
-            var audioformat = string.Empty;
+            string audioformat = string.Empty;
             if (radioButtonMP3.Checked == true)
             {
                 audioformat = ".mp3";
@@ -119,36 +114,25 @@ namespace YouTubeDownload
         /// <returns></returns>
         private ConversionOptions GetConversionOptionsAudio()
         {
-            var conversionOptionsAudio = new ConversionOptions();
+            ConversionOptions conversionOptionsAudio = new();
 
-            if (radioButtonAB320.Checked == true)
+            Dictionary<RadioButton, AudioBitRate> audioBitRateMap = new()
             {
-                conversionOptionsAudio.AudioBitRate = (int?)AudioBitRate.AudioBitRate320;
-            }
+                { radioButtonAB320, AudioBitRate.AudioBitRate320 },
+                { radioButtonAB196, AudioBitRate.AudioBitRate196 },
+                { radioButtonAB128, AudioBitRate.AudioBitRate128 },
+                { radioButtonAB96, AudioBitRate.AudioBitRate96 },
+                { radioButtonAB32, AudioBitRate.AudioBitRate32 },
+                { radioButtonAB16, AudioBitRate.AudioBitRate16 }
+            };
 
-            if (radioButtonAB196.Checked == true)
+            foreach (var entry in audioBitRateMap)
             {
-                conversionOptionsAudio.AudioBitRate = (int?)AudioBitRate.AudioBitRate196;
-            }
-
-            if (radioButtonAB128.Checked == true)
-            {
-                conversionOptionsAudio.AudioBitRate = (int?)AudioBitRate.AudioBitRate128;
-            }
-
-            if (radioButtonAB96.Checked == true)
-            {
-                conversionOptionsAudio.AudioBitRate = (int?)AudioBitRate.AudioBitRate96;
-            }
-
-            if (radioButtonAB32.Checked == true)
-            {
-                conversionOptionsAudio.AudioBitRate = (int?)AudioBitRate.AudioBitRate32;
-            }
-
-            if (radioButtonAB16.Checked == true)
-            {
-                conversionOptionsAudio.AudioBitRate = (int?)AudioBitRate.AudioBitRate16;
+                if (entry.Key.Checked)
+                {
+                    conversionOptionsAudio.AudioBitRate = (int?)entry.Value;
+                    break;
+                }
             }
 
             return conversionOptionsAudio;
@@ -160,303 +144,316 @@ namespace YouTubeDownload
         /// <returns></returns>
         private async Task ConvertAndSaveFile()
         {
-            IProgress<int> progress = new Progress<int>(percent => UpdateProgressBar(percent));
-
             buttonComenzarDescarga.Hide();
 
             try
             {
-                IStreamInfo streamInfo = null;
-                IStreamInfo streamInfoVideo = null;
-
                 labelEstado.Text = "Estado: Comenzando...";
                 progress.Report(5);
 
-                labelEstado.Text = "Estado: Leyendo datos...";
-                var VideoURL = textBoxURL.Text;
-                var videoData = await youtube.Videos.GetAsync(VideoURL);
-                var streamManifest = await youtube.Videos.Streams.GetManifestAsync(VideoURL);
+                var videoURL = textBoxURL.Text;
+                var videoData = await youtube.Videos.GetAsync(videoURL);
+                var streamManifest = await youtube.Videos.Streams.GetManifestAsync(videoURL);
 
-                string cleanedTitle = new string(videoData.Title
-                    .Where(c => !Path.GetInvalidFileNameChars().Contains(c))
-                    .ToArray());
-
+                string cleanedTitle = new(videoData.Title.Where(c => !Path.GetInvalidFileNameChars().Contains(c)).ToArray());
                 progress.Report(15);
 
-                try
-                {
-                    if (!radioButtonGuardarVideoNo.Checked)
-                    {
-                        labelEstado.Text = "Estado: Descargando video... Esto puede demorar varios minutos...";
+                var videoDownloadTask = DownloadVideoIfRequired(streamManifest, cleanedTitle);
+                var audioDownloadTask = DownloadAudio(streamManifest, cleanedTitle);
 
-                        streamInfoVideo = streamManifest.GetMuxedStreams().TryGetWithHighestVideoQuality();
-                        await youtube.Videos.Streams.DownloadAsync(streamInfoVideo, Path.Combine(downloadPath, $"Video.{cleanedTitle}.{streamInfoVideo.Container}"));
-                    }
+                await Task.WhenAll(videoDownloadTask, audioDownloadTask);
 
-                    labelEstado.Text = "Estado: Descargando audio... Esto puede demorar varios minutos...";
-
-                    streamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
-                    await youtube.Videos.Streams.DownloadAsync(streamInfo, Path.Combine(downloadPath, $"{cleanedTitle}.{streamInfo.Container}"));
-                }
-                catch (Exception ex)
-                {
-                    labelEstado.Text = $"Error al descargar audio/video...";
-                    progress.Report(100);
-                    MessageBox.Show($"Error al descargar audio/video: {ex.Message}", "Error al descargar audio/video", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                var audioPath = Path.Combine(downloadPath, $"{cleanedTitle}.{audioDownloadTask.Result.Container}");
+                var videoPath = videoDownloadTask.Result != null ? Path.Combine(downloadPath, $"Video.{cleanedTitle}.{videoDownloadTask.Result.Container}") : null;
 
                 labelEstado.Text = "Estado: Obteniendo rutas de los archivos...";
-
-                // Audio path
-                string audioName = $"{cleanedTitle}.{streamInfo.Container}";
-                string audioPath = Path.Combine(downloadPath, audioName);
-
-                // Video path
-                string videoName = string.Empty;
-                string videoPath = string.Empty;
-                MediaFile inputVideoFile = null;
-                MediaFile outputVideoFile = null;
-                if (!radioButtonGuardarVideoNo.Checked)
-                {
-                    videoName = $"Video.{cleanedTitle}.{streamInfoVideo.Container}";
-                    videoPath = Path.Combine(downloadPath, videoName);
-
-                    // Video MediaFile path
-                    inputVideoFile = new MediaFile { Filename = videoPath };
-                    outputVideoFile = new MediaFile { Filename = Path.Combine(downloadPath, videoPath) };
-                }
-
                 progress.Report(35);
 
-                // Audio MediaFile path
-                var inputAudioFile = new MediaFile { Filename = audioPath };
-                var outputAudioFile = new MediaFile { Filename = Path.Combine(downloadPath, $"{cleanedTitle}{SetAudioFormat()}") };
-                var outputAudioFile_Path = Path.Combine(downloadPath, $"{cleanedTitle}{SetAudioFormat()}");
+                ConvertFiles(cleanedTitle, audioPath, videoPath);
 
-                progress.Report(45);
+                SetMetaDataToFILE(progress, videoData, cleanedTitle, Path.Combine(downloadPath, $"{cleanedTitle}{SetAudioFormat()}"));
 
-                using (var engine = new Engine())
+                labelEstado.Text = "Estado: Eliminando archivos basura...";
+                progress.Report(95);
+                CleanUpFiles(audioPath);
+
+                HideElements(progress);
+
+                MessageBox.Show($"Listo. Se convirtió y se descargó el audio {cleanedTitle} y se guardó en {downloadPath}", "Audio procesado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Process.Start(new ProcessStartInfo
                 {
-                    labelEstado.Text = "Estado: Aplicando ajustes al audio...";
-
-                    // Convert Audio Options
-                    var conversionOptionsVideo = new ConversionOptions()
-                    {
-                        AudioBitRate = 320,
-                        VideoFps = 60,
-                        VideoSize = VideoSize.Hd1080,
-                        CustomWidth = 1920,
-                        CustomHeight = 1080,
-                        AudioSampleRate = AudioSampleRate.Hz44100
-                    };
-
-                    if (!radioButtonGuardarVideoNo.Checked)
-                    {
-                        // Convertir el video a Full HD
-                        labelEstado.Text = $"Estado: Obteniendo metadatos del video...";
-                        engine.GetMetadata(inputVideoFile);
-
-                        labelEstado.Text = $"Estado: Convirtiendo video a Full HD...";
-                        engine.Convert(inputVideoFile, outputVideoFile, conversionOptionsVideo);
-                    }
-
-                    // Audio Bitrate options
-                    var conversionOptionsAudio = GetConversionOptionsAudio();
-
-                    // Get audio metadata
-                    labelEstado.Text = $"Estado: Obteniendo metadatos del audio...";
-                    progress.Report(55);
-                    engine.GetMetadata(inputAudioFile);
-
-                    // Convert to .mp3 or .wav
-                    try
-                    {
-                        labelEstado.Text = $"Estado: Convirtiendo el audio .{streamInfo.Container} a {SetAudioFormat()}...";
-                        progress.Report(65);
-                        engine.Convert(inputAudioFile, outputAudioFile, conversionOptionsVideo);
-                    }
-                    catch (Exception ex)
-                    {
-                        labelEstado.Text = $"Error al convertir el audio...";
-                        progress.Report(100);
-                        MessageBox.Show($"Error al convertir el audio: {ex.Message}", "Error al convertir el audio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    // Convert audio bitrate
-                    try
-                    {
-                        labelEstado.Text = $"Estado: Convirtiendo bitrate {conversionOptionsAudio.AudioBitRate}...";
-                        progress.Report(75);
-                        engine.Convert(inputAudioFile, outputAudioFile, conversionOptionsAudio);
-                    }
-                    catch (Exception ex)
-                    {
-                        labelEstado.Text = $"Error al convertir bitrate...";
-                        progress.Report(100);
-                        MessageBox.Show($"Error al convertir bitrate: {ex.Message}", "Error al convertir el BitRate", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    // Set Metadata to the file
-                    try
-                    {
-                        labelEstado.Text = $"Estado: Agregando metadatos al audio...";
-                        progress.Report(80);
-
-                        // Metadata artist
-                        string artist = string.Empty;
-                        if (textBoxArtista.Text == string.Empty)
-                        {
-                            artist = videoData.Title;
-                        }
-                        else
-                        {
-                            artist = textBoxArtista.Text;
-                        }
-
-                        // Metada title
-                        string title = string.Empty;
-                        if (textBoxTituloCancion.Text == string.Empty)
-                        {
-                            title = videoData.Title;
-                        }
-                        else
-                        {
-                            title = textBoxTituloCancion.Text;
-                        }
-
-                        // Create TagLib file
-                        var tfile = TagLib.File.Create(outputAudioFile_Path);
-                        tfile.Tag.Title = title;
-                        tfile.Tag.Comment = $"Música/Video descargado con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
-                        tfile.Tag.Publisher = $"Música/Video descargado con YouTube Download App por @Franco28 / " + textBoxComentario.Text;
-                        tfile.Tag.Album = cleanedTitle;
-                        tfile.Save();
-
-                        // Add coverart
-                        labelEstado.Text = "Estado: Agregando portada al audio...";
-                        progress.Report(85);
-                        ConvertClass.SetAlbumArt(tfile, downloadPath);
-                    }
-                    catch (FileNotFoundException ex)
-                    {
-                        labelEstado.Text = $"Error no se pudo encontrar el archivo...";
-                        progress.Report(100);
-                        MessageBox.Show($"Error: No se pudo encontrar el archivo {outputAudioFile_Path}.\nDetalles: {ex.Message}", "Error al actualizar los metadatos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        labelEstado.Text = $"Error no se pudo actualizar los metadatos...";
-                        progress.Report(100);
-                        MessageBox.Show($"Error al actualizar los metadatos.\nDetalles: {ex.Message}", "Error al actualizar los metadatos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    // Delete coverart
-                    labelEstado.Text = $"Estado: Eliminando archivos basura...";
-                    progress.Report(95);
-                    File.Delete(downloadPath + @"\cover.jpeg");
-                    File.Delete(inputAudioFile.Filename);
-
-                    // Hide components
-                    labelEstado.Text = $"Estado: Terminando...";
-                    progress.Report(98);
-                    groupBoxAuBitrate.Hide();
-                    groupBoxAudioFormat.Hide();
-                    groupBoxGuardarVideo.Hide();
-                    labelOpcionesTitle.Hide();
-                    labelMetadatos.Hide();
-                    labelMDTitulo.Hide();
-                    textBoxTituloCancion.Hide();
-                    textBoxArtista.Hide();
-                    textBoxComentario.Hide();
-                    labelMDComment.Hide();
-                    labelMDArtista.Hide();
-                    pictureBox1.Image = YouTubeDownloadAppNET.Properties.Resources.favicon_144x144;
-
-                    labelEstado.Text = "Estado: Listo!";
-                    progress.Report(100);
-
-                    buttonComenzarDescarga.Cursor = Cursors.Hand;
-                    buttonComenzarDescarga.Hide();
-                    labelInfoDuracion.Text = "Duración: ...";
-                    labelInfoTipo.Text = "Tipo: ...";
-                    textBoxNombre.Text = string.Empty;
-                    textBoxURL.Text = string.Empty;
-                    labelAudioBitrate.Text = "Audio Bitrate: ...";
-                    labelTmanoArchivo.Text = "Tamañano Del Archivo ...";
-                    textBoxArtista.Text = string.Empty;
-                    textBoxComentario.Text = string.Empty;
-                    textBoxTituloCancion.Text = string.Empty;
-
-                    labelEstado.Text = string.Empty;
-                    progress.Report(0);
-                    labelEstado.Hide();
-                    progressBar1.Hide();
-
-                    MessageBox.Show("Listo! Se convirtió y se descargó el audio " + cleanedTitle + " y se guardó en " + downloadPath, "Audio procesado correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = downloadPath,
-                        UseShellExecute = true
-                    });
-                }
+                    FileName = downloadPath,
+                    UseShellExecute = true
+                });
             }
             catch (Exception er)
             {
-                labelEstado.Text = string.Empty;
-                progress.Report(0);
-                MessageBox.Show("Error al convertir, descargar, o iniciar la carpeta de descarga. \n\nDetalle: " + er.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HandleError(er);
             }
         }
 
-        private async void buttonComenzarDescarga_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Download video if required
+        /// </summary>
+        /// <param name="streamManifest"></param>
+        /// <param name="cleanedTitle"></param>
+        /// <returns></returns>
+        private async Task<IStreamInfo> DownloadVideoIfRequired(StreamManifest streamManifest, string cleanedTitle)
         {
-            if (textBoxURL.Text == string.Empty && textBoxNombre.Text == string.Empty)
+            if (radioButtonGuardarVideoNo.Checked) return null;
+
+            try
             {
-                MessageBox.Show("Los casilleros no pueden estar vacíos!", "Casilleros vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                labelEstado.Text = "Estado: Descargando video... Esto puede demorar varios minutos...";
+                var streamInfoVideo = streamManifest.GetMuxedStreams().TryGetWithHighestVideoQuality();
+                await youtube.Videos.Streams.DownloadAsync(streamInfoVideo, Path.Combine(downloadPath, $"Video.{cleanedTitle}.{streamInfoVideo.Container}"));
+                return streamInfoVideo;
+            }
+            catch (Exception ex)
+            {
+                HandleSpecificError("Error al descargar video", ex);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Download video/audio
+        /// </summary>
+        /// <param name="streamManifest"></param>
+        /// <param name="cleanedTitle"></param>
+        /// <returns></returns>
+        private async Task<IStreamInfo> DownloadAudio(StreamManifest streamManifest, string cleanedTitle)
+        {
+            try
+            {
+                labelEstado.Text = "Estado: Descargando audio. Esto puede demorar varios minutos...";
+                var streamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
+                await youtube.Videos.Streams.DownloadAsync(streamInfo, Path.Combine(downloadPath, $"{cleanedTitle}.{streamInfo.Container}"));
+                return streamInfo;
+            }
+            catch (Exception ex)
+            {
+                HandleSpecificError("Error al descargar audio", ex);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Convert files
+        /// </summary>
+        /// <param name="cleanedTitle"></param>
+        /// <param name="audioPath"></param>
+        /// <param name="videoPath"></param>
+        private void ConvertFiles(string cleanedTitle, string audioPath, string videoPath)
+        {
+            using var engine = new Engine();
+
+            var inputAudioFile = new MediaFile { Filename = audioPath };
+            var outputAudioFile = new MediaFile { Filename = Path.Combine(downloadPath, $"{cleanedTitle}{SetAudioFormat()}") };
+
+            var conversionOptionsVideo = GetVideoConversionOptions();
+            var conversionOptionsAudio = GetConversionOptionsAudio();
+
+            if (videoPath != null)
+            {
+                var inputVideoFile = new MediaFile { Filename = videoPath };
+                var outputVideoFile = new MediaFile { Filename = Path.Combine(downloadPath, videoPath) };
+
+                labelEstado.Text = "Estado: Convirtiendo video a Full HD...";
+                engine.Convert(inputVideoFile, outputVideoFile, conversionOptionsVideo);
             }
 
-            if (!textBoxURL.Text.Contains("https://www.youtube.com/watch?v="))
+            try
+            {
+                labelEstado.Text = $"Estado: Convirtiendo el audio {Path.GetExtension(audioPath)} a {SetAudioFormat()}...";
+                progress.Report(65);
+                engine.Convert(inputAudioFile, outputAudioFile, conversionOptionsAudio);
+            }
+            catch (Exception ex)
+            {
+                HandleSpecificError("Error al convertir el audio", ex);
+            }
+        }
+
+        /// <summary>
+        /// Get video conversion options
+        /// </summary>
+        /// <returns></returns>
+        private ConversionOptions GetVideoConversionOptions()
+        {
+            return new ConversionOptions
+            {
+                AudioBitRate = 320,
+                VideoFps = 60,
+                VideoSize = VideoSize.Hd1080,
+                CustomWidth = 1920,
+                CustomHeight = 1080,
+                AudioSampleRate = AudioSampleRate.Hz44100
+            };
+        }
+
+        /// <summary>
+        /// Clean files
+        /// </summary>
+        /// <param name="audioPath"></param>
+        private void CleanUpFiles(string audioPath)
+        {
+            File.Delete(Path.Combine(downloadPath, "cover.jpeg"));
+            File.Delete(audioPath);
+        }
+
+        /// <summary>
+        /// Handle specific error
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="ex"></param>
+        private void HandleSpecificError(string message, Exception ex)
+        {
+            labelEstado.Text = message;
+            progress.Report(100);
+            MessageBox.Show($"{message}: {ex.Message}", message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        /// <summary>
+        /// Handle error
+        /// </summary>
+        /// <param name="er"></param>
+        private void HandleError(Exception er)
+        {
+            labelEstado.Text = string.Empty;
+            progress.Report(0);
+            MessageBox.Show($"Error al convertir/descargar/iniciar la carpeta de descarga. \n\nDetalle: {er}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        /// <summary>
+        /// Hide elements
+        /// </summary>
+        /// <param name="progress"></param>
+        private void HideElements(IProgress<int> progress)
+        {
+            labelEstado.Text = $"Estado: Terminando...";
+            progress.Report(98);
+            groupBoxAuBitrate.Hide();
+            groupBoxAudioFormat.Hide();
+            groupBoxGuardarVideo.Hide();
+            labelOpcionesTitle.Hide();
+            labelMetadatos.Hide();
+            labelMDTitulo.Hide();
+            textBoxTituloCancion.Hide();
+            textBoxArtista.Hide();
+            textBoxComentario.Hide();
+            labelMDComment.Hide();
+            labelMDArtista.Hide();
+            pictureBox1.Image = YouTubeDownloadAppNET.Properties.Resources.favicon_144x144;
+
+            labelEstado.Text = "Estado: Listo!";
+            progress.Report(100);
+
+            buttonComenzarDescarga.Cursor = Cursors.Hand;
+            buttonComenzarDescarga.Hide();
+            labelInfoDuracion.Text = "Duración: ...";
+            labelInfoTipo.Text = "Tipo: ...";
+            textBoxNombre.Text = string.Empty;
+            textBoxURL.Text = string.Empty;
+            labelAudioBitrate.Text = "Audio Bitrate: ...";
+            labelTmanoArchivo.Text = "Tamañano Del Archivo ...";
+            textBoxArtista.Text = string.Empty;
+            textBoxComentario.Text = string.Empty;
+            textBoxTituloCancion.Text = string.Empty;
+
+            labelEstado.Text = string.Empty;
+            progress.Report(0);
+            labelEstado.Hide();
+            progressBar1.Hide();
+        }
+
+        /// <summary>
+        /// Set Metadata to the file
+        /// </summary>
+        /// <param name="progress"></param>
+        /// <param name="videoData"></param>
+        /// <param name="cleanedTitle"></param>
+        /// <param name="outputAudioFile_Path"></param>
+        private void SetMetaDataToFILE(IProgress<int> progress, Video videoData, string cleanedTitle, string outputAudioFile_Path)
+        {
+            try
+            {
+                labelEstado.Text = $"Estado: Agregando metadatos al audio...";
+                progress.Report(80);
+
+                // Metadata artist
+                string artist = string.Empty;
+                if (textBoxArtista.Text == string.Empty)
+                {
+                    artist = videoData.Title;
+                }
+                else
+                {
+                    artist = textBoxArtista.Text;
+                }
+
+                // Metada title
+                string title = string.Empty;
+                if (textBoxTituloCancion.Text == string.Empty)
+                {
+                    title = videoData.Title;
+                }
+                else
+                {
+                    title = textBoxTituloCancion.Text;
+                }
+
+                // Create TagLib file
+                var tfile = TagLib.File.Create(outputAudioFile_Path);
+                tfile.Tag.Title = title;
+                tfile.Tag.Comment = $"Música/Video descargado con YouTubeDownloadApp por @Franco28 / " + textBoxComentario.Text;
+                tfile.Tag.Publisher = $"Música/Video descargado con YouTubeDownloadApp por @Franco28 / " + textBoxComentario.Text;
+                tfile.Tag.Album = cleanedTitle;
+                tfile.Save();
+
+                // Add coverart
+                labelEstado.Text = "Estado: Agregando portada al audio...";
+                progress.Report(85);
+                ConvertClass.SetAlbumArt(tfile, downloadPath);
+            }
+            catch (FileNotFoundException ex)
+            {
+                labelEstado.Text = $"Error no se pudo encontrar el archivo...";
+                progress.Report(100);
+                MessageBox.Show($"Error: No se pudo encontrar el archivo {outputAudioFile_Path}.\nDetalles: {ex.Message}", "Error al actualizar los metadatos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                labelEstado.Text = $"Error no se pudieron actualizar los metadatos...";
+                progress.Report(100);
+                MessageBox.Show($"Error al actualizar los metadatos.\nDetalles: {ex.Message}", "Error al actualizar los metadatos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Validate YouTube URL
+        /// </summary>
+        private void ValidateYouTubeUrl()
+        {
+            string youtubeUrlPattern = @"^(https?://)?(www\.)?(youtube\.com|youtu\.?be)/.+$";
+            Regex regex = new(youtubeUrlPattern);
+
+            if (!regex.IsMatch(textBoxURL.Text))
             {
                 MessageBox.Show("La URL (LINK) que ingresó no parece ser de YouTube, por favor ingrese una URL (LINK) válido!", "URL inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxURL.Text = string.Empty;
                 return;
             }
+        } 
 
-            if (MainClass.CheckConnectivity() == false)
-            {
-                MessageBox.Show("No tiene conexión a internet!", "Se perdió la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            buttonComenzarDescarga.Cursor = Cursors.WaitCursor;
-            progressBar1.Show();
-            labelEstado.Show();
-
-            progressBar1.Value = 2;
-            labelEstado.Text = "Estado: Comenzando...";
-
-            try
-            {
-                await ConvertAndSaveFile();
-            }
-            catch (Exception er)
-            {
-                labelEstado.Text = "Estado: Error...";
-                MessageBox.Show(er.ToString(), "Error al descargar la canción", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-        }
-
-        private void buttonGoToFolder_Click(object sender, EventArgs e)
-        {
-            Process.Start(new ProcessStartInfo { FileName = @downloadPath, UseShellExecute = true });
-        }
-
+        /// <summary>
+        /// Get audio/video metadata
+        /// </summary>
+        /// <returns></returns>
         private async Task GetMetaDataAsync()
         {
-            IProgress<int> progress = new Progress<int>(percent => UpdateProgressBar(percent));
+            progress = new Progress<int>(x => UpdateProgressBar(x));
 
             progress.Report(10);
 
@@ -465,8 +462,8 @@ namespace YouTubeDownload
 
             // Obtener informacion del video
             var video = await youtube.Videos.GetAsync(textBoxURL.Text);
-            var streamManifest = await youtube.Videos.Streams.GetManifestAsync(textBoxURL.Text);
-            var streamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
+            StreamManifest streamManifest = await youtube.Videos.Streams.GetManifestAsync(textBoxURL.Text);
+            IStreamInfo streamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
 
             // Get coverart from YouTube
             labelEstado.Text = "Estado: Obteniendo miniatura del video...";
@@ -476,23 +473,19 @@ namespace YouTubeDownload
             {
                 string url = "https://img.youtube.com/vi/" + video.Id + "/hqdefault.jpg";
 
-                using (HttpResponseMessage response = await client.GetAsync(url))
-                {
-                    using (HttpContent content = response.Content)
-                    {
-                        var imgBytes = await content.ReadAsByteArrayAsync();
+                using HttpResponseMessage response = await client.GetAsync(url);
+                using HttpContent content = response.Content;
+                byte[] imgBytes = await content.ReadAsByteArrayAsync();
 
-                        // Guardar coverart
-                        labelEstado.Text = "Estado: Guardando miniatura del video...";
-                        progress.Report(50);
-                        await File.WriteAllBytesAsync(downloadPath + @"\cover.jpeg", imgBytes);
+                // Guardar coverart
+                labelEstado.Text = "Estado: Guardando miniatura del video...";
+                progress.Report(50);
+                await File.WriteAllBytesAsync(downloadPath + @"\cover.jpeg", imgBytes);
 
-                        // Mostrar coverart
-                        labelEstado.Text = "Estado: Imprimiendo miniatura...";
-                        pictureBox1.Image = ConvertClass.GetImageFromByteArray(imgBytes);
-                        progress.Report(60);
-                    }
-                }
+                // Mostrar coverart
+                labelEstado.Text = "Estado: Imprimiendo miniatura...";
+                pictureBox1.Image = ConvertClass.GetImageFromByteArray(imgBytes);
+                progress.Report(60);
             }
 
             // Obtener informacion del video
@@ -552,6 +545,46 @@ namespace YouTubeDownload
             labelEstado.Hide();
         }
 
+        /// <summary>
+        /// Btn action start download video/audio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void buttonComenzarDescarga_Click(object sender, EventArgs e)
+        {
+            if (textBoxURL.Text == string.Empty && textBoxNombre.Text == string.Empty)
+            {
+                MessageBox.Show("Los casilleros no pueden estar vacíos!", "Casilleros vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ValidateYouTubeUrl();
+
+            if (MainClass.CheckConnectivity() == false)
+            {
+                MessageBox.Show("No tiene conexión a internet!", "Se perdió la conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            buttonComenzarDescarga.Cursor = Cursors.WaitCursor;
+            progressBar1.Show();
+            labelEstado.Show();
+
+            progressBar1.Value = 2;
+            labelEstado.Text = "Estado: Comenzando...";
+
+            try
+            {
+                await ConvertAndSaveFile();
+            }
+            catch (Exception er)
+            {
+                labelEstado.Text = "Estado: Error...";
+                MessageBox.Show(er.ToString(), "Error al descargar el audio/video", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
         private async void buttonConvertir_Click(object sender, EventArgs e)
         {
             if (MainClass.CheckConnectivity() == false)
@@ -566,12 +599,7 @@ namespace YouTubeDownload
                 return;
             }
 
-            if (!textBoxURL.Text.Contains("https://www.youtube.com/watch?v="))
-            {
-                MessageBox.Show("La URL (LINK) que ingresó no parece ser de YouTube, por favor ingrese una URL (LINK) válido!", "URL inválida! {DESCONOCIDO}", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBoxURL.Text = string.Empty;
-                return;
-            }
+            ValidateYouTubeUrl();
 
             labelEstado.Show();
             progressBar1.Show();
@@ -607,21 +635,18 @@ namespace YouTubeDownload
                 buttonConvertir.Enabled = true;
                 buttonConvertir.Cursor = Cursors.Hand;
                 labelRed.ForeColor = Color.Green;
-                labelRed.Text = "Conexión a internet: Conectado!";
+                labelRed.Text = "Conexión a internet: Conectado.";
             }
         }
+
+        private void buttonGoToFolder_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo { FileName = @downloadPath, UseShellExecute = true });
+        }   
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
             var app = new About();
-            app.ShowDialog();
-            return;
-        }
-
-        private void buttonEditAudio_Click(object sender, EventArgs e)
-        {
-            // NOT WORKING
-            var app = new EditAudio();
             app.ShowDialog();
             return;
         }

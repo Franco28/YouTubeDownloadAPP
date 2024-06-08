@@ -58,7 +58,6 @@
             textBoxComentario = new TextBox();
             labelMDArtista = new Label();
             textBoxArtista = new TextBox();
-            buttonEditAudio = new Button();
             labelTmanoArchivo = new Label();
             groupBoxAuBitrate = new GroupBox();
             radioButtonAB16 = new RadioButton();
@@ -80,7 +79,7 @@
             textBoxURL.BackColor = Color.FromArgb(34, 34, 34);
             textBoxURL.BorderStyle = BorderStyle.FixedSingle;
             textBoxURL.Cursor = Cursors.IBeam;
-            textBoxURL.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            textBoxURL.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             textBoxURL.ForeColor = Color.Gainsboro;
             textBoxURL.Location = new Point(9, 92);
             textBoxURL.Name = "textBoxURL";
@@ -91,7 +90,7 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold);
             label1.ImageAlign = ContentAlignment.MiddleLeft;
             label1.Location = new Point(3, 52);
             label1.Name = "label1";
@@ -137,7 +136,7 @@
             // labelEstado
             // 
             labelEstado.Dock = DockStyle.Bottom;
-            labelEstado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelEstado.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelEstado.ForeColor = Color.Red;
             labelEstado.Location = new Point(0, 607);
             labelEstado.Name = "labelEstado";
@@ -268,7 +267,7 @@
             // 
             labelOpcionesTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelOpcionesTitle.BackColor = Color.Transparent;
-            labelOpcionesTitle.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelOpcionesTitle.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold);
             labelOpcionesTitle.Location = new Point(12, 260);
             labelOpcionesTitle.Name = "labelOpcionesTitle";
             labelOpcionesTitle.Size = new Size(245, 33);
@@ -279,7 +278,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold);
             label5.Location = new Point(739, 9);
             label5.Name = "label5";
             label5.Size = new Size(205, 33);
@@ -345,7 +344,7 @@
             // 
             labelMetadatos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelMetadatos.BackColor = Color.Transparent;
-            labelMetadatos.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMetadatos.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold);
             labelMetadatos.Location = new Point(12, 385);
             labelMetadatos.Name = "labelMetadatos";
             labelMetadatos.Size = new Size(245, 33);
@@ -421,23 +420,6 @@
             textBoxArtista.Size = new Size(245, 29);
             textBoxArtista.TabIndex = 27;
             textBoxArtista.TabStop = false;
-            // 
-            // buttonEditAudio
-            // 
-            buttonEditAudio.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonEditAudio.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            buttonEditAudio.Cursor = Cursors.Hand;
-            buttonEditAudio.FlatAppearance.BorderColor = Color.FromArgb(217, 173, 173);
-            buttonEditAudio.FlatStyle = FlatStyle.Flat;
-            buttonEditAudio.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonEditAudio.Location = new Point(533, 387);
-            buttonEditAudio.Name = "buttonEditAudio";
-            buttonEditAudio.Size = new Size(200, 37);
-            buttonEditAudio.TabIndex = 30;
-            buttonEditAudio.Text = "Editar Audio";
-            buttonEditAudio.UseVisualStyleBackColor = true;
-            buttonEditAudio.Visible = false;
-            buttonEditAudio.Click += buttonEditAudio_Click;
             // 
             // labelTmanoArchivo
             // 
@@ -538,10 +520,10 @@
             // textBoxNombre
             // 
             textBoxNombre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxNombre.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            textBoxNombre.Font = new Font("Bahnschrift SemiBold Condensed", 20.25F, FontStyle.Bold);
             textBoxNombre.Location = new Point(10, 179);
             textBoxNombre.Name = "textBoxNombre";
-            textBoxNombre.Size = new Size(723, 67);
+            textBoxNombre.Size = new Size(723, 81);
             textBoxNombre.TabIndex = 32;
             textBoxNombre.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -555,7 +537,6 @@
             Controls.Add(textBoxNombre);
             Controls.Add(groupBoxAuBitrate);
             Controls.Add(labelTmanoArchivo);
-            Controls.Add(buttonEditAudio);
             Controls.Add(labelMDArtista);
             Controls.Add(textBoxArtista);
             Controls.Add(labelMDComment);
@@ -581,7 +562,7 @@
             Controls.Add(buttonComenzarDescarga);
             Controls.Add(label1);
             Controls.Add(textBoxURL);
-            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Segoe UI", 12F);
             ForeColor = Color.Gainsboro;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -635,7 +616,6 @@
         private TextBox textBoxComentario;
         private Label labelMDArtista;
         private TextBox textBoxArtista;
-        private Button buttonEditAudio;
         private Label labelTmanoArchivo;
         private GroupBox groupBoxAuBitrate;
         private RadioButton radioButtonAB16;

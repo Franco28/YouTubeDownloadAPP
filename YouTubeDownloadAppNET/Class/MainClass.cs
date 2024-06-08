@@ -7,9 +7,15 @@ namespace YouTubeDownloadAppNET.Class
 {
     public class MainClass
     {
-
         private static readonly string[] SizeSuffixes = { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
 
+        /// <summary>
+        /// Converts a size in bytes to a readable string with the appropriate size suffix (e.g., KB, MB, GB).
+        /// </summary>
+        /// <param name="value">The size in bytes to be converted.</param>
+        /// <param name="decimalPlaces">The number of decimal places to include in the result. Default is 1.</param>
+        /// <returns>A string representing the size with the appropriate suffix.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when decimalPlaces is less than 0.</exception>
         public static string SizeSuffix(long value, int decimalPlaces = 1)
         {
             if (decimalPlaces < 0) { throw new ArgumentOutOfRangeException("decimalPlaces"); }
@@ -36,16 +42,25 @@ namespace YouTubeDownloadAppNET.Class
                 SizeSuffixes[mag]);
         }
 
+        /// <summary>
+        /// Panic kill
+        /// </summary>
         public static void PanicKill()
         {
             Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName)
-                       .ForEach(process =>
-                       {
-                           process.Kill();
-                           process.WaitForExit();
-                       });
+            .ForEach(process =>
+            {
+                process.Kill();
+                process.WaitForExit();
+            });
         }
 
+        /// <summary>
+        /// Check internet status
+        /// </summary>
+        /// <param name="timeout_per_host_millis"></param>
+        /// <param name="hosts_to_ping"></param>
+        /// <returns></returns>
         public static bool CheckConnectivity(int timeout_per_host_millis = 1000, string[] hosts_to_ping = null)
         {
             bool network_available = NetworkInterface.GetIsNetworkAvailable();
@@ -69,6 +84,9 @@ namespace YouTubeDownloadAppNET.Class
             return false;
         }
 
+        /// <summary>
+        /// Exctract lib files
+        /// </summary>
         public static void ExtractLibFiles()
         {
             try
@@ -78,7 +96,7 @@ namespace YouTubeDownloadAppNET.Class
             }
             catch (Exception er)
             {
-                MessageBox.Show("Error con la librería de audio! \n\nDetalle: " + er.StackTrace, "ERROR AUDIO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al extraer la librería de audio! \n\nDetalle: " + er.StackTrace, "ERROR AUDIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 PanicKill();
             }
         }

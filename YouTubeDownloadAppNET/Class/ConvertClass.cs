@@ -3,9 +3,14 @@
 namespace YouTubeDownloadAppNET.Class
 {
     public class ConvertClass
-    {
-        // convert byte[] to image bitmap
-        protected static readonly ImageConverter _imageConverter = new ImageConverter();
+    {     
+        protected static readonly ImageConverter _imageConverter = new();
+
+        /// <summary>
+        /// Convert byte[] to image bitmap
+        /// </summary>
+        /// <param name="byteArray"></param>
+        /// <returns></returns>
         public static Bitmap GetImageFromByteArray(byte[] byteArray)
         {
             Bitmap bm = (Bitmap)_imageConverter.ConvertFrom(byteArray);
@@ -20,7 +25,11 @@ namespace YouTubeDownloadAppNET.Class
             return bm;
         }
 
-        // get youtube ID
+        /// <summary>
+        /// Get YouTube ID
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static string getID(string url)
         {
             var uri = new Uri(url);
@@ -39,13 +48,17 @@ namespace YouTubeDownloadAppNET.Class
             return videoId;
         }
 
-        // Set cover art
+        /// <summary>
+        /// Set cover art
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="filePath"></param>
         public static void SetAlbumArt(TagLib.File file, string filePath)
         {
             byte[] imageBytes;
             imageBytes = File.ReadAllBytes(filePath + @"\cover.jpeg");
 
-            TagLib.Id3v2.AttachmentFrame cover = new TagLib.Id3v2.AttachmentFrame
+            TagLib.Id3v2.AttachmentFrame cover = new()
             {
                 Type = TagLib.PictureType.FrontCover,
                 Description = "Cover",
@@ -53,7 +66,8 @@ namespace YouTubeDownloadAppNET.Class
                 Data = imageBytes,
                 TextEncoding = TagLib.StringType.UTF16
             };
-            file.Tag.Pictures = new TagLib.IPicture[] { cover };
+
+            file.Tag.Pictures = [cover];
             file.Save();
         }
     }

@@ -2,15 +2,15 @@
   
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>YouTubeDownloadAppNET.Program</StartupObject>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <AssemblyVersion>1.0.0.6</AssemblyVersion>
-    <FileVersion>1.0.0.6</FileVersion>
-    <PackageReleaseNotes>* Se actualizo el entorno de .NET 6.0 a .NET 7.0
+    <AssemblyVersion>1.0.0.7</AssemblyVersion>
+    <FileVersion>1.0.0.7</FileVersion>
+    <PackageReleaseNotes>* Se actualizo el entorno de .NET 7.0 a .NET 8.0
 * Se acutlizo la libreria para obtener los datos de YouTube
 * Se hicieron cambios visuales</PackageReleaseNotes>
     <PackageTags>youtube;downloadmusic;downloadyoutube;descargamusica;descargamusicayoutube;google</PackageTags>
@@ -26,6 +26,7 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <SignAssembly>False</SignAssembly>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <BaseOutputPath>C:\Users\franc\Desktop\YouTubeDownloadAPP\SETUP\Debug\net8.0</BaseOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -60,10 +61,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
     <PackageReference Include="TagLibSharp" Version="2.3.0" />
-    <PackageReference Include="YoutubeExplode" Version="6.3.12" />
+    <PackageReference Include="YoutubeExplode" Version="6.3.16" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,9 +4,6 @@
     <Compile Update="About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EditAudio.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
